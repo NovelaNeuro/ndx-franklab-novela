@@ -1,0 +1,13 @@
+namespaces:
+- author:
+  - NovelaDevops
+  contact:
+  - devops@novelaneuro.com
+  doc: NovelaNeurotechnologies Namespaces
+  name: ndx-novela-namespace
+  schema:
+  - namespace: core
+    neurodata_types:
+    - ElectricalSeries
+  - source: ndx-novela-namespace.extensions.yaml
+  version: 0.1.0

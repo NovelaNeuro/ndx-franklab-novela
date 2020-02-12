@@ -8,6 +8,8 @@ namespaces:
   schema:
   - namespace: core
     neurodata_types:
-    - ElectricalSeries
+    - ElectrodeGroup
+    - Device
+    - NWBDataInterface
   - source: ndx-novela-namespace.extensions.yaml
   version: 0.1.0

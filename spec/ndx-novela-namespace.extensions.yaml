@@ -1,8 +1,87 @@
 groups:
-- neurodata_type_def: TetrodeSeries
-  neurodata_type_inc: ElectricalSeries
-  doc: An extension of ElectricalSeries to include the tetrode ID for each time series.
+- neurodata_type_def: FLElectrodeGroup
+  neurodata_type_inc: ElectrodeGroup
+  doc: A custom ElectrodesGroup interface
   attributes:
-  - name: trode_id
-    dtype: int32
-    doc: The tetrode ID.
+  - name: id
+    dtype: int
+    doc: id of electrode group
+- neurodata_type_def: NTrode
+  neurodata_type_inc: ElectrodeGroup
+  doc: A custom ntrode ElectrodesGroup interface
+  attributes:
+  - name: ntrode_id
+    dtype: int
+    doc: id of electrode group
+  - name: probe_id
+    dtype: int
+    doc: id of probe
+  datasets:
+  - name: map
+    dtype: int
+    dims:
+    - 2
+    shape:
+    - 32
+    doc: map of ntrodes
+- neurodata_type_def: Probe
+  neurodata_type_inc: Device
+  doc: A custom Probes interface
+  attributes:
+  - name: id
+    dtype: int
+    doc: unique id of the probe
+  - name: contact_size
+    dtype: float
+    doc: value of contact size in float
+  - name: probe_type
+    dtype: text
+    doc: type of the probe
+  - name: num_shanks
+    dtype: int
+    doc: number of shanks in probe
+- neurodata_type_def: Apparatus
+  neurodata_type_inc: NWBDataInterface
+  doc: a graph of nodes and edges
+  quantity: '*'
+  attributes:
+  - name: name
+    dtype: text
+    doc: the name of this apparatus
+  - name: help
+    dtype: text
+    value: Behavioral Apparatus
+    doc: help doc
+  groups:
+  - neurodata_type_def: Node
+    neurodata_type_inc: NWBDataInterface
+    doc: nodes in the graph
+    quantity: '*'
+    attributes:
+    - name: name
+      dtype: text
+      doc: the name of this node
+    - name: value
+      dtype: int
+      doc: the value of this node
+    - name: help
+      dtype: text
+      value: Apparatus Node
+      doc: help doc
+  - neurodata_type_def: Edge
+    neurodata_type_inc: NWBDataInterface
+    doc: edges in the graph
+    quantity: '*'
+    attributes:
+    - name: help
+      dtype: text
+      value: Apparatus Edge
+      doc: help doc
+    datasets:
+    - name: edge_nodes
+      dtype: text
+      dims:
+      - first_node_name|second_node_name
+      shape:
+      - 2
+      doc: names of the nodes this edge connects

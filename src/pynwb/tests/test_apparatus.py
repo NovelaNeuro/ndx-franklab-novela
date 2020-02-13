@@ -7,6 +7,7 @@ from src.pynwb.ndx_novela_namespace.node import Node
 
 
 class TestApparatus(TestCase):
+
     @classmethod
     def setUpClass(cls):
         cls.node_1 = Mock()
@@ -35,9 +36,12 @@ class TestApparatus(TestCase):
 
     def test_checkEdgeCorrectValue_true(self):
         self.assertEqual(self.apparatus.name, 'ApparatusName')
-        self.assertEqual(self.apparatus.edges, {self.edge_1.name: self.edge_1, self.edge_2.name: self.edge_2})
-        self.assertEqual(self.apparatus.nodes, {self.node_1.name: self.node_1, self.node_2.name: self.node_2,
-                                                self.node_3.name: self.node_3, self.node_4.name: self.node_4})
+        self.assertEqual(self.apparatus.edges, {self.edge_1.name: self.edge_1,
+                                                self.edge_2.name: self.edge_2})
+        self.assertEqual(self.apparatus.nodes, {self.node_1.name: self.node_1,
+                                                self.node_2.name: self.node_2,
+                                                self.node_3.name: self.node_3,
+                                                self.node_4.name: self.node_4})
 
     def test_checkEdgeCorrectType_true(self):
         self.assertIsInstance(self.apparatus.name, str)

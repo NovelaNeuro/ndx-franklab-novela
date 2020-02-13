@@ -2,8 +2,8 @@
 
 import os.path
 
+from pynwb.spec import NWBDatasetSpec
 from pynwb.spec import NWBNamespaceBuilder, export_spec, NWBGroupSpec, NWBAttributeSpec
-from pynwb.spec import NWBDatasetSpec, NWBLinkSpec, NWBDtypeSpec, NWBRefSpec
 
 
 def main():
@@ -142,8 +142,115 @@ def main():
                              dtype='text',
                              value='Behavioral Apparatus')])
 
-    # ToDo check if edge, node is added properly
-    new_data_types = [fl_electrode_group, n_trode, probe, apparatus]
+    header_device = NWBGroupSpec(
+            doc='metadata from global configuration from header',
+            neurodata_type_def='HeaderDevice',
+            neurodata_type_inc='Device',
+            attributes=[
+                NWBAttributeSpec(
+                    name='headstage_serial',
+                    doc='headstage_serial from global configuration',
+                    dtype='text'
+                ),
+                NWBAttributeSpec(
+                    name='headstage_smart_ref_on',
+                    doc='headstage_smart_ref_on from global configuration',
+                    dtype='text'
+                ),
+                NWBAttributeSpec(
+                    name='realtime_mode',
+                    doc='realtime_mode from global configuration',
+                    dtype='text'
+                ),
+                NWBAttributeSpec(
+                    name='headstage_auto_settle_on',
+                    doc='headstage_auto_settle_on from global configuration',
+                    dtype='text'
+                ),
+                NWBAttributeSpec(
+                    name='timestamp_at_creation',
+                    doc='timestamp_at_creation from global configuration',
+                    dtype='text'
+                ),
+                NWBAttributeSpec(
+                    name='controller_firmware_version',
+                    doc='conntroller_firmware_version from global configuration',
+                    dtype='text'
+                ),
+                NWBAttributeSpec(
+                    name='controller_serial',
+                    doc='controller_serial from global configuration',
+                    dtype='text'
+                ),
+                NWBAttributeSpec(
+                    name='save_displayed_chan_only',
+                    doc='save_displayed_chan_only from global configuration',
+                    dtype='text'
+                ),
+                NWBAttributeSpec(
+                    name='headstage_firmware_version',
+                    doc='headstage_firmware_version from global configuration',
+                    dtype='text'
+                ),
+                NWBAttributeSpec(
+                    name='qt_version',
+                    doc='qt_version_version from global configuration',
+                    dtype='text'
+                ),
+                NWBAttributeSpec(
+                    name='compile_date',
+                    doc='compile_date_version from global configuration',
+                    dtype='text'
+                ),
+                NWBAttributeSpec(
+                    name='compile_time',
+                    doc='compile_time_version from global configuration',
+                    dtype='text'
+                ),
+                NWBAttributeSpec(
+                    name='file_prefixn',
+                    doc='file_prefix_version from global configuration',
+                    dtype='text'
+                ),
+                NWBAttributeSpec(
+                    name='headstage_gyro_sensor_on',
+                    doc='headstage_gyro_sensor_on_version from global configuration',
+                    dtype='text'
+                ),
+                NWBAttributeSpec(
+                    name='headstage_mag_sensor_on',
+                    doc='headstage_mag_sensor_on_version from global configuration',
+                    dtype='text'
+                ),
+                NWBAttributeSpec(
+                    name='trodes_version',
+                    doc='trodes_versionversion from global configuration',
+                    dtype='text'
+                ),
+                NWBAttributeSpec(
+                    name='headstage_accel_sensor_on',
+                    doc='headstage_accel_sensor_on from global configuration',
+                    dtype='text'
+                ),
+                NWBAttributeSpec(
+                    name='commit_head',
+                    doc='commit_head from global configuration',
+                    dtype='text'
+                ),
+                NWBAttributeSpec(
+                    name='system_time_at_creation',
+                    doc='system_time_at_creation from global configuration',
+                    dtype='text'
+                ),
+                NWBAttributeSpec(
+                    name='file_path',
+                    doc='file_path from global configuration',
+                    dtype='text'
+                ),
+            ]
+        )
+
+    new_data_types = [fl_electrode_group, n_trode, probe, apparatus, header_device]
 
     # export the spec to yaml files in the spec folder
     output_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'spec'))

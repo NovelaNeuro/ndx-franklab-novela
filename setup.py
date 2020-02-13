@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 import os
+from shutil import copy2
 
 from setuptools import setup, find_packages
-from shutil import copy2
 
 # load README.md/README.rst file
 try:
@@ -22,7 +22,7 @@ except:
 
 setup_args = {
     'name': 'ndx-novela-namespace',
-    'version': '0.1.0',
+    'version': '0.0.1',
     'description': 'NovelaNeurotechnologies Namespaces',
     'long_description': readme,
     'long_description_content_type': readme_type,

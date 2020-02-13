@@ -1,10 +1,5 @@
-import os
-
-from pynwb import load_namespaces, register_class
+from pynwb import register_class
 from pynwb.core import MultiContainerInterface
-
-
-
 
 
 @register_class('Apparatus', 'ndx-novela-namespace')

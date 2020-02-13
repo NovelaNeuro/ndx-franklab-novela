@@ -1,12 +1,8 @@
-import os
-
 from hdmf import docval
-from pynwb import load_namespaces, register_class, NWBContainer
+from pynwb import register_class, NWBContainer
 
 
-
-
-@register_class('Edge',  'ndx-novela-namespace')
+@register_class('Edge', 'ndx-novela-namespace')
 class Edge(NWBContainer):
     '''An undirected edge connecting two nodes in a graph.
     Attributes

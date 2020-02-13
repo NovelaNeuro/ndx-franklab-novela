@@ -1,10 +1,6 @@
-import os
-
 from hdmf.utils import docval, call_docval_func, get_docval
-from pynwb import register_class, load_namespaces
+from pynwb import register_class
 from pynwb.device import Device
-
-
 
 
 @register_class('Probe', 'ndx-novela-namespace')

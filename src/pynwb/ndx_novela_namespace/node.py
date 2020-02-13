@@ -1,9 +1,5 @@
-import os
-
 from hdmf import docval
-from pynwb import load_namespaces, register_class, NWBContainer
-
-
+from pynwb import register_class, NWBContainer
 
 
 @register_class('Node', 'ndx-novela-namespace')

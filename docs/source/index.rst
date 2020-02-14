@@ -1,4 +1,4 @@
-Specification for the ndx-novela-namespace extension
+Specification for the ndx-franklab-novela extension
 ==================================
 
 .. toctree::

@@ -1,8 +1,8 @@
 
-.. _ndx-novela-namespace:
+.. _ndx-franklab-novela:
 
 ********************
-ndx-novela-namespace
+ndx-franklab-novela
 ********************
 
 Version |release| |today|

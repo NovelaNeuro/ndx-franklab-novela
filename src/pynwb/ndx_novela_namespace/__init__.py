@@ -1,11 +1,12 @@
 import os
+
 from pynwb import load_namespaces
 
 # Set path of the namespace.yaml file to the expected install location
 ndx_novela_namespace_specpath = os.path.join(
     os.path.dirname(__file__),
     'spec',
-    'ndx-novela-namespace.namespace.yaml'
+    'ndx-franklab-novela.namespace.yaml'
 )
 
 # If the extension has not been installed yet but we are running directly from
@@ -15,7 +16,7 @@ if not os.path.exists(ndx_novela_namespace_specpath):
         os.path.dirname(__file__),
         '..', '..', '..',
         'spec',
-        'ndx-novela-namespace.namespace.yaml'
+        'ndx-franklab-novela.namespace.yaml'
     ))
 
 # Load the namespace

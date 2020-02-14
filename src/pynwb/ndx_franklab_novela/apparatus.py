@@ -1,8 +1,8 @@
 from pynwb import register_class
 from pynwb.core import MultiContainerInterface
 
-from src.pynwb.ndx_novela_namespace.edge import Edge
-from src.pynwb.ndx_novela_namespace.node import Node
+from src.pynwb.ndx_franklab_novela.edge import Edge
+from src.pynwb.ndx_franklab_novela.node import Node
 
 
 @register_class('Apparatus', 'ndx-franklab-novela')

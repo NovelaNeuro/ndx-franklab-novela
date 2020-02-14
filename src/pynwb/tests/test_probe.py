@@ -1,6 +1,6 @@
 import unittest
 
-from src.pynwb.ndx_novela_namespace.probe import Probe
+from src.pynwb.ndx_franklab_novela.probe import Probe
 
 
 class TestProbe(unittest.TestCase):

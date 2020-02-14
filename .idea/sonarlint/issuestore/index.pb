@@ -25,8 +25,6 @@ Z
 *src/pynwb/ndx_novela_namespace/__init__.py,5\a\5a41bb7ef229aa6a23a60ee294a6f87d47006f7d
 V
 &src/pynwb/ndx_novela_namespace/node.py,7\4\7432bdf28738bb44f9cd62eab5fda468db9b26c8
-Y
-)spec/ndx-novela-namespace.extensions.yaml,9\b\9b617535599a53ec47005777edb9172c888ef210
 _
 /src/pynwb/ndx_novela_namespace/header_device.py,4\2\4245455fcc276bd259de4a4f49eb7daa04aa9e6b
 Z
@@ -53,8 +51,6 @@ C
 src/pynwb/README.md,a\8\a87de82208c6b2b5dda8af525a442a177325ab95
 C
 docs/source/conf.py,a\d\aded7756cdea7c289134466a0d54da4f26d43abb
-X
-(spec/ndx-novela-namespace.namespace.yaml,4\c\4c1e11bcc483e9deae5213f91fa22a60054dab38
 Q
 !src/spec/create_extension_spec.py,c\a\ca6abbc5ea30a4c81bb409d7e9b7b2dc4c5048c4
 8
@@ -63,3 +59,7 @@ Q
 docs/README.md,9\f\9f7cbce127b94a94ee14460050fbff2ce58417d0
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+F
+docs/source/format.rst,5\f\5fa15948cff14e04deaea67a6c945e53c3e42ea8
+E
+docs/source/index.rst,6\2\62df078594b947ca6f787a59ae6ddefabce9fcad

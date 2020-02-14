@@ -1,10 +1,4 @@
-# ndx-novela-namespace Extension for NWB
-
-## Installation
-
-
-## Usage
-
+# ndx-franklab-novela Extension for NWB
 
 
 This extension was created using [ndx-template](https://github.com/nwb-extensions/ndx-template).

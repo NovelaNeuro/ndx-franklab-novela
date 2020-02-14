@@ -2,7 +2,7 @@ from hdmf import docval
 from pynwb import register_class, NWBContainer
 
 
-@register_class('Node', 'ndx-novela-namespace')
+@register_class('Node', 'ndx-franklab-novela')
 class Node(NWBContainer):
     '''A generic graph node. Subclass for more specific types of nodes.
     Attributes

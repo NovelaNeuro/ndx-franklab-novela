@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'ndx-novela-namespace'
+project = 'ndx-franklab-novela'
 copyright = '2020, NovelaDevops'
 author = 'NovelaDevops'
 

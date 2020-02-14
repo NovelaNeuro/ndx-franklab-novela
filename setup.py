@@ -21,7 +21,7 @@ except:
     readme = ""
 
 setup_args = {
-    'name': 'ndx-novela-namespace',
+    'name': 'ndx-franklab-novela',
     'version': '0.0.1',
     'description': 'NovelaNeurotechnologies Namespaces',
     'long_description': readme,
@@ -36,8 +36,8 @@ setup_args = {
     'packages': find_packages('src/pynwb'),
     'package_dir': {'': 'src/pynwb'},
     'package_data': {'ndx_novela_namespace': [
-        'spec/ndx-novela-namespace.namespace.yaml',
-        'spec/ndx-novela-namespace.extensions.yaml',
+        'spec/ndx-franklab-novela.namespace.yaml',
+        'spec/ndx-franklab-novela.extensions.yaml',
     ]},
     'classifiers': [
         "Intended Audience :: Developers",
@@ -48,8 +48,8 @@ setup_args = {
 
 
 def _copy_spec_files(project_dir):
-    ns_path = os.path.join(project_dir, 'spec', 'ndx-novela-namespace.namespace.yaml')
-    ext_path = os.path.join(project_dir, 'spec', 'ndx-novela-namespace.extensions.yaml')
+    ns_path = os.path.join(project_dir, 'spec', 'ndx-franklab-novela.namespace.yaml')
+    ext_path = os.path.join(project_dir, 'spec', 'ndx-franklab-novela.extensions.yaml')
 
     dst_dir = os.path.join(project_dir, 'src', 'pynwb', 'ndx_novela_namespace', 'spec')
     if not os.path.exists(dst_dir):

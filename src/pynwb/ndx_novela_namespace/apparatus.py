@@ -5,7 +5,7 @@ from src.pynwb.ndx_novela_namespace.edge import Edge
 from src.pynwb.ndx_novela_namespace.node import Node
 
 
-@register_class('Apparatus', 'ndx-novela-namespace')
+@register_class('Apparatus', 'ndx-franklab-novela')
 class Apparatus(MultiContainerInterface):
     """Topological graph representing connected components of a behavioral
     apparatus.

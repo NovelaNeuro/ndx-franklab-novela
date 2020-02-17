@@ -22,7 +22,7 @@ except:
 
 setup_args = {
     'name': 'ndx-franklab-novela',
-    'version': '0.0.2',
+    'version': '0.0.3',
     'description': 'NovelaNeurotechnologies Namespaces',
     'long_description': readme,
     'long_description_content_type': readme_type,
@@ -31,7 +31,8 @@ setup_args = {
     'url': '',
     'license': 'BSD 3-Clause',
     'install_requires': [
-        'pynwb>=1.1.2'
+        'pynwb>=1.1.2',
+        'hdmf==1.3.3'
     ],
     'packages': find_packages('src/pynwb'),
     'package_dir': {'': 'src/pynwb'},

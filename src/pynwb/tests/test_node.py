@@ -1,6 +1,6 @@
 import unittest
 
-from src.pynwb.ndx_franklab_novela.node import Node
+from src.pynwb.ndx_franklab_novela.apparatus import Node
 
 
 class TestNode(unittest.TestCase):

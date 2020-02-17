@@ -1,8 +1,7 @@
 import unittest
 from unittest.mock import Mock
 
-from src.pynwb.ndx_franklab_novela.edge import Edge
-from src.pynwb.ndx_franklab_novela.node import Node
+from src.pynwb.ndx_franklab_novela.apparatus import Node, Edge
 
 
 class TestEdge(unittest.TestCase):

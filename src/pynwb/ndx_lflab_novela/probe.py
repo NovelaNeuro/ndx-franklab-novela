@@ -3,15 +3,16 @@ from pynwb import register_class
 from pynwb.device import Device
 
 
-@register_class('Probe', 'ndx-franklab-novela')
+@register_class('Probe', 'ndx-lflab-novela')
 class Probe(Device):
-    __nwbfields__ = ('id', 'contact_size', 'probe_type', 'num_shanks')
+    __nwbfields__ = ('id', 'contact_size', 'probe_type', 'num_shanks','contact_side_numbering')
 
     @docval(*get_docval(Device.__init__) + (
             {'name': 'id', 'type': 'int', 'doc': 'unique id of the probe'},
             {'name': 'contact_size', 'type': 'float', 'doc': 'value of contact size as float'},
             {'name': 'probe_type', 'type': 'str', 'doc': 'type of probe'},
-            {'name': 'num_shanks', 'type': 'int', 'doc': 'number of shanks associated with probe'}))
+            {'name': 'num_shanks', 'type': 'int', 'doc': 'number of shanks associated with probe'},
+            {'name': 'contact_side_numbering', 'type': 'bool', 'doc': 'is contact_side_numbering enabled'}))
     def __init__(self, **kwargs):
         super().__init__(**{kwargs_item: kwargs[kwargs_item]
                             for kwargs_item in kwargs.copy()
@@ -19,9 +20,12 @@ class Probe(Device):
                             if kwargs_item != 'id'
                             if kwargs_item != 'contact_size'
                             if kwargs_item != 'num_shanks'
+                            if kwargs_item != 'contact_side_numbering'
                             })
         call_docval_func(super(Probe, self).__init__, kwargs)
         self.id = kwargs['id']
         self.probe_type = kwargs['probe_type']
         self.contact_size = kwargs['contact_size']
         self.num_shanks = kwargs['num_shanks']
+        self.contact_side_numbering = kwargs['contact_side_numbering']
+

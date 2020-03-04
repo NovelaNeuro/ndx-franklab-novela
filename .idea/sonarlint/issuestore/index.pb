@@ -11,22 +11,10 @@ O
 ..idea/inspectionProfiles/profiles_settings.xml,1\e\1e9075f5bf079c01ef2c910709e91a497d262080
 S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
-V
-&src/pynwb/ndx_novela_namespace/edge.py,3\7\37d83977e6709aeb1573f7d1a34e806755c37990
-X
-(src/pynwb/ndx_novela_namespace/ntrode.py,e\c\ecf4b811c7f5377c096c4c4f772e2737535c3e35
-d
-4src/pynwb/ndx_novela_namespace/fl_electrode_group.py,9\a\9a1458bc0a0a08367f2a242dfca774a2e4281153
 M
 src/pynwb/tests/test_probe.py,e\b\eb4954a23c2f235dbbe48acb1dbbf714cc3feca4
 L
 src/pynwb/tests/test_node.py,e\c\ece1f3df6a17a714c9d4b082e51842f6eee09b1c
-Z
-*src/pynwb/ndx_novela_namespace/__init__.py,5\a\5a41bb7ef229aa6a23a60ee294a6f87d47006f7d
-V
-&src/pynwb/ndx_novela_namespace/node.py,7\4\7432bdf28738bb44f9cd62eab5fda468db9b26c8
-_
-/src/pynwb/ndx_novela_namespace/header_device.py,4\2\4245455fcc276bd259de4a4f49eb7daa04aa9e6b
 Z
 *src/pynwb/tests/test_fl_electrode_group.py,b\c\bc1e5a3b118208f768b9991d28dc1457000ac9a2
 N
@@ -37,12 +25,8 @@ E
 src/__init__.py,b\1\b141e8a708cfc0de96ab25c59ca83087cbddf7fa
 L
 src/pynwb/tests/test_edge.py,f\e\fe3f5c4adce4820f7353a87adeb9c82838185226
-W
-'src/pynwb/ndx_novela_namespace/probe.py,f\8\f8e534b9f28e7dea5af8cd133699cb9c1f59bdb4
 Q
 !src/pynwb/tests/test_apparatus.py,e\b\eb934a998fc0a3d9e920aa0a94bdb55a7ddcd7f8
-[
-+src/pynwb/ndx_novela_namespace/apparatus.py,4\2\4224b3060afc15127844d9c0a7b7a4532af0504f
 U
 %src/pynwb/tests/test_header_device.py,4\7\478db83fa7f10eddc759e90afdb133870d1d368c
 ;

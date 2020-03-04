@@ -4,7 +4,7 @@ from pynwb import register_class
 from pynwb.ecephys import ElectrodeGroup
 
 
-@register_class('FLElectrodeGroup', 'ndx-franklab-novela')
+@register_class('FLElectrodeGroup', 'ndx-lflab-novela')
 class FLElectrodeGroup(ElectrodeGroup):
     __nwbfields__ = ('id',)
 

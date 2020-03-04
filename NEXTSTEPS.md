@@ -1,8 +1,8 @@
-# Next Steps for ndx-franklab-novela Extension for NWB:N
+# Next Steps for ndx-lflab-novela Extension for NWB:N
 
 ## Creating Your Extension
 
-1. In a terminal, change directory into the new ndx-franklab-novela directory.
+1. In a terminal, change directory into the new ndx-lflab-novela directory.
 
 2. Add any packages required by your extension to `requirements.txt` and `setup.py`.
 
@@ -14,15 +14,15 @@ and any other packages required by your extension.
     - If you want to create any custom classes for interacting with the extension,
       add them to the `src/pynwb`.
       - If present, the `src/pynwb` folder MUST contain the following:
-        - `ndx-franklab-novela` - Folder with the sources of the NWB extension
-        - `ndx-franklab-novela/__init__.py` - Python file that may be empty
+        - `ndx-lflab-novela` - Folder with the sources of the NWB extension
+        - `ndx-lflab-novela/__init__.py` - Python file that may be empty
       - If present, the `src/pynwb` folder MAY contain the following files/folders:
         - `test` - Folder for unit tests for the extensions
         - `jupyter_widgets` - Optional package with custom widgets for use with Jupyter
 
 5. Run `python src/spec/create_extension_spec.py` to generate the
-`spec/ndx-franklab-novela.namespace.yaml` and
-`spec/ndx-franklab-novela.extensions.yaml` files.
+`spec/ndx-lflab-novela.namespace.yaml` and
+`spec/ndx-lflab-novela.extensions.yaml` files.
 
 6. You may need to modify `setup.py` and re-run `python setup.py install` if you
 use any dependencies.
@@ -32,7 +32,7 @@ use any dependencies.
 
 1. Install the latest release of hdmf_docutils: `python -m pip install hdmf-docutils`
 
-2. Start a git repository for your extension directory ndx-franklab-novela
+2. Start a git repository for your extension directory ndx-lflab-novela
  and push it to GitHub. You will need a GitHub account.
     - Follow these directions:
   https://help.github.com/en/articles/adding-an-existing-project-to-github-using-the-command-line
@@ -48,12 +48,12 @@ your extension.
 
 7. Add a license file. Permissive licenses should be used if possible. **A [BSD license](https://opensource.org/licenses/BSD-3-Clause) is recommended.**
 
-8. Make a release for the extension on GitHub with the version number specified. e.g. if version is 0.1.0, then this page should exist: https://github.com/NovelaDevops/ndx-franklab-novela/releases/tag/0.1.0 . For instructions on how to make a release on GitHub see [here](https://help.github.com/en/github/administering-a-repository/creating-releases).
+8. Make a release for the extension on GitHub with the version number specified. e.g. if version is 0.1.0, then this page should exist: https://github.com/NovelaDevops/ndx-lflab-novela/releases/tag/0.1.0 . For instructions on how to make a release on GitHub see [here](https://help.github.com/en/github/administering-a-repository/creating-releases).
 
 9. Publish your updated extension on PyPi.
     - Follow these directions: https://packaging.python.org/tutorials/packaging-projects/
     - You may need to modify `setup.py`
-    - If your extension version is 0.1.0, then this page should exist: https://pypi.org/project/ndx-franklab-novela/0.1.0
+    - If your extension version is 0.1.0, then this page should exist: https://pypi.org/project/ndx-lflab-novela/0.1.0
 
    Once your GitHub release and ``setup.py`` are ready, publishing on PyPi:
     ```bash
@@ -67,13 +67,13 @@ repository.
 11. Clone the fork onto your local filesystem.
 
 12. Copy the directory `staged-extensions/example` to a new directory
-`staged-extensions/ndx-franklab-novela`:
+`staged-extensions/ndx-lflab-novela`:
 
     ```bash
-    cp -r staged-extensions/example staged-extensions/ndx-franklab-novela
+    cp -r staged-extensions/example staged-extensions/ndx-lflab-novela
     ```
 
-13. Edit `staged-extensions/ndx-franklab-novela/ndx-meta.yaml`
+13. Edit `staged-extensions/ndx-lflab-novela/ndx-meta.yaml`
 with information on where to find your NWB extension.
     - The YAML file MUST contain a dict with the following keys:
       - name: extension namespace name
@@ -87,28 +87,28 @@ with information on where to find your NWB extension.
 
   You may copy and modify the following YAML that was auto-generated:
 ```yaml
-name: ndx-franklab-novela
-version: 0.0.3
-src: https://github.com/NovelaDevops/ndx-franklab-novela
-pip: https://pypi.org/project/ndx-franklab-novela/
+name: ndx-lflab-novela
+version: 0.0.1
+src: https://github.com/NovelaDevops/ndx-lflab-novela
+pip: https://pypi.org/project/ndx-lflab-novela/
 license: BSD 3-Clause
 maintainers:
   - NovelaDevops
 ```
 
-14. Edit `staged-extensions/ndx-franklab-novela/README.md`
+14. Edit `staged-extensions/ndx-lflab-novela/README.md`
 to add information about your extension. You may copy it from
-`ndx-franklab-novela/README.md`.
+`ndx-lflab-novela/README.md`.
 
   ```bash
-cp ndx-franklab-novela/README.md staged-extensions/ndx-franklab-novela/README.md
+cp ndx-lflab-novela/README.md staged-extensions/ndx-lflab-novela/README.md
 ```
 
 15. Add and commit your changes to Git and push your changes to GitHub.
 ```
 cd staged-extensions
-git add ndx-franklab-novela
-git commit -m "Add new catalog entry for ndx-franklab-novela" .
+git add ndx-lflab-novela
+git commit -m "Add new catalog entry for ndx-lflab-novela" .
 git push
 ```
 
@@ -117,17 +117,17 @@ Mac, and Linux. The technical team will review your extension shortly after
 and provide feedback and request changes, if any.
 
 17. When your pull request is merged, a new repository, called
-ndx-franklab-novela-feedstock will be created in the nwb-extensions
+ndx-lflab-novela-feedstock will be created in the nwb-extensions
 GitHub organization and you will be added as a maintainer for that repository.
 
 
 ## Updating Your Published Extension
 
-1. Update your ndx-franklab-novela GitHub repository.
+1. Update your ndx-lflab-novela GitHub repository.
 
 2. Publish your updated extension on PyPi.
 
-3. Fork the ndx-franklab-novela-feedstock repository on GitHub.
+3. Fork the ndx-lflab-novela-feedstock repository on GitHub.
 
 4. Open a pull request to test the changes automatically. The technical team
 will review your changes shortly after and provide feedback and request changes,

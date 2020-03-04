@@ -17,12 +17,12 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'ndx-franklab-novela'
+project = 'ndx-lflab-novela'
 copyright = '2020, NovelaDevops'
 author = 'NovelaDevops'
 
 # The short X.Y version
-version = '0.0.3'
+version = '0.0.1'
 
 # The full version, including alpha/beta/rc tags
 release = 'alpha'

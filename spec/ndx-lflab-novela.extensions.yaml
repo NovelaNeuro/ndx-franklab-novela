@@ -40,6 +40,9 @@ groups:
   - name: num_shanks
     dtype: int
     doc: number of shanks in probe
+  - name: contact_side_numbering
+    dtype: bool
+    doc: is contact_side_numbering enabled
 - neurodata_type_def: Apparatus
   neurodata_type_inc: NWBDataInterface
   doc: a graph of nodes and edges

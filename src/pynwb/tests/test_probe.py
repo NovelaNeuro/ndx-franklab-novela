@@ -1,6 +1,6 @@
 import unittest
 
-from src.pynwb.ndx_franklab_novela.probe import Probe
+from src.pynwb.ndx_lflab_novela.probe import Probe
 
 
 class TestProbe(unittest.TestCase):
@@ -12,7 +12,8 @@ class TestProbe(unittest.TestCase):
             id=1,
             contact_size=1.0,
             probe_type='type_1',
-            num_shanks=2
+            num_shanks=2,
+            contact_side_numbering=True
         )
 
     def test_successfulProbeCreation_true(self):
@@ -24,6 +25,7 @@ class TestProbe(unittest.TestCase):
         self.assertEqual(self.probe.contact_size, 1.0)
         self.assertEqual(self.probe.probe_type, 'type_1')
         self.assertEqual(self.probe.num_shanks, 2)
+        self.assertEqual(self.probe.contact_side_numbering, True)
 
     def test_checkEdgeCorrectType_true(self):
         self.assertIsInstance(self.probe.name, str)

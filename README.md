@@ -1,4 +1,4 @@
-# ndx-franklab-novela Extension for NWB
+# ndx-lflab-novela Extension for NWB
 
 
 This extension was created using [ndx-template](https://github.com/nwb-extensions/ndx-template).

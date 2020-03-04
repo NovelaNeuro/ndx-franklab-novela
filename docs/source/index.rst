@@ -1,4 +1,4 @@
-Specification for the ndx-franklab-novela extension
+Specification for the ndx-lflab-novela extension
 ==================================
 
 .. toctree::

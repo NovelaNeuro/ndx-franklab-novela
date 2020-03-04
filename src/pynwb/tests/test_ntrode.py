@@ -3,7 +3,7 @@ from unittest.mock import Mock
 
 from pynwb.device import Device
 
-from src.pynwb.ndx_franklab_novela.ntrode import NTrode
+from src.pynwb.ndx_lflab_novela.ntrode import NTrode
 
 
 class TestNTrode(unittest.TestCase):

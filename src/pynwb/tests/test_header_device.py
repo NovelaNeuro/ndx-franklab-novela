@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from src.pynwb.ndx_franklab_novela.header_device import HeaderDevice
+from src.pynwb.ndx_lflab_novela.header_device import HeaderDevice
 
 
 class TestHeaderDevice(TestCase):

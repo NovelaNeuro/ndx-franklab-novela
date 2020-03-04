@@ -1,0 +1,15 @@
+namespaces:
+- author:
+  - NovelaDevops
+  contact:
+  - devops@novelaneuro.com
+  doc: NovelaNeurotechnologies Namespaces
+  name: ndx-lflab-novela
+  schema:
+  - namespace: core
+    neurodata_types:
+    - ElectrodeGroup
+    - Device
+    - NWBDataInterface
+  - source: ndx-lflab-novela.extensions.yaml
+  version: 0.0.1

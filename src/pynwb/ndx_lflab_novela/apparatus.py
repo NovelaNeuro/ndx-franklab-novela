@@ -3,7 +3,7 @@ from pynwb import register_class
 from pynwb.core import MultiContainerInterface, NWBContainer
 
 
-@register_class('Edge', 'ndx-franklab-novela')
+@register_class('Edge', 'ndx-lflab-novela')
 class Edge(NWBContainer):
     '''An undirected edge connecting two nodes in a graph.
     Attributes
@@ -24,7 +24,7 @@ class Edge(NWBContainer):
         self.edge_nodes = kwargs['edge_nodes']
 
 
-@register_class('Node', 'ndx-franklab-novela')
+@register_class('Node', 'ndx-lflab-novela')
 class Node(NWBContainer):
     '''A generic graph node. Subclass for more specific types of nodes.
     Attributes
@@ -42,7 +42,7 @@ class Node(NWBContainer):
         self.value = kwargs['value']
 
 
-@register_class('Apparatus', 'ndx-franklab-novela')
+@register_class('Apparatus', 'ndx-lflab-novela')
 class Apparatus(MultiContainerInterface):
     """Topological graph representing connected components of a behavioral
     apparatus.

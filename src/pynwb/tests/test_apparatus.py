@@ -1,7 +1,7 @@
 from unittest import TestCase
 from unittest.mock import Mock
 
-from src.pynwb.ndx_franklab_novela.apparatus import Apparatus, Node, Edge
+from src.pynwb.ndx_lflab_novela.apparatus import Apparatus, Node, Edge
 
 
 class TestApparatus(TestCase):

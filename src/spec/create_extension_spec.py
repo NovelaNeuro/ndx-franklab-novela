@@ -10,8 +10,8 @@ def main():
     # these arguments were auto-generated from your cookiecutter inputs
     ns_builder = NWBNamespaceBuilder(
         doc="""NovelaNeurotechnologies Namespaces""",
-        name="""ndx-franklab-novela""",
-        version="""0.0.3""",
+        name="""ndx-lflab-novela""",
+        version="""0.0.1""",
         author=list(map(str.strip, """NovelaDevops""".split(','))),
         contact=list(map(str.strip, """devops@novelaneuro.com""".split(',')))
     )
@@ -88,6 +88,11 @@ def main():
                 name='num_shanks',
                 doc='number of shanks in probe',
                 dtype='int'
+            ),
+            NWBAttributeSpec(
+                name='contact_side_numbering',
+                doc='is contact_side_numbering enabled',
+                dtype='bool'
             ),
         ]
     )

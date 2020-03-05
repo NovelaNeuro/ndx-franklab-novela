@@ -1,8 +1,8 @@
 
-.. _ndx-lflab-novela:
+.. _ndx-fllab-novela:
 
 ********************
-ndx-lflab-novela
+ndx-fllab-novela
 ********************
 
 Version |release| |today|

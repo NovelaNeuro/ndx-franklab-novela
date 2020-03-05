@@ -47,3 +47,5 @@ F
 docs/source/format.rst,5\f\5fa15948cff14e04deaea67a6c945e53c3e42ea8
 E
 docs/source/index.rst,6\2\62df078594b947ca6f787a59ae6ddefabce9fcad
+p
+@src/pynwb/ndx_lflab_novela/spec/ndx-lflab-novela.extensions.yaml,a\8\a8d5bc73068dd1128f1f027f34230a456e5fbe5d

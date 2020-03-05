@@ -3,7 +3,7 @@ from pynwb import register_class
 from pynwb.device import Device
 
 
-@register_class('Probe', 'ndx-lflab-novela')
+@register_class('Probe', 'ndx-fllab-novela')
 class Probe(Device):
     __nwbfields__ = ('id', 'contact_size', 'probe_type', 'num_shanks','contact_side_numbering')
 

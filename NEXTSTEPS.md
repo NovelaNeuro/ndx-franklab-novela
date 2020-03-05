@@ -1,8 +1,8 @@
-# Next Steps for ndx-lflab-novela Extension for NWB:N
+# Next Steps for ndx-fllab-novela Extension for NWB:N
 
 ## Creating Your Extension
 
-1. In a terminal, change directory into the new ndx-lflab-novela directory.
+1. In a terminal, change directory into the new ndx-fllab-novela directory.
 
 2. Add any packages required by your extension to `requirements.txt` and `setup.py`.
 
@@ -14,15 +14,15 @@ and any other packages required by your extension.
     - If you want to create any custom classes for interacting with the extension,
       add them to the `src/pynwb`.
       - If present, the `src/pynwb` folder MUST contain the following:
-        - `ndx-lflab-novela` - Folder with the sources of the NWB extension
-        - `ndx-lflab-novela/__init__.py` - Python file that may be empty
+        - `ndx-fllab-novela` - Folder with the sources of the NWB extension
+        - `ndx-fllab-novela/__init__.py` - Python file that may be empty
       - If present, the `src/pynwb` folder MAY contain the following files/folders:
         - `test` - Folder for unit tests for the extensions
         - `jupyter_widgets` - Optional package with custom widgets for use with Jupyter
 
 5. Run `python src/spec/create_extension_spec.py` to generate the
-`spec/ndx-lflab-novela.namespace.yaml` and
-`spec/ndx-lflab-novela.extensions.yaml` files.
+`spec/ndx-fllab-novela.namespace.yaml` and
+`spec/ndx-fllab-novela.extensions.yaml` files.
 
 6. You may need to modify `setup.py` and re-run `python setup.py install` if you
 use any dependencies.
@@ -32,7 +32,7 @@ use any dependencies.
 
 1. Install the latest release of hdmf_docutils: `python -m pip install hdmf-docutils`
 
-2. Start a git repository for your extension directory ndx-lflab-novela
+2. Start a git repository for your extension directory ndx-fllab-novela
  and push it to GitHub. You will need a GitHub account.
     - Follow these directions:
   https://help.github.com/en/articles/adding-an-existing-project-to-github-using-the-command-line
@@ -48,12 +48,12 @@ your extension.
 
 7. Add a license file. Permissive licenses should be used if possible. **A [BSD license](https://opensource.org/licenses/BSD-3-Clause) is recommended.**
 
-8. Make a release for the extension on GitHub with the version number specified. e.g. if version is 0.1.0, then this page should exist: https://github.com/NovelaDevops/ndx-lflab-novela/releases/tag/0.1.0 . For instructions on how to make a release on GitHub see [here](https://help.github.com/en/github/administering-a-repository/creating-releases).
+8. Make a release for the extension on GitHub with the version number specified. e.g. if version is 0.1.0, then this page should exist: https://github.com/NovelaDevops/ndx-fllab-novela/releases/tag/0.1.0 . For instructions on how to make a release on GitHub see [here](https://help.github.com/en/github/administering-a-repository/creating-releases).
 
 9. Publish your updated extension on PyPi.
     - Follow these directions: https://packaging.python.org/tutorials/packaging-projects/
     - You may need to modify `setup.py`
-    - If your extension version is 0.1.0, then this page should exist: https://pypi.org/project/ndx-lflab-novela/0.1.0
+    - If your extension version is 0.1.0, then this page should exist: https://pypi.org/project/ndx-fllab-novela/0.1.0
 
    Once your GitHub release and ``setup.py`` are ready, publishing on PyPi:
     ```bash
@@ -67,13 +67,13 @@ repository.
 11. Clone the fork onto your local filesystem.
 
 12. Copy the directory `staged-extensions/example` to a new directory
-`staged-extensions/ndx-lflab-novela`:
+`staged-extensions/ndx-fllab-novela`:
 
     ```bash
-    cp -r staged-extensions/example staged-extensions/ndx-lflab-novela
+    cp -r staged-extensions/example staged-extensions/ndx-fllab-novela
     ```
 
-13. Edit `staged-extensions/ndx-lflab-novela/ndx-meta.yaml`
+13. Edit `staged-extensions/ndx-fllab-novela/ndx-meta.yaml`
 with information on where to find your NWB extension.
     - The YAML file MUST contain a dict with the following keys:
       - name: extension namespace name
@@ -87,28 +87,28 @@ with information on where to find your NWB extension.
 
   You may copy and modify the following YAML that was auto-generated:
 ```yaml
-name: ndx-lflab-novela
+name: ndx-fllab-novela
 version: 0.0.1
-src: https://github.com/NovelaDevops/ndx-lflab-novela
-pip: https://pypi.org/project/ndx-lflab-novela/
+src: https://github.com/NovelaDevops/ndx-fllab-novela
+pip: https://pypi.org/project/ndx-fllab-novela/
 license: BSD 3-Clause
 maintainers:
   - NovelaDevops
 ```
 
-14. Edit `staged-extensions/ndx-lflab-novela/README.md`
+14. Edit `staged-extensions/ndx-fllab-novela/README.md`
 to add information about your extension. You may copy it from
-`ndx-lflab-novela/README.md`.
+`ndx-fllab-novela/README.md`.
 
   ```bash
-cp ndx-lflab-novela/README.md staged-extensions/ndx-lflab-novela/README.md
+cp ndx-fllab-novela/README.md staged-extensions/ndx-fllab-novela/README.md
 ```
 
 15. Add and commit your changes to Git and push your changes to GitHub.
 ```
 cd staged-extensions
-git add ndx-lflab-novela
-git commit -m "Add new catalog entry for ndx-lflab-novela" .
+git add ndx-fllab-novela
+git commit -m "Add new catalog entry for ndx-fllab-novela" .
 git push
 ```
 
@@ -117,17 +117,17 @@ Mac, and Linux. The technical team will review your extension shortly after
 and provide feedback and request changes, if any.
 
 17. When your pull request is merged, a new repository, called
-ndx-lflab-novela-feedstock will be created in the nwb-extensions
+ndx-fllab-novela-feedstock will be created in the nwb-extensions
 GitHub organization and you will be added as a maintainer for that repository.
 
 
 ## Updating Your Published Extension
 
-1. Update your ndx-lflab-novela GitHub repository.
+1. Update your ndx-fllab-novela GitHub repository.
 
 2. Publish your updated extension on PyPi.
 
-3. Fork the ndx-lflab-novela-feedstock repository on GitHub.
+3. Fork the ndx-fllab-novela-feedstock repository on GitHub.
 
 4. Open a pull request to test the changes automatically. The technical team
 will review your changes shortly after and provide feedback and request changes,

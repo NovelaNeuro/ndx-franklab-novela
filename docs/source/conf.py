@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'ndx-lflab-novela'
+project = 'ndx-fllab-novela'
 copyright = '2020, NovelaDevops'
 author = 'NovelaDevops'
 

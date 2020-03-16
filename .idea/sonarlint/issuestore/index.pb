@@ -48,4 +48,7 @@ F
 E
 docs/source/index.rst,6\2\62df078594b947ca6f787a59ae6ddefabce9fcad
 p
-@src/pynwb/ndx_lflab_novela/spec/ndx-lflab-novela.extensions.yaml,a\8\a8d5bc73068dd1128f1f027f34230a456e5fbe5d
+@src/pynwb/ndx_fllab_novela/spec/ndx-fllab-novela.extensions.yaml,9\d\9d44600c2b84ce3c27dc45ec51261222c8af0bb7
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302

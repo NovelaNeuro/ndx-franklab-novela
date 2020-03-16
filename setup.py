@@ -22,7 +22,7 @@ except:
 
 setup_args = {
     'name': 'ndx-fllab-novela',
-    'version': '0.0.1',
+    'version': '0.0.2',
     'description': 'NovelaNeurotechnologies Namespaces',
     'long_description': readme,
     'long_description_content_type': readme_type,

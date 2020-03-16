@@ -4,8 +4,8 @@ from pynwb import register_class
 from pynwb.ecephys import ElectrodeGroup
 
 
-@register_class('FLElectrodeGroup', 'ndx-fllab-novela')
-class FLElectrodeGroup(ElectrodeGroup):
+@register_class('NwbElectrodeGroup', 'ndx-fllab-novela')
+class NwbElectrodeGroup(ElectrodeGroup):
     __nwbfields__ = ('id',)
 
     @docval(*get_docval(ElectrodeGroup.__init__) + (
@@ -16,5 +16,5 @@ class FLElectrodeGroup(ElectrodeGroup):
                             for kwargs_item in kwargs.copy()
                             if kwargs_item != 'id'
                             })
-        call_docval_func(super(FLElectrodeGroup, self).__init__, kwargs)
+        call_docval_func(super(NwbElectrodeGroup, self).__init__, kwargs)
         self.id = kwargs['id']

@@ -1,5 +1,5 @@
 groups:
-- neurodata_type_def: FLElectrodeGroup
+- neurodata_type_def: NwbElectrodeGroup
   neurodata_type_inc: ElectrodeGroup
   doc: A custom ElectrodesGroup interface
   attributes:

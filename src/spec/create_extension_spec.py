@@ -11,7 +11,7 @@ def main():
     ns_builder = NWBNamespaceBuilder(
         doc="""NovelaNeurotechnologies Namespaces""",
         name="""ndx-fllab-novela""",
-        version="""0.0.1""",
+        version="""0.0.2""",
         author=list(map(str.strip, """NovelaDevops""".split(','))),
         contact=list(map(str.strip, """devops@novelaneuro.com""".split(',')))
     )
@@ -25,9 +25,9 @@ def main():
 
     # see https://pynwb.readthedocs.io/en/latest/extensions.html#extending-nwb
     # for more information
-    fl_electrode_group = NWBGroupSpec(
+    nwb_electrode_group = NWBGroupSpec(
         doc='A custom ElectrodesGroup interface',
-        neurodata_type_def='FLElectrodeGroup',
+        neurodata_type_def='NwbElectrodeGroup',
         neurodata_type_inc='ElectrodeGroup',
         attributes=[
             NWBAttributeSpec(
@@ -255,7 +255,7 @@ def main():
             ]
         )
 
-    new_data_types = [fl_electrode_group, n_trode, probe, apparatus, header_device]
+    new_data_types = [nwb_electrode_group, n_trode, probe, apparatus, header_device]
 
     # export the spec to yaml files in the spec folder
     output_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'spec'))

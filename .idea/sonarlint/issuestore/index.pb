@@ -15,8 +15,6 @@ M
 src/pynwb/tests/test_probe.py,e\b\eb4954a23c2f235dbbe48acb1dbbf714cc3feca4
 L
 src/pynwb/tests/test_node.py,e\c\ece1f3df6a17a714c9d4b082e51842f6eee09b1c
-Z
-*src/pynwb/tests/test_fl_electrode_group.py,b\c\bc1e5a3b118208f768b9991d28dc1457000ac9a2
 N
 src/pynwb/tests/test_ntrode.py,3\8\382a3f9b91f6dfa18eaa6261eb07e0af3bbc1fb1
 E
@@ -32,8 +30,6 @@ U
 ;
 LICENSE.txt,7\9\79b82ce9b64a924266619555502f890dd80c83b9
 C
-src/pynwb/README.md,a\8\a87de82208c6b2b5dda8af525a442a177325ab95
-C
 docs/source/conf.py,a\d\aded7756cdea7c289134466a0d54da4f26d43abb
 Q
 !src/spec/create_extension_spec.py,c\a\ca6abbc5ea30a4c81bb409d7e9b7b2dc4c5048c4
@@ -47,8 +43,22 @@ F
 docs/source/format.rst,5\f\5fa15948cff14e04deaea67a6c945e53c3e42ea8
 E
 docs/source/index.rst,6\2\62df078594b947ca6f787a59ae6ddefabce9fcad
-p
-@src/pynwb/ndx_fllab_novela/spec/ndx-fllab-novela.extensions.yaml,9\d\9d44600c2b84ce3c27dc45ec51261222c8af0bb7
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+U
+%spec/ndx-fllab-novela.extensions.yaml,b\3\b39b3ebfe2c32697fec017b6ac9d424092cae64d
+T
+$spec/ndx-fllab-novela.namespace.yaml,a\e\aedbf119361f486279df480844ee9ddd3e2fc5ce
+7
+bld.bat,6\4\6489a617a0f18b317863310fc27dc48ee2769a5e
+8
+build.sh,5\9\59f81c123b3abbcb97274545796dd18706c3e106
+9
+	meta.yaml,a\9\a9b24c2f96ac56500918f439af04017af1e8fb62
+?
+conda_upload.sh,4\8\48b6027adb6b34357b879af50ab04a068b8b7bbd
+F
+make_release_github.sh,8\8\88f7b343f0f3752c604df343bf9e230ee2b6deaa
+;
+.travis.yml,d\e\dea01dd89a3b602828e630677fde5d77c06441c8

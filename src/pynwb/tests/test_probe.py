@@ -9,6 +9,7 @@ class TestProbe(unittest.TestCase):
     def setUpClass(cls):
         cls.probe = Probe(
             name='Probe1',
+            units='um',
             id=1,
             contact_size=1.0,
             probe_type='type_1',
@@ -21,6 +22,7 @@ class TestProbe(unittest.TestCase):
 
     def test_checkEdgeCorrectValue_true(self):
         self.assertEqual(self.probe.name, 'Probe1')
+        self.assertEqual(self.probe.units, 'um')
         self.assertEqual(self.probe.id, 1)
         self.assertEqual(self.probe.contact_size, 1.0)
         self.assertEqual(self.probe.probe_type, 'type_1')
@@ -29,6 +31,7 @@ class TestProbe(unittest.TestCase):
 
     def test_checkEdgeCorrectType_true(self):
         self.assertIsInstance(self.probe.name, str)
+        self.assertIsInstance(self.probe.units, str)
         self.assertIsInstance(self.probe.id, int)
         self.assertIsInstance(self.probe.contact_size, float)
         self.assertIsInstance(self.probe.probe_type, str)

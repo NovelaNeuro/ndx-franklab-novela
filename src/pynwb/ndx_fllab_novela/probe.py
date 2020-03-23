@@ -9,6 +9,7 @@ class Probe(Device):
 
     @docval(*get_docval(Device.__init__) + (
             {'name': 'id', 'type': 'int', 'doc': 'unique id of the probe'},
+            {'name': 'units', 'type': 'str', 'doc' : 'units in which values are given'},
             {'name': 'contact_size', 'type': 'float', 'doc': 'value of contact size as float'},
             {'name': 'probe_type', 'type': 'str', 'doc': 'type of probe'},
             {'name': 'num_shanks', 'type': 'int', 'doc': 'number of shanks associated with probe'},
@@ -17,6 +18,7 @@ class Probe(Device):
         super().__init__(**{kwargs_item: kwargs[kwargs_item]
                             for kwargs_item in kwargs.copy()
                             if kwargs_item != 'probe_type'
+                            if kwargs_item != 'units'
                             if kwargs_item != 'id'
                             if kwargs_item != 'contact_size'
                             if kwargs_item != 'num_shanks'
@@ -24,6 +26,7 @@ class Probe(Device):
                             })
         call_docval_func(super(Probe, self).__init__, kwargs)
         self.id = kwargs['id']
+        self.units = kwargs['units']
         self.probe_type = kwargs['probe_type']
         self.contact_size = kwargs['contact_size']
         self.num_shanks = kwargs['num_shanks']

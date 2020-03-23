@@ -100,8 +100,8 @@ if [ $branch == "master" ]; then
 
     echo "Bye!"
   else
-    echo "Something go wrong, code $response"
-    echo "Check if this release version not exist already"
+    echo "Something went wrong, code $response"
+    echo "Check if the release does not exist already"
   fi
 
 else

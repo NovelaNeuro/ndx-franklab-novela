@@ -48,7 +48,14 @@ def main():
                 name='map',
                 dtype='int',
                 dims=[2],
-                shape=[32])],
+                shape=[32]),
+            NWBDatasetSpec(
+                doc='ids of bad channels',
+                name='bad_channels',
+                dtype='int',
+                dims=[1],
+                shape=[32])
+        ],
         attributes=[
             NWBAttributeSpec(
                 name='ntrode_id',

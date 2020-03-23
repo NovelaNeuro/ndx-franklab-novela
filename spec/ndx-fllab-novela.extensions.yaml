@@ -40,7 +40,7 @@ groups:
     doc: unique id of the probe
   - name: units
     dtype: text
-    doc: units in which values are given
+    doc: units in device
   - name: contact_size
     dtype: float
     doc: value of contact size in float

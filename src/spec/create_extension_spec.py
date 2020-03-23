@@ -82,6 +82,11 @@ def main():
                 dtype='int'
             ),
             NWBAttributeSpec(
+                name='units',
+                doc='units in device',
+                dtype='str'
+            ),
+            NWBAttributeSpec(
                 name='contact_size',
                 doc='value of contact size in float',
                 dtype='float'

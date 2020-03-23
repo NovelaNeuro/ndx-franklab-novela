@@ -1,9 +1,5 @@
 #!/bin/bash
 
-#	ToDo   git push origin --delete $releaseBranch not working due to refs!!!
-#	ToDo   overwrite release
-#	ToDo   auto-increment version in setup.py
-
 read_prerelease() {
   echo "Pre-release? [y/n]: "
   read is_prerelease
@@ -48,23 +44,19 @@ branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
 projectName="$(git config --get remote.origin.url | cut -d/ -f5 | cut -d. -f1)"
 repoFullName=$(git config --get remote.origin.url | sed 's/.*:\/\/github.com\///;s/.git$//')
 
-# Personall access token, set by command: git config --global github.token XXXXXXXXXXXXXXXXX
+# Personal access token, set by command: git config --global github.token XXXXXXXXXXXXXXXXX
 token=$(git config --global github.token)
 
 masterBranch=master
 
 git checkout $masterBranch
 
-# master branch validation
 if [ $branch == "master" ]; then
 
-#  It take stdout from print in setup. It will throw error, but that is ok. python setup.py --version use normalization that change 0.0.001 to 0.0.1.
+#  It takes stdout from print in setup. It will throw an error, but that is ok. python setup.py --version use normalization that change 0.0.001 to 0.0.1.
   versionNumber=$(python setup.py)
   versionLabel=v$versionNumber
   releaseBranch=master_release
-
-  #	echo "Type release title: "
-  #	read title
   title=$versionLabel
 
   read_draft
@@ -82,11 +74,8 @@ if [ $branch == "master" ]; then
 
  response=$(curl -o /dev/null -s -w "%{http_code}\n" --data "$(generate_post_data)"  "https://api.github.com/repos/$repoFullName/releases?access_token=$token")
 
-  #ToDo we can use in elif https://developer.github.com/v3/repos/releases/#edit-a-release
   if [ $response == 201 ]; then
     echo "$versionLabel is successfully released for $projectName !"
-
-#    git commit --allow-empty -m "Creating Branch $releaseBranch"
 
     git checkout -b $releaseBranch $masterBranch
 

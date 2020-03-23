@@ -26,7 +26,10 @@ install:
 script:
   - python -m pytest src/pynwb/tests
 
-after_success:
-#  - test $TRAVIS_BRANCH = "master_release" && pip install setuptools wheel && pip install twine && bash pypi_upload.sh
-  - test $TRAVIS_BRANCH = "user/acwikla/auto_release" && pip install setuptools wheel && pip install twine && bash pypi_upload.sh
-
+deploy:
+  provider: pypi
+  user: __token__
+  password: PYPI_TOKEN
+  on:
+    branch: master_release
+  distributions: "sdist bdist_wheel"

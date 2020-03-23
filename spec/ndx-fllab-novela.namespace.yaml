@@ -12,4 +12,4 @@ namespaces:
     - Device
     - NWBDataInterface
   - source: ndx-fllab-novela.extensions.yaml
-  version: 0.0.2
+  version: 0.0.3

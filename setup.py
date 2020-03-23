@@ -33,7 +33,7 @@ setup_args = {
     'url': '',
     'license': 'BSD 3-Clause',
     'install_requires': [
-        'pynwb>=1.1.2',
+        'pynwb',
         'hdmf==1.3.3'
     ],
     'packages': find_packages('src/pynwb'),

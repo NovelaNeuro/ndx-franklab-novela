@@ -9,7 +9,7 @@ class Probe(Device):
 
     @docval(*get_docval(Device.__init__) + (
             {'name': 'id', 'type': 'int', 'doc': 'unique id of the probe'},
-            {'name': 'units', 'type': 'str', 'doc' : 'units in which values are given'},
+            {'name': 'units', 'type': 'str', 'doc' : 'units in device'},
             {'name': 'contact_size', 'type': 'float', 'doc': 'value of contact size as float'},
             {'name': 'probe_type', 'type': 'str', 'doc': 'type of probe'},
             {'name': 'num_shanks', 'type': 'int', 'doc': 'number of shanks associated with probe'},

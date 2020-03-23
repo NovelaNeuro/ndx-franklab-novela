@@ -24,6 +24,13 @@ groups:
     shape:
     - 32
     doc: map of ntrodes
+  - name: bad_channels
+    dtype: int
+    dims:
+    - 1
+    shape:
+    - 32
+    doc: ids of bad channels
 - neurodata_type_def: Probe
   neurodata_type_inc: Device
   doc: A custom Probes interface

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-version = "0.0.2"
+version = "0.0.3"
 print(version)
 
 import os

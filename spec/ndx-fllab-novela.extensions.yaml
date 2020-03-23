@@ -138,7 +138,7 @@ groups:
   - name: compile_time
     dtype: text
     doc: compile_time_version from global configuration
-  - name: file_prefixn
+  - name: file_prefix
     dtype: text
     doc: file_prefix_version from global configuration
   - name: headstage_gyro_sensor_on

@@ -1,0 +1,18 @@
+{% set data = load_setup_py_data() %}
+
+package:
+  name: ndx-fllab-novela
+  version: {{ data.get('version') }}
+
+source:
+  path: ../ndx-fllab-novela
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - python=3.7.4
+    - setuptools
+  run:
+    - python=3.7.4

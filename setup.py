@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+version = "0.0.2"
+print(version)
 
 import os
 from shutil import copy2
@@ -22,7 +24,7 @@ except:
 
 setup_args = {
     'name': 'ndx-fllab-novela',
-    'version': '0.0.2',
+    'version': version,
     'description': 'NovelaNeurotechnologies Namespaces',
     'long_description': readme,
     'long_description_content_type': readme_type,
@@ -31,8 +33,8 @@ setup_args = {
     'url': '',
     'license': 'BSD 3-Clause',
     'install_requires': [
-        'pynwb>=1.1.2',
-        'hdmf==1.3.3'
+        'hdmf==1.6.1',
+        'pynwb==1.3.0'
     ],
     'packages': find_packages('src/pynwb'),
     'package_dir': {'': 'src/pynwb'},

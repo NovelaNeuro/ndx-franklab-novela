@@ -84,7 +84,7 @@ def main():
             NWBAttributeSpec(
                 name='units',
                 doc='units in device',
-                dtype='str'
+                dtype='text'
             ),
             NWBAttributeSpec(
                 name='contact_size',
@@ -225,7 +225,7 @@ def main():
                     dtype='text'
                 ),
                 NWBAttributeSpec(
-                    name='file_prefixn',
+                    name='file_prefix',
                     doc='file_prefix_version from global configuration',
                     dtype='text'
                 ),

@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+version = "0.0.2"
+print(version)
 
 import os
 from shutil import copy2
@@ -22,7 +24,7 @@ except:
 
 setup_args = {
     'name': 'ndx-fllab-novela',
-    'version': '0.0.2',
+    'version': version,
     'description': 'NovelaNeurotechnologies Namespaces',
     'long_description': readme,
     'long_description_content_type': readme_type,

@@ -6,6 +6,7 @@ from pynwb.ecephys import ElectrodeGroup
 
 @register_class('NTrode', 'ndx-fllab-novela')
 class NTrode(ElectrodeGroup):
+    ''' Representation of NTrode object in NWB '''
     __nwbfields__ = ('ntrode_id', 'probe_id', 'bad_channel','map')
 
     @docval(*get_docval(ElectrodeGroup.__init__) + (

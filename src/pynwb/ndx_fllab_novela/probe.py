@@ -5,6 +5,7 @@ from pynwb.device import Device
 
 @register_class('Probe', 'ndx-fllab-novela')
 class Probe(Device):
+    ''' Representation of Probe object in NWB '''
     __nwbfields__ = ('id', 'contact_size', 'probe_type', 'num_shanks','contact_side_numbering')
 
     @docval(*get_docval(Device.__init__) + (

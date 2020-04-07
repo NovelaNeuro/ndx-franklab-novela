@@ -51,7 +51,7 @@ def main():
                 shape=[32]),
             NWBDatasetSpec(
                 doc='ids of bad channels',
-                name='bad_channels',
+                name='bad_channel',
                 dtype='int',
                 dims=[1],
                 shape=[32])

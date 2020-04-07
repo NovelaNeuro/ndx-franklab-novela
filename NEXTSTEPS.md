@@ -88,7 +88,7 @@ with information on where to find your NWB extension.
   You may copy and modify the following YAML that was auto-generated:
 ```yaml
 name: ndx-fllab-novela
-version: 0.0.3
+version: 0.0.4
 src: https://github.com/NovelaDevops/ndx-fllab-novela
 pip: https://pypi.org/project/ndx-fllab-novela/
 license: BSD 3-Clause

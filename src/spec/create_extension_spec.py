@@ -63,7 +63,7 @@ def main():
                 dtype='int'
             ),
             NWBAttributeSpec(
-                name='probe_id',
+                name='electrode_group_id',
                 doc='id of probe',
                 dtype='int'
             ),

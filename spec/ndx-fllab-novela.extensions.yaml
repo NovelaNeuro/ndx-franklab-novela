@@ -13,9 +13,9 @@ groups:
   - name: ntrode_id
     dtype: int
     doc: id of electrode group
-  - name: probe_id
+  - name: electrode_group_id
     dtype: int
-    doc: id of probe
+    doc: id of electrode group
   datasets:
   - name: map
     dtype: int

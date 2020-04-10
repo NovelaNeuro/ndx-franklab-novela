@@ -24,7 +24,7 @@ groups:
     shape:
     - 32
     doc: map of ntrodes
-  - name: bad_channel
+  - name: bad_channels
     dtype: int
     dims:
     - 1

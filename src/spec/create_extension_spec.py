@@ -25,18 +25,6 @@ def main():
 
     # see https://pynwb.readthedocs.io/en/latest/extensions.html#extending-nwb
     # for more information
-    nwb_electrode_group = NWBGroupSpec(
-        doc='A custom ElectrodesGroup interface',
-        neurodata_type_def='NwbElectrodeGroup',
-        neurodata_type_inc='ElectrodeGroup',
-        attributes=[
-            NWBAttributeSpec(
-                name='id',
-                doc='id of electrode group',
-                dtype='int'
-            ),
-        ],
-    )
 
     n_trode = NWBGroupSpec(
         doc='A custom ntrode ElectrodesGroup interface',
@@ -277,7 +265,7 @@ def main():
             ]
         )
 
-    new_data_types = [nwb_electrode_group, n_trode, probe, apparatus, header_device]
+    new_data_types = [n_trode, probe, apparatus, header_device]
 
     # export the spec to yaml files in the spec folder
     output_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'spec'))

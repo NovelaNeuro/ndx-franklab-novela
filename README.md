@@ -56,11 +56,6 @@ Representation of NTrode object in NWB <br>
     **electrode_group_id**  `int`: id of electrode group<br>
     **bad_channels**  `array_data`: ids of bad channel <br>
     **map**  `array_data`: map of ntrode <br>
-
-#### NWBElectrodeGroup
-Representation of NWBElectrodeGroup in NWB <br>
-**Attributes:** <br>
-    **id**  `int`: id of electrode group <br>
     
 #### Probe
 Representation of Probe object in NWB <br>

@@ -11,7 +11,7 @@ class NTrode(ElectrodeGroup):
 
     @docval(*get_docval(ElectrodeGroup.__init__) + (
             {'name': 'ntrode_id', 'type': 'int', 'doc': 'id of electrode group'},
-            {'name': 'electrode_group_id', 'type': 'int', 'doc': 'id of probe EG belongs to'},
+            {'name': 'electrode_group_id', 'type': 'int', 'doc': 'id of probe electrode group belongs to'},
             {'name': 'bad_channels', 'type': 'array_data', 'doc': 'ids of bad channels'},
             {'name': 'map', 'type': 'array_data', 'doc': 'map of ntrode'},
     ))

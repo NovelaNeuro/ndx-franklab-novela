@@ -82,18 +82,18 @@ def main():
                 dtype='int'
             ),
             NWBAttributeSpec(
-                name='units',
-                doc='units in device',
+                name='probe_type',
+                doc='type of the probe',
                 dtype='text'
             ),
             NWBAttributeSpec(
-                name='contact_size',
-                doc='value of contact size in float',
-                dtype='float'
+                name='units',
+                doc='units in probe',
+                dtype='text'
             ),
             NWBAttributeSpec(
-                name='probe_type',
-                doc='type of the probe',
+                name='probe_description',
+                doc='description of probe',
                 dtype='text'
             ),
             NWBAttributeSpec(
@@ -105,6 +105,16 @@ def main():
                 name='contact_side_numbering',
                 doc='is contact_side_numbering enabled',
                 dtype='bool'
+            ),
+            NWBAttributeSpec(
+                name='contact_size',
+                doc='value of contact size in float',
+                dtype='float'
+            ),
+            NWBAttributeSpec(
+                name='shanks',
+                doc='shanks in the probe',
+                dtype='object'
             ),
         ]
     )

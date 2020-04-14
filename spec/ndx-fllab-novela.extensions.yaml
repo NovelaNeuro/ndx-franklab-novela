@@ -38,21 +38,27 @@ groups:
   - name: id
     dtype: int
     doc: unique id of the probe
-  - name: units
-    dtype: text
-    doc: units in device
-  - name: contact_size
-    dtype: float
-    doc: value of contact size in float
   - name: probe_type
     dtype: text
     doc: type of the probe
+  - name: units
+    dtype: text
+    doc: units in probe
+  - name: probe_description
+    dtype: text
+    doc: description of probe
   - name: num_shanks
     dtype: int
     doc: number of shanks in probe
   - name: contact_side_numbering
     dtype: bool
     doc: is contact_side_numbering enabled
+  - name: contact_size
+    dtype: float
+    doc: value of contact size in float
+  - name: shanks
+    dtype: object
+    doc: shanks in the probe
 - neurodata_type_def: Apparatus
   neurodata_type_inc: NWBDataInterface
   doc: a graph of nodes and edges

@@ -19,7 +19,7 @@ class TestNTrode(unittest.TestCase):
             location='Sample location',
             device=cls.mock_device,
             ntrode_id=1,
-            probe_id=1,
+            electrode_group_id=1,
             bad_channels=[1, 3],
             map=[[1, 2], [3, 4], [5, 6]]
         )
@@ -33,7 +33,7 @@ class TestNTrode(unittest.TestCase):
         self.assertEqual(self.ntrode.location, 'Sample location')
         self.assertEqual(self.ntrode.device, self.mock_device)
         self.assertEqual(self.ntrode.ntrode_id, 1)
-        self.assertEqual(self.ntrode.probe_id, 1)
+        self.assertEqual(self.ntrode.electrode_group_id, 1)
         self.assertEqual(self.ntrode.bad_channels, [1,3])
         self.assertEqual(self.ntrode.map, [[1, 2], [3, 4], [5, 6]])
 
@@ -43,5 +43,5 @@ class TestNTrode(unittest.TestCase):
         self.assertIsInstance(self.ntrode.location, str)
         self.assertIsInstance(self.ntrode.device, Device)
         self.assertIsInstance(self.ntrode.ntrode_id, int)
-        self.assertIsInstance(self.ntrode.probe_id, int)
+        self.assertIsInstance(self.ntrode.electrode_group_id, int)
         self.assertIsInstance(self.ntrode.map, list)

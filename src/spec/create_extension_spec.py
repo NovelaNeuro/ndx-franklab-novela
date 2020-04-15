@@ -11,7 +11,7 @@ def main():
     ns_builder = NWBNamespaceBuilder(
         doc="""NovelaNeurotechnologies Namespaces""",
         name="""ndx-fllab-novela""",
-        version="""0.0.5""",
+        version="""0.0.6""",
         author=list(map(str.strip, """NovelaDevops""".split(','))),
         contact=list(map(str.strip, """devops@novelaneuro.com""".split(',')))
     )
@@ -59,6 +59,7 @@ def main():
         ],
     )
 
+
     probe = NWBGroupSpec(
         doc='A custom Probes interface',
         neurodata_type_def='Probe',
@@ -80,11 +81,6 @@ def main():
                 dtype='text'
             ),
             NWBAttributeSpec(
-                name='probe_description',
-                doc='description of probe',
-                dtype='text'
-            ),
-            NWBAttributeSpec(
                 name='num_shanks',
                 doc='number of shanks in probe',
                 dtype='int'
@@ -98,11 +94,6 @@ def main():
                 name='contact_size',
                 doc='value of contact size in float',
                 dtype='float'
-            ),
-            NWBAttributeSpec(
-                name='shanks',
-                doc='shanks in the probe',
-                dtype='object'
             ),
         ]
     )
@@ -134,7 +125,9 @@ def main():
                 name='edge_nodes',
                 dtype='text',
                 dims=['first_node_name|second_node_name'],
-                shape=[2])],
+                shape=[2]
+            )
+        ],
         attributes=[
             NWBAttributeSpec(
                 name='help',
@@ -158,112 +151,112 @@ def main():
                              value='Behavioral Apparatus')])
 
     header_device = NWBGroupSpec(
-            doc='metadata from global configuration from header',
-            neurodata_type_def='HeaderDevice',
-            neurodata_type_inc='Device',
-            attributes=[
-                NWBAttributeSpec(
-                    name='headstage_serial',
-                    doc='headstage_serial from global configuration',
-                    dtype='text'
-                ),
-                NWBAttributeSpec(
-                    name='headstage_smart_ref_on',
-                    doc='headstage_smart_ref_on from global configuration',
-                    dtype='text'
-                ),
-                NWBAttributeSpec(
-                    name='realtime_mode',
-                    doc='realtime_mode from global configuration',
-                    dtype='text'
-                ),
-                NWBAttributeSpec(
-                    name='headstage_auto_settle_on',
-                    doc='headstage_auto_settle_on from global configuration',
-                    dtype='text'
-                ),
-                NWBAttributeSpec(
-                    name='timestamp_at_creation',
-                    doc='timestamp_at_creation from global configuration',
-                    dtype='text'
-                ),
-                NWBAttributeSpec(
-                    name='controller_firmware_version',
-                    doc='conntroller_firmware_version from global configuration',
-                    dtype='text'
-                ),
-                NWBAttributeSpec(
-                    name='controller_serial',
-                    doc='controller_serial from global configuration',
-                    dtype='text'
-                ),
-                NWBAttributeSpec(
-                    name='save_displayed_chan_only',
-                    doc='save_displayed_chan_only from global configuration',
-                    dtype='text'
-                ),
-                NWBAttributeSpec(
-                    name='headstage_firmware_version',
-                    doc='headstage_firmware_version from global configuration',
-                    dtype='text'
-                ),
-                NWBAttributeSpec(
-                    name='qt_version',
-                    doc='qt_version_version from global configuration',
-                    dtype='text'
-                ),
-                NWBAttributeSpec(
-                    name='compile_date',
-                    doc='compile_date_version from global configuration',
-                    dtype='text'
-                ),
-                NWBAttributeSpec(
-                    name='compile_time',
-                    doc='compile_time_version from global configuration',
-                    dtype='text'
-                ),
-                NWBAttributeSpec(
-                    name='file_prefix',
-                    doc='file_prefix_version from global configuration',
-                    dtype='text'
-                ),
-                NWBAttributeSpec(
-                    name='headstage_gyro_sensor_on',
-                    doc='headstage_gyro_sensor_on_version from global configuration',
-                    dtype='text'
-                ),
-                NWBAttributeSpec(
-                    name='headstage_mag_sensor_on',
-                    doc='headstage_mag_sensor_on_version from global configuration',
-                    dtype='text'
-                ),
-                NWBAttributeSpec(
-                    name='trodes_version',
-                    doc='trodes_versionversion from global configuration',
-                    dtype='text'
-                ),
-                NWBAttributeSpec(
-                    name='headstage_accel_sensor_on',
-                    doc='headstage_accel_sensor_on from global configuration',
-                    dtype='text'
-                ),
-                NWBAttributeSpec(
-                    name='commit_head',
-                    doc='commit_head from global configuration',
-                    dtype='text'
-                ),
-                NWBAttributeSpec(
-                    name='system_time_at_creation',
-                    doc='system_time_at_creation from global configuration',
-                    dtype='text'
-                ),
-                NWBAttributeSpec(
-                    name='file_path',
-                    doc='file_path from global configuration',
-                    dtype='text'
-                ),
-            ]
-        )
+        doc='metadata from global configuration from header',
+        neurodata_type_def='HeaderDevice',
+        neurodata_type_inc='Device',
+        attributes=[
+            NWBAttributeSpec(
+                name='headstage_serial',
+                doc='headstage_serial from global configuration',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='headstage_smart_ref_on',
+                doc='headstage_smart_ref_on from global configuration',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='realtime_mode',
+                doc='realtime_mode from global configuration',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='headstage_auto_settle_on',
+                doc='headstage_auto_settle_on from global configuration',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='timestamp_at_creation',
+                doc='timestamp_at_creation from global configuration',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='controller_firmware_version',
+                doc='conntroller_firmware_version from global configuration',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='controller_serial',
+                doc='controller_serial from global configuration',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='save_displayed_chan_only',
+                doc='save_displayed_chan_only from global configuration',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='headstage_firmware_version',
+                doc='headstage_firmware_version from global configuration',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='qt_version',
+                doc='qt_version_version from global configuration',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='compile_date',
+                doc='compile_date_version from global configuration',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='compile_time',
+                doc='compile_time_version from global configuration',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='file_prefix',
+                doc='file_prefix_version from global configuration',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='headstage_gyro_sensor_on',
+                doc='headstage_gyro_sensor_on_version from global configuration',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='headstage_mag_sensor_on',
+                doc='headstage_mag_sensor_on_version from global configuration',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='trodes_version',
+                doc='trodes_versionversion from global configuration',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='headstage_accel_sensor_on',
+                doc='headstage_accel_sensor_on from global configuration',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='commit_head',
+                doc='commit_head from global configuration',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='system_time_at_creation',
+                doc='system_time_at_creation from global configuration',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='file_path',
+                doc='file_path from global configuration',
+                dtype='text'
+            ),
+        ]
+    )
 
     new_data_types = [n_trode, probe, apparatus, header_device]
 

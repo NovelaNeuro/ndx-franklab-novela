@@ -11,7 +11,7 @@ def main():
     ns_builder = NWBNamespaceBuilder(
         doc="""NovelaNeurotechnologies Namespaces""",
         name="""ndx-fllab-novela""",
-        version="""0.0.6""",
+        version="""0.0.7""",
         author=list(map(str.strip, """NovelaDevops""".split(','))),
         contact=list(map(str.strip, """devops@novelaneuro.com""".split(',')))
     )
@@ -58,12 +58,67 @@ def main():
 
         ],
     )
+    shanks_electrode = NWBGroupSpec(
+        neurodata_type_def='ShanksElectrode',
+        neurodata_type_inc='NWBDataInterface',
+        doc='electrode in the probe',
+        quantity='*',
+        attributes=[
+            NWBAttributeSpec(
+                name='name',
+                doc='the id of this electrode',
+                dtype='int'
+            ),
+            NWBAttributeSpec(
+                name='rel_x',
+                doc='the rel_x value of this electrode',
+                dtype='int'
+            ),
+            NWBAttributeSpec(
+                name='rel_y',
+                doc='the rel_y value of this electrode',
+                dtype='int'
+            ),
+            NWBAttributeSpec(
+                name='rel_z',
+                doc='the rel_z value of this electrode',
+                dtype='int'
+            ),
+            NWBAttributeSpec(
+                name='help',
+                doc='help doc',
+                dtype='text',
+                value='Electrode inside Shanks'
+            )
+        ]
+    )
 
+    shank = NWBGroupSpec(
+        neurodata_type_def='Shank',
+        neurodata_type_inc='NWBDataInterface',
+        doc='shank in the probe',
+        groups=[shanks_electrode],
+        quantity='*',
+        attributes=[
+            NWBAttributeSpec(
+                name='name',
+                doc='the id of the shank',
+                dtype='int',
+            ),
+            NWBAttributeSpec(
+                name='help',
+                doc='help doc',
+                dtype='text',
+                value='Probe Shanks'
+            )
+        ]
+    )
 
     probe = NWBGroupSpec(
         doc='A custom Probes interface',
         neurodata_type_def='Probe',
         neurodata_type_inc='Device',
+        groups=[shank],
         attributes=[
             NWBAttributeSpec(
                 name='id',
@@ -78,6 +133,11 @@ def main():
             NWBAttributeSpec(
                 name='units',
                 doc='units in probe',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='probe_description',
+                doc='description of the probe',
                 dtype='text'
             ),
             NWBAttributeSpec(
@@ -103,16 +163,25 @@ def main():
         neurodata_type_inc='NWBDataInterface',
         doc='nodes in the graph',
         quantity='*',
-        attributes=[NWBAttributeSpec(name='name',
-                                     doc='the name of this node',
-                                     dtype='text'),
-                    NWBAttributeSpec(name='value',
-                                     doc='the value of this node',
-                                     dtype='int'),
-                    NWBAttributeSpec(name='help',
-                                     doc='help doc',
-                                     dtype='text',
-                                     value='Apparatus Node')])
+        attributes=[
+            NWBAttributeSpec(
+                name='name',
+                doc='the name of this node',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='value',
+                doc='the value of this node',
+                dtype='int'
+            ),
+            NWBAttributeSpec(
+                name='help',
+                doc='help doc',
+                dtype='text',
+                value='Apparatus Node'
+            )
+        ]
+    )
 
     edge = NWBGroupSpec(
         neurodata_type_def='Edge',
@@ -133,7 +202,9 @@ def main():
                 name='help',
                 doc='help doc',
                 dtype='text',
-                value='Apparatus Edge')])
+                value='Apparatus Edge')
+        ]
+    )
 
     apparatus = NWBGroupSpec(
         neurodata_type_def='Apparatus',
@@ -142,13 +213,18 @@ def main():
         quantity='*',
         groups=[node, edge],
         attributes=[
-            NWBAttributeSpec(name='name',
-                             doc='the name of this apparatus',
-                             dtype='text'),
-            NWBAttributeSpec(name='help',
-                             doc='help doc',
-                             dtype='text',
-                             value='Behavioral Apparatus')])
+            NWBAttributeSpec(
+                name='name',
+                doc='the name of this apparatus',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='help',
+                doc='help doc',
+                dtype='text',
+                value='Behavioral Apparatus')
+        ]
+    )
 
     header_device = NWBGroupSpec(
         doc='metadata from global configuration from header',

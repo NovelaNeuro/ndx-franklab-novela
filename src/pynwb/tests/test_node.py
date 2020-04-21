@@ -1,6 +1,6 @@
 import unittest
 
-from src.pynwb.ndx_fllab_novela.apparatus import Node
+from src.pynwb.ndx_fl_novela.apparatus import Node
 
 
 class TestNode(unittest.TestCase):

@@ -3,7 +3,7 @@ from pynwb import register_class
 from pynwb.device import Device
 
 
-@register_class('HeaderDevice', 'ndx-fllab-novela')
+@register_class('HeaderDevice', 'ndx-fl-novela')
 class HeaderDevice(Device):
     ''' Representation of HeaderDevice in NWB '''
     __nwbfields__ = ('headstage_serial', 'headstage_smart_ref_on', 'realtime_mode', 'headstage_auto_settle_on',

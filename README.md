@@ -1,7 +1,7 @@
-# ndx-fllab-novela Extension for NWB
+# ndx-fl-novela Extension for NWB
 
 # About
-ndx-fllab-novela is a python package containing NWB custom extensions.
+ndx-fl-novela is a python package containing NWB custom extensions.
 
 # Extensions
 

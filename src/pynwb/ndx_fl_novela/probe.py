@@ -4,7 +4,7 @@ from pynwb.core import NWBDataInterface, MultiContainerInterface
 from pynwb.device import Device
 
 
-@register_class('ShanksElectrode', 'ndx-fllab-novela')
+@register_class('ShanksElectrode', 'ndx-fl-novela')
 class ShanksElectrode(NWBContainer):
     ''' Representation of ShanksElectrode object in NWB '''
 
@@ -23,7 +23,7 @@ class ShanksElectrode(NWBContainer):
         self.rel_z = kwargs['rel_z']
 
 
-@register_class('Shank', 'ndx-fllab-novela')
+@register_class('Shank', 'ndx-fl-novela')
 class Shank(MultiContainerInterface):
     ''' Representation of Shank object in NWB '''
 
@@ -47,7 +47,7 @@ class Shank(MultiContainerInterface):
     ]
 
 
-@register_class('Probe', 'ndx-fllab-novela')
+@register_class('Probe', 'ndx-fl-novela')
 class Probe(Device):
     ''' Representation of Probe object in NWB '''
 

@@ -4,7 +4,7 @@ from pynwb import register_class
 from pynwb.ecephys import ElectrodeGroup
 
 
-@register_class('NTrode', 'ndx-fllab-novela')
+@register_class('NTrode', 'ndx-fl-novela')
 class NTrode(ElectrodeGroup):
     ''' Representation of NTrode object in NWB '''
     __nwbfields__ = ('ntrode_id', 'electrode_group_id', 'bad_channels','map')

@@ -1,4 +1,4 @@
-name: ndx-fllab-novela
+name: ndx-fl-novela
 channels:
   - conda-forge
   - defaults

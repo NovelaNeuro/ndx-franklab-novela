@@ -6,7 +6,7 @@ from pynwb import load_namespaces
 ndx_fllab_novela_specpath = os.path.join(
     os.path.dirname(__file__),
     'spec',
-    'ndx-fllab-novela.namespace.yaml'
+    'ndx-fl-novela.namespace.yaml'
 )
 
 # If the extension has not been installed yet but we are running directly from
@@ -16,7 +16,7 @@ if not os.path.exists(ndx_fllab_novela_specpath):
         os.path.dirname(__file__),
         '..', '..', '..',
         'spec',
-        'ndx-fllab-novela.namespace.yaml'
+        'ndx-fl-novela.namespace.yaml'
     ))
 
 # Load the namespace

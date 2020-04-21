@@ -1,8 +1,8 @@
 
-.. _ndx-fllab-novela:
+.. _ndx-fl-novela:
 
 ********************
-ndx-fllab-novela
+ndx-fl-novela
 ********************
 
 Version |release| |today|

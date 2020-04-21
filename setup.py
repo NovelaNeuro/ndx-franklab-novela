@@ -38,7 +38,7 @@ setup_args = {
     ],
     'packages': find_packages('src/pynwb'),
     'package_dir': {'': 'src/pynwb'},
-    'package_data': {'ndx_fllab_novela': [
+    'package_data': {'ndx_fl_novela': [
         'spec/ndx-fl-novela.namespace.yaml',
         'spec/ndx-fl-novela.extensions.yaml',
     ]},
@@ -54,7 +54,7 @@ def _copy_spec_files(project_dir):
     ns_path = os.path.join(project_dir, 'spec', 'ndx-fl-novela.namespace.yaml')
     ext_path = os.path.join(project_dir, 'spec', 'ndx-fl-novela.extensions.yaml')
 
-    dst_dir = os.path.join(project_dir, 'src', 'pynwb', 'ndx_fllab_novela', 'spec')
+    dst_dir = os.path.join(project_dir, 'src', 'pynwb', 'ndx_fl_novela', 'spec')
     if not os.path.exists(dst_dir):
         os.mkdir(dst_dir)
 

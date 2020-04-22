@@ -18,11 +18,5 @@ install:
 - python setup.py install
 script:
 - python -m pytest src/pynwb/tests
-deploy:
-  provider: pypi
-  user: __token__
-  password:
-    secure: KnV/YfWrP/YB0D+75TQ2cggtt0L8ouiIqT564RBv0AkNQH+9fwZZ4vcCOeAiNgWPSeaosHpCRLkugDiEtB5sfFlBGn8LfABObD0bcng3WGkHwOvq0HLvNyxOpvya8M+8muUERiykNG4/nIRXYUhjytSjfAS3iKR714E9+zOL1SVDjdx/fVd2rqN3vrfyOOfY6NGoyQPrtUyonwJLEejVBkKzA2hvRRiY9+R2ArNIy0zAyuBe1DgV+C7t/0WfvHQjuGSlcd0/SgR5tO4G6wThcUe6KfBPZe+qNXcS4KWeVPDE2Mx3xFzzFafCSJpOmqJzvjSc2tMlu8PAEm72hmtcohh2/GJFs4nj2oX2CYCUgDhY47g26MTXP9OY966BQshGBEwh7Bs+murWHz8SebVnslP7nrpRVm555iB67uSre2VVeGN4yjPOMjC/kjSBdUUlLbaSp2x8cLE1jwkoDwrpJoM1k97t1N910DAn8VgQiIGHH1tLjnqSK15dEX31cZwKEQlAxMR48tDOc3KqHvPEJrr+koY3NbP0PvJLlOu/an/W2OkoWGqUYhIuQblEhaDIJlnQg7YnhaFwRnBhJrwOBJwTckbRb4OvvnNPn88NR44J8WxXH3QIR7YfeqzeO+z28zx2G0R25arMg63UH/I0SbVQFdgcTsKUwypqM5dOekM=
-  on:
-    branch: master_release
-  distributions: sdist bdist_wheel
+after_success:
+  - test $TRAVIS_BRANCH = "master_release" && conda install conda-build && conda install anaconda-client && conda install conda-verify && bash conda_upload.sh

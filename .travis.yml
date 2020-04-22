@@ -19,4 +19,4 @@ install:
 script:
 - python -m pytest src/pynwb/tests
 after_success:
-  - test $TRAVIS_BRANCH = "master_release" && conda install conda-build && conda install anaconda-client && conda install conda-verify && bash conda_upload.sh
+  - test $TRAVIS_BRANCH = "master_release" && conda install conda-build anaconda-client conda-verify && bash conda_upload.sh

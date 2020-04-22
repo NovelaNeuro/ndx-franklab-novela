@@ -1,6 +1,5 @@
 #!/bin/bash
 
-conda config --set anaconda_upload no
 export PKG_NAME=ndx-fl-novela
 export ANACONDA_API_TOKEN=$CONDA_UPLOAD_TOKEN
 export CONDA_BUILD_PATH=/home/travis/miniconda/envs/test-environment/conda-bld

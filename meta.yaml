@@ -1,11 +1,11 @@
 {% set data = load_setup_py_data() %}
 
 package:
-  name: ndx-fllab-novela
+  name: ndx-fl-novela
   version: {{ data.get('version') }}
 
 source:
-  path: ../ndx-fllab-novela
+  path: ../ndx-fl-novela
 
 build:
   number: 0

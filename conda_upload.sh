@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export PKG_NAME=ndx-fllab-novela
+export PKG_NAME=ndx-fl-novela
 
 conda config --set anaconda_upload no
 export ANACONDA_API_TOKEN=$CONDA_UPLOAD_TOKEN

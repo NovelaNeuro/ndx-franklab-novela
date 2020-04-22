@@ -4,12 +4,12 @@ namespaces:
   contact:
   - devops@novelaneuro.com
   doc: NovelaNeurotechnologies Namespaces
-  name: ndx-fllab-novela
+  name: ndx-fl-novela
   schema:
   - namespace: core
     neurodata_types:
     - ElectrodeGroup
     - Device
     - NWBDataInterface
-  - source: ndx-fllab-novela.extensions.yaml
-  version: 0.0.7
+  - source: ndx-fl-novela.extensions.yaml
+  version: 0.0.001

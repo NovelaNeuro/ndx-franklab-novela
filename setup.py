@@ -51,16 +51,10 @@ setup_args = {
 
 
 def _copy_spec_files(project_dir):
-    # print("ns")
     ns_path = os.path.join(project_dir, 'spec', 'ndx-fl-novela.namespace.yaml')
-
-    # print("ext")
     ext_path = os.path.join(project_dir, 'spec', 'ndx-fl-novela.extensions.yaml')
-
-    # print("dst")
     dst_dir = os.path.join(project_dir, 'src', 'pynwb', 'ndx_fl_novela', 'spec')
 
-    # print("dst after")
     if not os.path.exists(dst_dir):
         os.mkdir(dst_dir)
 

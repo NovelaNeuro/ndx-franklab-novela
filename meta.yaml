@@ -1,9 +1,8 @@
-#{% set data = load_setup_py_data() %}
+{% set data = load_setup_py_data() %}
 
 package:
   name: ndx-fl-novela
-#  version: {{ data.get('version') }}
-  version: 0.0.0001
+  version: {{ data.get('version') }}
 
 source:
   path: ../ndx-fl-novela

@@ -2,8 +2,7 @@
 
 export PKG_NAME=ndx-fl-novela
 export VERSION=$(python setup.py)
-#export ANACONDA_API_TOKEN=$CONDA_UPLOAD_TOKEN
-export ANACONDA_API_TOKEN=ac-55c545a3-e7c4-457d-af6b-b123567342a1
+export ANACONDA_API_TOKEN=$CONDA_UPLOAD_TOKEN
 export CONDA_BUILD_PATH=/home/travis/miniconda/envs/test-environment/conda-bld
 
 conda config --set anaconda_upload no

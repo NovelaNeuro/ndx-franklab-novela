@@ -8,7 +8,7 @@ export CONDA_BUILD_PATH=/home/travis/miniconda/envs/test-environment/conda-bld
 conda config --set anaconda_upload no
 
 echo "Building conda package..."
-conda debug .
+conda build . || exit 1
 
 echo "Converting conda package..."
 conda convert --platform osx-64 $CONDA_BUILD_PATH/linux-64/***.tar.bz2 --output-dir $CONDA_BUILD_PATH -q || exit 1

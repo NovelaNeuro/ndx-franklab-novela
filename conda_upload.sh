@@ -8,7 +8,7 @@ export CONDA_BUILD_PATH=/home/travis/miniconda/envs/test-environment/conda-bld
 conda config --set anaconda_upload no
 
 echo "Building conda package..."
-conda build . || exit 1
+conda build . -c conda-forge || exit 1
 
 echo "Move conda package..."
 mv ${CONDA_BUILD_PATH}/linux-64/${PKG_NAME}-*-py37_0.tar.bz2  ${CONDA_BUILD_PATH} || exit 1

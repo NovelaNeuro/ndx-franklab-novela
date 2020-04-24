@@ -25,6 +25,8 @@ cd ${CONDA_BUILD_PATH}/new_tar || exit 1
 echo "Creating new conda package without some files..."
 tar -cjvf ${PKG_NAME}-${VERSION}-py37_0.tar.bz2 --exclude='*.sh' --exclude='*.cfg' --exclude='*.pyc'--exclude='*.pytest_cache' --exclude='*.gitignore' info lib || exit 1
 
+cd ..
+
 echo "Move conda package to linux dir..."
 mv new_tar/${PKG_NAME}-${VERSION}-py37_0.tar.bz2 linux-64 || exit 1
 

@@ -103,7 +103,7 @@ def main():
             NWBAttributeSpec(
                 name='name',
                 doc='the id of the shank',
-                dtype='int',
+                dtype='text',
             ),
             NWBAttributeSpec(
                 name='help',

@@ -4,7 +4,6 @@ from pynwb import NWBHDF5IO
 from datetime import datetime
 from dateutil.tz import tzlocal
 from pynwb import NWBFile
-import numpy as np
 
 from src.pynwb.ndx_fl_novela.probe import Probe, Shank, ShanksElectrode
 
@@ -16,7 +15,7 @@ nwbfile = NWBFile(session_description='demonstrate NWBFile basics',  # required
                   session_start_time=start_time,  # required
                   file_create_date=create_date)  # optional
 io = NWBHDF5IO('test.nwb', mode='w')
-shanks = Shank(name='xd')
+shanks = Shank(name='shank_1')
 shanks.add_shanks_electrode(ShanksElectrode('n', 1, 2, 3))
 nwbfile.add_device(Probe(name='probe', units='asd', id=1, probe_type='ssd', probe_description='2', num_shanks=3, contact_size=1.0, contact_side_numbering=False,
                          shanks=[shanks]))

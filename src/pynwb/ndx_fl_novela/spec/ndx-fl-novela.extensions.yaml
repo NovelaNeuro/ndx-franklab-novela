@@ -56,7 +56,7 @@ groups:
     quantity: '*'
     attributes:
     - name: name
-      dtype: int
+      dtype: text
       doc: the id of the shank
     - name: help
       dtype: text

@@ -17,8 +17,9 @@ nwbfile = NWBFile(session_description='demonstrate NWBFile basics',  # required
 io = NWBHDF5IO('test.nwb', mode='w')
 shanks = Shank(name='shank_1')
 shanks.add_shanks_electrode(ShanksElectrode('n', 1, 2, 3))
-nwbfile.add_device(Probe(name='probe', units='asd', id=1, probe_type='ssd', probe_description='2', num_shanks=3, contact_size=1.0, contact_side_numbering=False,
-                         shanks=[shanks]))
+probe = Probe(name='probe', units='asd', id=1, probe_type='ssd', probe_description='2', num_shanks=3, contact_size=1.0, contact_side_numbering=False)
+probe.add_shanks(shanks)
+nwbfile.add_device(probe)
 io.write(nwbfile)
 io.close()
 

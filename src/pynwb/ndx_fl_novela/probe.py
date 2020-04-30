@@ -83,8 +83,8 @@ class Probe(Device, MultiContainerInterface):
         {
             'attr': 'shanks',
             'type': Shank,
-            'add': 'add_shanks',
-            'get': 'get_shanks'
+            'add': 'add_shank',
+            'get': 'get_shank'
         }
     ]
 

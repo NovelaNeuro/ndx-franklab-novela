@@ -13,7 +13,7 @@ from src.pynwb.ndx_fl_novela.probe import Probe, Shank, ShanksElectrode
 
 class TestNWBFileReading(unittest.TestCase):
 
-    def setUp(self):
+    def read_nwb_without_errors(self):
         start_time = datetime(2017, 4, 3, 11, tzinfo=tzlocal())
         create_date = datetime(2017, 4, 15, 12, tzinfo=tzlocal())
         nwbfile = NWBFile(
@@ -33,10 +33,11 @@ class TestNWBFileReading(unittest.TestCase):
         nwb_file_handler.write(nwbfile)
         nwb_file_handler.close()
 
-    def read_nwb_without_errors(self):
-        self.assertTrue(os.path.exists('test.nwb'))
         nwb_file_handler = pynwb.NWBHDF5IO('test.nwb', 'r')
         nwb_file = nwb_file_handler.read()
+
+        self.assertTrue(os.path.exists('test.nwb'))
+        self.assertIsNotNone(nwb_file)
 
     def tearDown(self):
         os.remove('test.nwb')

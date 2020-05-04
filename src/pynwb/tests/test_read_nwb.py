@@ -16,6 +16,7 @@ from src.pynwb.ndx_fl_novela.probe import Probe, Shank, ShanksElectrode
 class TestNWBFileReading(unittest.TestCase):
 
     def setUp(self):
+
         header_device = HeaderDevice(
             name='HeaderDevice1',
             headstage_serial='Sample headstage_serial',
@@ -50,8 +51,8 @@ class TestNWBFileReading(unittest.TestCase):
         )
 
         nwb_file_handler = NWBHDF5IO('test.nwb', mode='w')
-        shanks = Shank(name='shank_1')
-        shanks.add_shanks_electrode(ShanksElectrode('n', 1, 2, 3))
+        shank = Shank(name='shank_1')
+        shank.add_shanks_electrode(ShanksElectrode('n', 1, 2, 3))
         probe = Probe(name='probe', units='asd', id=1, probe_type='ssd', probe_description='2', num_shanks=3,
                       contact_size=1.0,
                       contact_side_numbering=False)
@@ -60,14 +61,14 @@ class TestNWBFileReading(unittest.TestCase):
             name='NTrode1',
             description='Sample description',
             location='Sample location',
-            device='HeaderDevice1',
+            device=header_device,
             ntrode_id=1,
             electrode_group_id=1,
             bad_channels=[1, 3],
             map=[[1, 2], [3, 4], [5, 6]]
         )
 
-        probe.add_shanks(shanks)
+        probe.add_shank(shank)
         nwbfile.add_device(probe)
         nwbfile.add_device(header_device)
         nwbfile.add_electrode_group(ntrode)
@@ -75,8 +76,8 @@ class TestNWBFileReading(unittest.TestCase):
         nwb_file_handler.close()
 
     def test_read_nwb_without_errors(self):
-        nwb_file_handler = pynwb.NWBHDF5IO('test.nwb', 'r')
-        nwb_file = nwb_file_handler.read()
+        with pynwb.NWBHDF5IO('test.nwb', 'r') as nwb_file_handler:
+            nwb_file = nwb_file_handler.read()
 
         self.assertTrue(os.path.exists('test.nwb'))
         self.assertIsNotNone(nwb_file)

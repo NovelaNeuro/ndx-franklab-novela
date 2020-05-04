@@ -194,3 +194,13 @@ groups:
   - name: file_path
     dtype: text
     doc: file_path from global configuration
+- neurodata_type_def: AssociatedFiles
+  neurodata_type_inc: NWBDataInterface
+  doc: content of files linked with nwb
+  attributes:
+  - name: description
+    dtype: text
+    doc: description of file
+  - name: content
+    dtype: text
+    doc: content of file

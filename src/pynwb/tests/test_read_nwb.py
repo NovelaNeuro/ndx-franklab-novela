@@ -1,5 +1,5 @@
-import os
 import unittest
+import os
 
 import pynwb
 from pynwb import NWBHDF5IO
@@ -8,12 +8,38 @@ from datetime import datetime
 from dateutil.tz import tzlocal
 from pynwb import NWBFile
 
+from src.pynwb.ndx_fl_novela.header_device import HeaderDevice
+from src.pynwb.ndx_fl_novela.ntrode import NTrode
 from src.pynwb.ndx_fl_novela.probe import Probe, Shank, ShanksElectrode
 
 
 class TestNWBFileReading(unittest.TestCase):
 
-    def read_nwb_without_errors(self):
+    def setUp(self):
+        header_device = HeaderDevice(
+            name='HeaderDevice1',
+            headstage_serial='Sample headstage_serial',
+            headstage_smart_ref_on='Sample headstage_smart_ref_on',
+            realtime_mode='Sample realtime_mode',
+            headstage_auto_settle_on='Sample headstage_auto_settle_on',
+            timestamp_at_creation='Sample timestamp_at_creation',
+            controller_firmware_version='Sample controller_firmware_version',
+            controller_serial='Sample controller_serial',
+            save_displayed_chan_only='Sample save_displayed_chan_only',
+            headstage_firmware_version='Sample headstage_firmware_version',
+            qt_version='Sample qt_version',
+            compile_date='Sample compile_date',
+            compile_time='Sample compile_time',
+            file_prefix='Sample file_prefix',
+            headstage_gyro_sensor_on='Sample headstage_gyro_sensor_on',
+            headstage_mag_sensor_on='Sample headstage_mag_sensor_on',
+            trodes_version='Sample trodes_version',
+            headstage_accel_sensor_on='Sample headstage_accel_sensor_on',
+            commit_head='Sample commit_head',
+            system_time_at_creation='Sample system_time_at_creation',
+            file_path='Sample file_path',
+        )
+
         start_time = datetime(2017, 4, 3, 11, tzinfo=tzlocal())
         create_date = datetime(2017, 4, 15, 12, tzinfo=tzlocal())
         nwbfile = NWBFile(
@@ -26,18 +52,36 @@ class TestNWBFileReading(unittest.TestCase):
         nwb_file_handler = NWBHDF5IO('test.nwb', mode='w')
         shanks = Shank(name='shank_1')
         shanks.add_shanks_electrode(ShanksElectrode('n', 1, 2, 3))
-        probe = Probe(name='probe', units='asd', id=1, probe_type='ssd', probe_description='2', num_shanks=3, contact_size=1.0,
+        probe = Probe(name='probe', units='asd', id=1, probe_type='ssd', probe_description='2', num_shanks=3,
+                      contact_size=1.0,
                       contact_side_numbering=False)
+
+        ntrode = NTrode(
+            name='NTrode1',
+            description='Sample description',
+            location='Sample location',
+            device='HeaderDevice1',
+            ntrode_id=1,
+            electrode_group_id=1,
+            bad_channels=[1, 3],
+            map=[[1, 2], [3, 4], [5, 6]]
+        )
+
         probe.add_shanks(shanks)
         nwbfile.add_device(probe)
+        nwbfile.add_device(header_device)
+        nwbfile.add_electrode_group(ntrode)
         nwb_file_handler.write(nwbfile)
         nwb_file_handler.close()
 
+    def read_nwb_without_errors(self):
         nwb_file_handler = pynwb.NWBHDF5IO('test.nwb', 'r')
         nwb_file = nwb_file_handler.read()
 
         self.assertTrue(os.path.exists('test.nwb'))
         self.assertIsNotNone(nwb_file)
+        self.assertIsNotNone(nwb_file.electrode_groups)
+        self.assertIsNotNone(nwb_file.devices['HeaderDevice1'])
 
     def tearDown(self):
         os.remove('test.nwb')

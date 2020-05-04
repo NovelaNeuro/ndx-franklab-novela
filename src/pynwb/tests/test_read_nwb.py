@@ -74,7 +74,7 @@ class TestNWBFileReading(unittest.TestCase):
         nwb_file_handler.write(nwbfile)
         nwb_file_handler.close()
 
-    def read_nwb_without_errors(self):
+    def test_read_nwb_without_errors(self):
         nwb_file_handler = pynwb.NWBHDF5IO('test.nwb', 'r')
         nwb_file = nwb_file_handler.read()
 

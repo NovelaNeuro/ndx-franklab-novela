@@ -227,6 +227,29 @@ def main():
         ]
     )
 
+    associated_files = NWBGroupSpec(
+        neurodata_type_def='AssociatedFiles',
+        neurodata_type_inc='NWBDataInterface',
+        doc='content of files linked with nwb',
+        attributes=[
+            NWBAttributeSpec(
+                name='file_name',
+                doc='name of the file',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='description',
+                doc='description of file',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='content',
+                doc='content of file',
+                dtype='text'
+            )
+        ]
+    )
+
     header_device = NWBGroupSpec(
         doc='metadata from global configuration from header',
         neurodata_type_def='HeaderDevice',
@@ -335,7 +358,7 @@ def main():
         ]
     )
 
-    new_data_types = [n_trode, probe, apparatus, header_device]
+    new_data_types = [n_trode, probe, apparatus, header_device, associated_files]
 
     # export the spec to yaml files in the spec folder
     output_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'spec'))

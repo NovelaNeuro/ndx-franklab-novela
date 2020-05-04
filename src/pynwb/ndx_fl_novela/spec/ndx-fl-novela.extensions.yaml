@@ -198,9 +198,6 @@ groups:
   neurodata_type_inc: NWBDataInterface
   doc: content of files linked with nwb
   attributes:
-  - name: file_name
-    dtype: text
-    doc: name of the file
   - name: description
     dtype: text
     doc: description of file

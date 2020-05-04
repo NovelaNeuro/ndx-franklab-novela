@@ -233,11 +233,6 @@ def main():
         doc='content of files linked with nwb',
         attributes=[
             NWBAttributeSpec(
-                name='file_name',
-                doc='name of the file',
-                dtype='text'
-            ),
-            NWBAttributeSpec(
                 name='description',
                 doc='description of file',
                 dtype='text'

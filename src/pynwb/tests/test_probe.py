@@ -72,9 +72,10 @@ class TestProbe(unittest.TestCase):
             num_shanks=2,
             contact_side_numbering=True,
             contact_size=1.0,
-            shanks=[mock_shank_1, mock_shank_2]
         )
-            
+        probe.add_shank(mock_shank_1)
+        probe.add_shank(mock_shank_2)
+
         self.assertIsInstance(probe, Probe)
 
         self.assertIsInstance(probe.id, int)
@@ -85,7 +86,7 @@ class TestProbe(unittest.TestCase):
         self.assertIsInstance(probe.num_shanks, int)
         self.assertIsInstance(probe.contact_side_numbering, bool)
         self.assertIsInstance(probe.contact_size, float)
-        self.assertIsInstance(probe.shanks, list)
+        self.assertIsInstance(probe.shanks, dict)
 
         self.assertEqual(probe.id, 1)
         self.assertEqual(probe.name, 'Probe1')
@@ -95,5 +96,8 @@ class TestProbe(unittest.TestCase):
         self.assertEqual(probe.num_shanks, 2)
         self.assertEqual(probe.contact_side_numbering, True)
         self.assertEqual(probe.contact_size, 1.0)
-        self.assertEqual(probe.shanks, [mock_shank_1, mock_shank_2])
+        self.assertEqual(probe.shanks, {
+            mock_shank_1.name: mock_shank_1,
+            mock_shank_2.name: mock_shank_2
+        })
 

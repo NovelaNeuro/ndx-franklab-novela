@@ -93,7 +93,7 @@ def main():
         ]
     )
 
-    shank = NWBGroupSpec(
+    shanks = NWBGroupSpec(
         neurodata_type_def='Shank',
         neurodata_type_inc='NWBDataInterface',
         doc='shank in the probe',
@@ -103,7 +103,7 @@ def main():
             NWBAttributeSpec(
                 name='name',
                 doc='the id of the shank',
-                dtype='int',
+                dtype='text',
             ),
             NWBAttributeSpec(
                 name='help',
@@ -118,7 +118,8 @@ def main():
         doc='A custom Probes interface',
         neurodata_type_def='Probe',
         neurodata_type_inc='Device',
-        groups=[shank],
+        quantity='*',
+        groups=[shanks],
         attributes=[
             NWBAttributeSpec(
                 name='id',

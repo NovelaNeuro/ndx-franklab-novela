@@ -53,7 +53,7 @@ git checkout $masterBranch
 
 if [ $branch == "master" ]; then
 
-#  It takes stdout from print in setup. It will throw an error, but that is ok. python setup.py --version use normalization that change 0.0.001 to 0.0.1.
+#  It takes stdout from print in setup. It will throw an error, but that is ok. python setup.py --version use normalization that change 0.0.002 to 0.0.1.
   versionNumber=$(python setup.py)
   versionLabel=v$versionNumber
   releaseBranch=master_release

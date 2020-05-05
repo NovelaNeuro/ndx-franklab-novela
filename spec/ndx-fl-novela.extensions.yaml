@@ -204,3 +204,22 @@ groups:
   - name: content
     dtype: text
     doc: content of file
+- neurodata_type_def: NwbElectrodeGroup
+  neurodata_type_inc: ElectrodeGroup
+  doc: Custom nwb ElectrodeGroup
+  attributes:
+  - name: targeted_location
+    dtype: text
+    doc: predicted location
+  - name: targeted_x
+    dtype: float
+    doc: predicted x coordinates
+  - name: targeted_y
+    dtype: float
+    doc: predicted y coordinates
+  - name: targeted_z
+    dtype: float
+    doc: predicted z coordinates
+  - name: units
+    dtype: text
+    doc: 'units of fields, possible value: um or mm'

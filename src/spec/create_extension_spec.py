@@ -353,7 +353,40 @@ def main():
         ]
     )
 
-    new_data_types = [n_trode, probe, apparatus, header_device, associated_files]
+    nwb_electrode_group = NWBGroupSpec(
+        neurodata_type_def='NwbElectrodeGroup',
+        neurodata_type_inc='ElectrodeGroup',
+        doc='Custom nwb ElectrodeGroup',
+        attributes=[
+            NWBAttributeSpec(
+                name='targeted_location',
+                doc='predicted location',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='targeted_x',
+                doc='predicted x coordinates',
+                dtype='float'
+            ),
+            NWBAttributeSpec(
+                name='targeted_y',
+                doc='predicted y coordinates',
+                dtype='float'
+            ),
+            NWBAttributeSpec(
+                name='targeted_z',
+                doc='predicted z coordinates',
+                dtype='float'
+            ),
+            NWBAttributeSpec(
+                name='units',
+                doc='units of fields, possible value: um or mm',
+                dtype='text'
+            ),
+        ]
+    )
+
+    new_data_types = [n_trode, probe, apparatus, header_device, associated_files, nwb_electrode_group]
 
     # export the spec to yaml files in the spec folder
     output_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'spec'))

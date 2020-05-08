@@ -151,7 +151,7 @@ def main():
             ),
             NWBAttributeSpec(
                 name='contact_size',
-                doc='value of contact size in float',
+                doc='value of contact size in float, unit um',
                 dtype='float'
             ),
         ]

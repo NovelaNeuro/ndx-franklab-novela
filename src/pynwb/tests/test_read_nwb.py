@@ -51,8 +51,8 @@ class TestNWBFileReading(unittest.TestCase):
         )
 
         nwb_file_handler = NWBHDF5IO('test.nwb', mode='w')
-        shank = Shank(name='shank_1')
-        shank.add_shanks_electrode(ShanksElectrode('n', 1, 2, 3))
+        shank = Shank(id=1)
+        shank.add_shanks_electrode(ShanksElectrode(0, 1, 2, 3))
         probe = Probe(name='probe', units='asd', id=1, probe_type='ssd', probe_description='2', num_shanks=3,
                       contact_size=1.0,
                       contact_side_numbering=False)

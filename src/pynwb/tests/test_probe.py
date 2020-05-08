@@ -8,7 +8,7 @@ class TestShanksElectrode(unittest.TestCase):
     
     def test_shanks_electrode_successfully_created(self):
         shanks_electrode = ShanksElectrode(
-            name='0',
+            id=0,
             rel_x=1,
             rel_y=2,
             rel_z=3,
@@ -21,7 +21,7 @@ class TestShanksElectrode(unittest.TestCase):
         self.assertIsInstance(shanks_electrode.rel_y, int)
         self.assertIsInstance(shanks_electrode.rel_z, int)
 
-        self.assertEqual(shanks_electrode.name, '0')
+        self.assertEqual(shanks_electrode.name, 'ShankElectrode_0')
         self.assertEqual(shanks_electrode.rel_x, 1)
         self.assertEqual(shanks_electrode.rel_y, 2)
         self.assertEqual(shanks_electrode.rel_z, 3)
@@ -39,7 +39,7 @@ class TestShank(unittest.TestCase):
         mock_shanks_electrode_2.rel_x = 20
 
         shank = Shank(
-            name='0',
+            id=0,
         )
 
         shank.add_shanks_electrode(mock_shanks_electrode_1)
@@ -52,7 +52,7 @@ class TestShank(unittest.TestCase):
         self.assertIsInstance(shank.shanks_electrode['1'], ShanksElectrode)
         self.assertIsInstance(shank.shanks_electrode['1'].rel_x, int)
 
-        self.assertEqual(shank.name, '0')
+        self.assertEqual(shank.name, 'Shank_0')
         self.assertEqual(shank.shanks_electrode, {'1': mock_shanks_electrode_1, '2': mock_shanks_electrode_2})
         self.assertEqual(shank.shanks_electrode['1'].rel_x, 10)
 

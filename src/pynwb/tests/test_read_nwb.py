@@ -9,7 +9,6 @@ from dateutil.tz import tzlocal
 from pynwb import NWBFile
 
 from src.pynwb.ndx_fl_novela.header_device import HeaderDevice
-from src.pynwb.ndx_fl_novela.ntrode import NTrode
 from src.pynwb.ndx_fl_novela.probe import Probe, Shank, ShanksElectrode
 
 
@@ -51,27 +50,15 @@ class TestNWBFileReading(unittest.TestCase):
         )
 
         nwb_file_handler = NWBHDF5IO('test.nwb', mode='w')
-        shank = Shank(id=1)
-        shank.add_shanks_electrode(ShanksElectrode(0, 1, 2, 3))
+        shank = Shank(name='1')
+        shank.add_shanks_electrode(ShanksElectrode(name='0'))
         probe = Probe(name='probe', units='asd', id=1, probe_type='ssd', probe_description='2', num_shanks=3,
                       contact_size=1.0,
                       contact_side_numbering=False)
 
-        ntrode = NTrode(
-            name='NTrode1',
-            description='Sample description',
-            location='Sample location',
-            device=header_device,
-            ntrode_id=1,
-            electrode_group_id=1,
-            bad_channels=[1, 3],
-            map=[[1, 2], [3, 4], [5, 6]]
-        )
-
         probe.add_shank(shank)
         nwbfile.add_device(probe)
         nwbfile.add_device(header_device)
-        nwbfile.add_electrode_group(ntrode)
         nwb_file_handler.write(nwbfile)
         nwb_file_handler.close()
 
@@ -81,7 +68,6 @@ class TestNWBFileReading(unittest.TestCase):
 
         self.assertTrue(os.path.exists('test.nwb'))
         self.assertIsNotNone(nwb_file)
-        self.assertIsNotNone(nwb_file.electrode_groups)
         self.assertIsNotNone(nwb_file.devices['HeaderDevice1'])
 
     def tearDown(self):

@@ -1,29 +1,4 @@
 groups:
-- neurodata_type_def: NTrode
-  neurodata_type_inc: ElectrodeGroup
-  doc: A custom ntrode ElectrodesGroup interface
-  attributes:
-  - name: ntrode_id
-    dtype: int
-    doc: id of electrode group
-  - name: electrode_group_id
-    dtype: int
-    doc: id of electrode group
-  datasets:
-  - name: map
-    dtype: int
-    dims:
-    - 2
-    shape:
-    - 32
-    doc: map of ntrodes
-  - name: bad_channels
-    dtype: int
-    dims:
-    - 1
-    shape:
-    - 32
-    doc: ids of bad channels
 - neurodata_type_def: Probe
   neurodata_type_inc: Device
   doc: A custom Probes interface
@@ -36,7 +11,7 @@ groups:
     doc: type of the probe
   - name: units
     dtype: text
-    doc: units in probe
+    doc: units in probe, possible um or mm
   - name: probe_description
     dtype: text
     doc: description of the probe
@@ -48,15 +23,12 @@ groups:
     doc: is contact_side_numbering enabled
   - name: contact_size
     dtype: float
-    doc: value of contact size in float
+    doc: value of contact size in float, unit um
   groups:
   - neurodata_type_def: Shank
     neurodata_type_inc: NWBDataInterface
     doc: shank in the probe
     attributes:
-    - name: id
-      dtype: int
-      doc: the id of the shank
     - name: help
       dtype: text
       value: Probe Shanks
@@ -65,20 +37,7 @@ groups:
     - neurodata_type_def: ShanksElectrode
       neurodata_type_inc: NWBDataInterface
       doc: electrode in the probe
-      quantity: '*'
       attributes:
-      - name: id
-        dtype: int
-        doc: the id of this electrode
-      - name: rel_x
-        dtype: int
-        doc: the rel_x value of this electrode
-      - name: rel_y
-        dtype: int
-        doc: the rel_y value of this electrode
-      - name: rel_z
-        dtype: int
-        doc: the rel_z value of this electrode
       - name: help
         dtype: text
         value: Electrode inside Shanks

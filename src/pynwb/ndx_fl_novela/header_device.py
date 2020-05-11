@@ -5,7 +5,7 @@ from pynwb.device import Device
 
 @register_class('HeaderDevice', 'ndx-fl-novela')
 class HeaderDevice(Device):
-    ''' Representation of HeaderDevice in NWB '''
+    """Configuration information coming from recording system SpikeGadgets, represented as HeaderDevice in NWB"""
     __nwbfields__ = ('headstage_serial', 'headstage_smart_ref_on', 'realtime_mode', 'headstage_auto_settle_on',
                      'timestamp_at_creation', 'conntroller_firmware_version', 'controller_serial',
                      'save_displayed_chan_only', 'headstage_firmwavare_version', 'qt_version', 'compile_date',

@@ -8,30 +8,16 @@ from pynwb.device import Device
 class ShanksElectrode(NWBContainer):
     ''' Representation of ShanksElectrode object in NWB '''
 
-    __nwbfields__ = ('id', 'shanks_electrode')
-
-    @docval(
-        {'name': 'id', 'type': int, 'doc': 'id of the shank'},
-        {'name': 'rel_x', 'type': int, 'doc': 'the rel_x value of this electrode'},
-        {'name': 'rel_y', 'type': int, 'doc': 'the rel_y value of this electrode'},
-        {'name': 'rel_z', 'type': int, 'doc': 'the rel_z value of this electrode'},
-    )
     def __init__(self, **kwargs):
-        super(ShanksElectrode, self).__init__(name='ShankElectrode_' + str(kwargs['id']))
-        self.rel_x = kwargs['rel_x']
-        self.rel_y = kwargs['rel_y']
-        self.rel_z = kwargs['rel_z']
+        super(ShanksElectrode, self).__init__(name=kwargs['name'])
 
 
 @register_class('Shank', 'ndx-fl-novela')
 class Shank(MultiContainerInterface):
     ''' Representation of Shank object in NWB '''
 
-    @docval(
-        {'name': 'id', 'type': int, 'doc': 'id of the shank'},
-    )
     def __init__(self, **kwargs):
-        super(Shank, self).__init__(name='Shank_' + str(kwargs['id']))
+        super(MultiContainerInterface, self).__init__(name=kwargs['name'])
 
     __clsconf__ = [
         {

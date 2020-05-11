@@ -26,64 +26,11 @@ def main():
     # see https://pynwb.readthedocs.io/en/latest/extensions.html#extending-nwb
     # for more information
 
-    n_trode = NWBGroupSpec(
-        doc='A custom ntrode ElectrodesGroup interface',
-        neurodata_type_def='NTrode',
-        neurodata_type_inc='ElectrodeGroup',
-        datasets=[
-            NWBDatasetSpec(
-                doc='map of ntrodes',
-                name='map',
-                dtype='int',
-                dims=[2],
-                shape=[32]),
-            NWBDatasetSpec(
-                doc='ids of bad channels',
-                name='bad_channels',
-                dtype='int',
-                dims=[1],
-                shape=[32])
-        ],
-        attributes=[
-            NWBAttributeSpec(
-                name='ntrode_id',
-                doc='id of electrode group',
-                dtype='int'
-            ),
-            NWBAttributeSpec(
-                name='electrode_group_id',
-                doc='id of electrode group',
-                dtype='int'
-            ),
-
-        ],
-    )
     shanks_electrode = NWBGroupSpec(
         neurodata_type_def='ShanksElectrode',
         neurodata_type_inc='NWBDataInterface',
         doc='electrode in the probe',
-        quantity='*',
         attributes=[
-            NWBAttributeSpec(
-                name='id',
-                doc='the id of this electrode',
-                dtype='int'
-            ),
-            NWBAttributeSpec(
-                name='rel_x',
-                doc='the rel_x value of this electrode',
-                dtype='int'
-            ),
-            NWBAttributeSpec(
-                name='rel_y',
-                doc='the rel_y value of this electrode',
-                dtype='int'
-            ),
-            NWBAttributeSpec(
-                name='rel_z',
-                doc='the rel_z value of this electrode',
-                dtype='int'
-            ),
             NWBAttributeSpec(
                 name='help',
                 doc='help doc',
@@ -99,11 +46,6 @@ def main():
         doc='shank in the probe',
         groups=[shanks_electrode],
         attributes=[
-            NWBAttributeSpec(
-                name='id',
-                doc='the id of the shank',
-                dtype='int',
-            ),
             NWBAttributeSpec(
                 name='help',
                 doc='help doc',
@@ -316,7 +258,7 @@ def main():
         ]
     )
 
-    new_data_types = [n_trode, probe, header_device, associated_files, nwb_electrode_group]
+    new_data_types = [probe, header_device, associated_files, nwb_electrode_group]
 
     # export the spec to yaml files in the spec folder
     output_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'spec'))

@@ -3,7 +3,10 @@ namespaces:
   - NovelaDevops
   contact:
   - devops@novelaneuro.com
-  doc: NovelaNeurotechnologies Namespaces
+  doc: NovelaNeurotechnologies Namespaces \n
+  AssociatedFiles extension that store text from files e.g code of program used to process data \n
+  HeaderDevice extension that store configuration data coming from SpikeGadgets system \n
+  Probe and NwbElectrodeGroup extensions that represents specific hardware used to record data \n
   name: ndx-fl-novela
   schema:
   - namespace: core

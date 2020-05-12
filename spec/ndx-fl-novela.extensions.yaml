@@ -41,13 +41,13 @@ groups:
         dtype: text
         doc: name of this electrode
       - name: rel_x
-        dtype: int
+        dtype: float
         doc: the rel_x value of this electrode
       - name: rel_y
-        dtype: int
+        dtype: float
         doc: the rel_y value of this electrode
       - name: rel_z
-        dtype: int
+        dtype: float
         doc: the rel_z value of this electrode
 - neurodata_type_def: HeaderDevice
   neurodata_type_inc: Device

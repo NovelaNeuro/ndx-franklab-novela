@@ -7,7 +7,7 @@ from src.pynwb.ndx_fl_novela.probe import Probe, ShanksElectrode, Shank
 class TestShanksElectrode(unittest.TestCase):
     
     def test_shanks_electrode_successfully_created(self):
-        shanks_electrode = ShanksElectrode(name='0')
+        shanks_electrode = ShanksElectrode(name='0', rel_x=1.0, rel_y=2.0, rel_z=3.0)
 
         self.assertIsInstance(shanks_electrode, ShanksElectrode)
 

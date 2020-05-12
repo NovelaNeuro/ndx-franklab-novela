@@ -64,9 +64,9 @@ class TestNWBFileReading(unittest.TestCase):
     def test_read_nwb_probe_successfully(self):
         shanks_electrode = ShanksElectrode(
             name='electrode_shank',
-            rel_x=1,
-            rel_y=2,
-            rel_z=3
+            rel_x=1.0,
+            rel_y=2.0,
+            rel_z=3.0
         )
         shank = Shank(name='shank')
         shank.add_shanks_electrode(shanks_electrode)

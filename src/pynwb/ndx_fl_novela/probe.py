@@ -25,8 +25,11 @@ class ShanksElectrode(NWBContainer):
 class Shank(MultiContainerInterface):
     ''' Representation of Shank object in NWB '''
 
+    @docval(
+        {'name': 'name', 'type': str, 'doc': 'name of the shank'}
+    )
     def __init__(self, **kwargs):
-        super(MultiContainerInterface, self).__init__(name=kwargs['name'])
+        super(Shank, self).__init__(name=kwargs['name'])
 
     __clsconf__ = [
         {

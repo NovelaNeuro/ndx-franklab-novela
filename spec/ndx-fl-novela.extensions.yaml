@@ -28,6 +28,10 @@ groups:
   - neurodata_type_def: Shank
     neurodata_type_inc: NWBDataInterface
     doc: shank in the probe
+    attributes:
+    - name: name
+      dtype: text
+      doc: name of this shank
     groups:
     - neurodata_type_def: ShanksElectrode
       neurodata_type_inc: NWBDataInterface

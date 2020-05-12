@@ -58,7 +58,13 @@ def main():
         neurodata_type_inc='NWBDataInterface',
         doc='shank in the probe',
         groups=[shanks_electrode],
-        attributes=[]
+        attributes=[
+            NWBAttributeSpec(
+                name='name',
+                doc='name of this shank',
+                dtype='text'
+            ),
+        ]
     )
 
     probe = NWBGroupSpec(

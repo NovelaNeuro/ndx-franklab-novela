@@ -42,13 +42,13 @@ groups:
         doc: name of the electrode
       - name: rel_x
         dtype: float
-        doc: the rel_x value of this electrode
+        doc: the rel_x value of the electrode
       - name: rel_y
         dtype: float
-        doc: the rel_y value of this electrode
+        doc: the rel_y value of the electrode
       - name: rel_z
         dtype: float
-        doc: the rel_z value of this electrode
+        doc: the rel_z value of the electrode
 - neurodata_type_def: HeaderDevice
   neurodata_type_inc: Device
   doc: metadata from global configuration from header

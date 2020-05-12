@@ -7,13 +7,22 @@ from src.pynwb.ndx_fl_novela.probe import Probe, ShanksElectrode, Shank
 class TestShanksElectrode(unittest.TestCase):
     
     def test_shanks_electrode_successfully_created(self):
-        shanks_electrode = ShanksElectrode(name='0', rel_x=1.0, rel_y=2.0, rel_z=3.0)
+        shanks_electrode = ShanksElectrode(
+            name='0',
+            rel_x=1.0,
+            rel_y=2.0,
+            rel_z=3.0
+        )
 
         self.assertIsInstance(shanks_electrode, ShanksElectrode)
 
         self.assertIsInstance(shanks_electrode.name, str)
+        self.assertIsInstance(shanks_electrode.rel_x, float)
+        self.assertIsInstance(shanks_electrode.rel_y, float)
+        self.assertIsInstance(shanks_electrode.rel_z, float)
 
         self.assertEqual(shanks_electrode.name, '0')
+        self.assertEqual(shanks_electrode.rel_x, 1.0)
 
 
 class TestShank(unittest.TestCase):

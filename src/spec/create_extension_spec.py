@@ -2,7 +2,6 @@
 
 import os.path
 
-from pynwb.spec import NWBDatasetSpec
 from pynwb.spec import NWBNamespaceBuilder, export_spec, NWBGroupSpec, NWBAttributeSpec
 
 
@@ -32,11 +31,25 @@ def main():
         doc='electrode in the probe',
         attributes=[
             NWBAttributeSpec(
-                name='help',
-                doc='help doc',
-                dtype='text',
-                value='Electrode inside Shanks'
-            )
+                name='name',
+                doc='name of this electrode',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='rel_x',
+                doc='the rel_x value of this electrode',
+                dtype='int'
+            ),
+            NWBAttributeSpec(
+                name='rel_y',
+                doc='the rel_y value of this electrode',
+                dtype='int'
+            ),
+            NWBAttributeSpec(
+                name='rel_z',
+                doc='the rel_z value of this electrode',
+                dtype='int'
+            ),
         ]
     )
 
@@ -45,14 +58,7 @@ def main():
         neurodata_type_inc='NWBDataInterface',
         doc='shank in the probe',
         groups=[shanks_electrode],
-        attributes=[
-            NWBAttributeSpec(
-                name='help',
-                doc='help doc',
-                dtype='text',
-                value='Probe Shanks'
-            )
-        ]
+        attributes=[]
     )
 
     probe = NWBGroupSpec(

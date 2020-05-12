@@ -28,20 +28,23 @@ groups:
   - neurodata_type_def: Shank
     neurodata_type_inc: NWBDataInterface
     doc: shank in the probe
-    attributes:
-    - name: help
-      dtype: text
-      value: Probe Shanks
-      doc: help doc
     groups:
     - neurodata_type_def: ShanksElectrode
       neurodata_type_inc: NWBDataInterface
       doc: electrode in the probe
       attributes:
-      - name: help
+      - name: name
         dtype: text
-        value: Electrode inside Shanks
-        doc: help doc
+        doc: name of this electrode
+      - name: rel_x
+        dtype: int
+        doc: the rel_x value of this electrode
+      - name: rel_y
+        dtype: int
+        doc: the rel_y value of this electrode
+      - name: rel_z
+        dtype: int
+        doc: the rel_z value of this electrode
 - neurodata_type_def: HeaderDevice
   neurodata_type_inc: Device
   doc: metadata from global configuration from header

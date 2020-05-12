@@ -37,17 +37,17 @@ def main():
             ),
             NWBAttributeSpec(
                 name='rel_x',
-                doc='the rel_x value of this electrode',
+                doc='the rel_x value of the electrode',
                 dtype='float'
             ),
             NWBAttributeSpec(
                 name='rel_y',
-                doc='the rel_y value of this electrode',
+                doc='the rel_y value of the electrode',
                 dtype='float'
             ),
             NWBAttributeSpec(
                 name='rel_z',
-                doc='the rel_z value of this electrode',
+                doc='the rel_z value of the electrode',
                 dtype='float'
             ),
         ]

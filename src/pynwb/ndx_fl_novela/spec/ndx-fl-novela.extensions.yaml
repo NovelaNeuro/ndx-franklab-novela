@@ -11,7 +11,7 @@ groups:
     doc: type of the probe
   - name: units
     dtype: text
-    doc: units in probe, possible um or mm
+    doc: units in probe, acceptable values um or mm
   - name: probe_description
     dtype: text
     doc: description of the probe
@@ -31,7 +31,7 @@ groups:
     attributes:
     - name: name
       dtype: text
-      doc: name of this shank
+      doc: name of the shank
     groups:
     - neurodata_type_def: ShanksElectrode
       neurodata_type_inc: NWBDataInterface
@@ -39,7 +39,7 @@ groups:
       attributes:
       - name: name
         dtype: text
-        doc: name of this electrode
+        doc: name of the electrode
       - name: rel_x
         dtype: float
         doc: the rel_x value of this electrode
@@ -141,4 +141,4 @@ groups:
     doc: predicted z coordinates
   - name: units
     dtype: text
-    doc: 'units of fields, possible value: um or mm'
+    doc: 'units of fields, acceptable values: um or mm'

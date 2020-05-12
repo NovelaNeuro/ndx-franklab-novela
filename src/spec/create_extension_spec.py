@@ -32,7 +32,7 @@ def main():
         attributes=[
             NWBAttributeSpec(
                 name='name',
-                doc='name of this electrode',
+                doc='name of the electrode',
                 dtype='text'
             ),
             NWBAttributeSpec(
@@ -61,7 +61,7 @@ def main():
         attributes=[
             NWBAttributeSpec(
                 name='name',
-                doc='name of this shank',
+                doc='name of the shank',
                 dtype='text'
             ),
         ]
@@ -85,7 +85,7 @@ def main():
             ),
             NWBAttributeSpec(
                 name='units',
-                doc='units in probe, possible um or mm',
+                doc='units in probe, acceptable values um or mm',
                 dtype='text'
             ),
             NWBAttributeSpec(
@@ -264,7 +264,7 @@ def main():
             ),
             NWBAttributeSpec(
                 name='units',
-                doc='units of fields, possible value: um or mm',
+                doc='units of fields, acceptable values: um or mm',
                 dtype='text'
             ),
         ]

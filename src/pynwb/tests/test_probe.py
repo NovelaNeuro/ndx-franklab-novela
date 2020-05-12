@@ -51,6 +51,7 @@ class TestShank(unittest.TestCase):
 
         self.assertEqual(shank.name, '0')
         self.assertEqual(shank.shanks_electrode, {'1': mock_shanks_electrode_1, '2': mock_shanks_electrode_2})
+        self.assertEqual(shank.shanks_electrode['1'].rel_x, 10)
 
 
 class TestProbe(unittest.TestCase):

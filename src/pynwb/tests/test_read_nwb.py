@@ -155,7 +155,7 @@ class TestNWBFileReading(unittest.TestCase):
             num_shanks=3,
             contact_size=1.0,
             contact_side_numbering=False,
-            shanks=[shank],
+            # shanks=[shank],
         )
         probe.add_shanks(shank)
         print('Before write')

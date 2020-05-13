@@ -23,7 +23,7 @@ groups:
     doc: is contact_side_numbering enabled
   - name: contact_size
     dtype: float
-    doc: value of contact size in float, unit um
+    doc: value of contact size in float
   groups:
   - neurodata_type_def: Shank
     neurodata_type_inc: NWBDataInterface

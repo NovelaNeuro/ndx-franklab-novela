@@ -62,13 +62,7 @@ def main():
         neurodata_type_def='ShanksElectrode',
         neurodata_type_inc='NWBDataInterface',
         doc='electrode in the probe',
-        quantity='*',
         attributes=[
-            NWBAttributeSpec(
-                name='name',
-                doc='the id of this electrode',
-                dtype='int'
-            ),
             NWBAttributeSpec(
                 name='rel_x',
                 doc='the rel_x value of this electrode',
@@ -84,34 +78,20 @@ def main():
                 doc='the rel_z value of this electrode',
                 dtype='int'
             ),
-            NWBAttributeSpec(
-                name='help',
-                doc='help doc',
-                dtype='text',
-                value='Electrode inside Shanks'
-            )
         ]
     )
 
-    shanks = NWBGroupSpec(
+    shank = NWBGroupSpec(
         neurodata_type_def='Shank',
         neurodata_type_inc='NWBDataInterface',
         doc='shank in the probe',
-        groups=[shanks_electrode],
-        quantity='*',
-        attributes=[
-            NWBAttributeSpec(
-                name='name',
-                doc='the id of the shank',
-                dtype='text',
-            ),
-            NWBAttributeSpec(
-                name='help',
-                doc='help doc',
-                dtype='text',
-                value='Probe Shanks'
+        groups=[
+            NWBGroupSpec(
+                neurodata_type_inc='ShanksElectrode',
+                doc='electrode in the probe',
+                quantity='*'
             )
-        ]
+        ],
     )
 
     probe = NWBGroupSpec(
@@ -119,7 +99,13 @@ def main():
         neurodata_type_def='Probe',
         neurodata_type_inc='Device',
         quantity='*',
-        groups=[shanks],
+        groups=[
+            NWBGroupSpec(
+                neurodata_type_inc='Shank',
+                doc='shank in the probe',
+                quantity='*'
+            )
+        ],
         attributes=[
             NWBAttributeSpec(
                 name='id',
@@ -386,7 +372,9 @@ def main():
         ]
     )
 
-    new_data_types = [n_trode, probe, apparatus, header_device, associated_files, nwb_electrode_group]
+    new_data_types = [
+        n_trode, shanks_electrode, shank, probe, apparatus, header_device, associated_files, nwb_electrode_group
+    ]
 
     # export the spec to yaml files in the spec folder
     output_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'spec'))

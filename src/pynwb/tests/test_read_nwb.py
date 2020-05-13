@@ -63,14 +63,16 @@ class TestNWBFileReading(unittest.TestCase):
         processing_module = ProcessingModule('processing_module', 'sample description')
         processing_module.add(apparatus)
         self.nwb_file_content.add_processing_module(processing_module)
-        nwb_file_handler = NWBHDF5IO('test.nwb', mode='w')
+        nwb_file_handler = NWBHDF5IO('apparatus.nwb', mode='w')
         nwb_file_handler.write(self.nwb_file_content)
         nwb_file_handler.close()
 
-        self.assertTrue(os.path.exists('test.nwb'))
-        with pynwb.NWBHDF5IO('test.nwb', 'r') as nwb_file_handler:
+        self.assertTrue(os.path.exists('apparatus.nwb'))
+        with pynwb.NWBHDF5IO('apparatus.nwb', 'r') as nwb_file_handler:
             nwb_file = nwb_file_handler.read()
             self.assertEqual(nwb_file.processing['processing_module'].data_interfaces['apparatus'].name, apparatus.name)
+
+        self.delete_nwb('apparatus')
 
     def test_read_nwb_ntrode_successfully(self):
         device = Device('device_0')
@@ -87,14 +89,16 @@ class TestNWBFileReading(unittest.TestCase):
         )
 
         self.nwb_file_content.add_electrode_group(ntrode)
-        nwb_file_handler = NWBHDF5IO('test.nwb', mode='w')
+        nwb_file_handler = NWBHDF5IO('ntrode.nwb', mode='w')
         nwb_file_handler.write(self.nwb_file_content)
         nwb_file_handler.close()
 
-        self.assertTrue(os.path.exists('test.nwb'))
-        with pynwb.NWBHDF5IO('test.nwb', 'r') as nwb_file_handler:
+        self.assertTrue(os.path.exists('ntrode.nwb'))
+        with pynwb.NWBHDF5IO('ntrode.nwb', 'r') as nwb_file_handler:
             nwb_file = nwb_file_handler.read()
             self.assertEqual(nwb_file.electrode_groups['ntrode_0'].electrode_group_id, ntrode.electrode_group_id)
+
+        self.delete_nwb('ntrode')
 
     def test_read_nwb_header_device_successfully(self):
         header_device = HeaderDevice(
@@ -122,14 +126,16 @@ class TestNWBFileReading(unittest.TestCase):
         )
 
         self.nwb_file_content.add_device(header_device)
-        nwb_file_handler = NWBHDF5IO('test.nwb', mode='w')
+        nwb_file_handler = NWBHDF5IO('header_device.nwb', mode='w')
         nwb_file_handler.write(self.nwb_file_content)
         nwb_file_handler.close()
 
-        self.assertTrue(os.path.exists('test.nwb'))
-        with pynwb.NWBHDF5IO('test.nwb', 'r') as nwb_file_handler:
+        self.assertTrue(os.path.exists('header_device.nwb'))
+        with pynwb.NWBHDF5IO('header_device.nwb', 'r') as nwb_file_handler:
             nwb_file = nwb_file_handler.read()
             self.assertEqual(nwb_file.devices['header_device'].commit_head, header_device.commit_head)
+
+        self.delete_nwb('header_device')
 
     def test_read_nwb_probe_successfully(self):
         shanks_electrode = ShanksElectrode(
@@ -148,20 +154,27 @@ class TestNWBFileReading(unittest.TestCase):
             probe_description='2',
             num_shanks=3,
             contact_size=1.0,
-            contact_side_numbering=False
+            contact_side_numbering=False,
+            shanks=[shank],
         )
-        probe.add_shank(shank)
+        probe.add_shanks(shank)
+        print('Before write')
+        print(probe)
+        print('Before write: shanks inside probe')
+        print(probe.shanks)
         self.nwb_file_content.add_device(probe)
 
-        nwb_file_handler = NWBHDF5IO('test.nwb', mode='w')
+        nwb_file_handler = NWBHDF5IO('probe.nwb', mode='w')
         nwb_file_handler.write(self.nwb_file_content)
         nwb_file_handler.close()
 
-        self.assertTrue(os.path.exists('test.nwb'))
-        with pynwb.NWBHDF5IO('test.nwb', 'r',  load_namespaces=True) as nwb_file_handler:
+        self.assertTrue(os.path.exists('probe.nwb'))
+        with pynwb.NWBHDF5IO('probe.nwb', 'r',  load_namespaces=True) as nwb_file_handler:
             nwb_file = nwb_file_handler.read()
+            print('Read')
+            print(nwb_file.devices['probe'])
             self.assertEqual(nwb_file.devices['probe'].name, probe.name)
-            # self.assertEqual(nwb_file.devices['probe'].shanks, probe.shanks)
+            self.assertEqual(nwb_file.devices['probe'].shanks, probe.shanks)
 
     def test_read_nwb_nwb_electrode_group_successfully(self):
         device = Device('device_0')
@@ -179,16 +192,19 @@ class TestNWBFileReading(unittest.TestCase):
         )
 
         self.nwb_file_content.add_electrode_group(nwb_electrode_group)
-        nwb_file_handler = NWBHDF5IO('test.nwb', mode='w')
+        nwb_file_handler = NWBHDF5IO('nwb_electrode_group.nwb', mode='w')
         nwb_file_handler.write(self.nwb_file_content)
         nwb_file_handler.close()
 
-        self.assertTrue(os.path.exists('test.nwb'))
-        with pynwb.NWBHDF5IO('test.nwb', 'r') as nwb_file_handler:
+        self.assertTrue(os.path.exists('nwb_electrode_group.nwb'))
+        with pynwb.NWBHDF5IO('nwb_electrode_group.nwb', 'r') as nwb_file_handler:
             nwb_file = nwb_file_handler.read()
             self.assertEqual(nwb_file.electrode_groups['nwb_electrode_group_0'].name, nwb_electrode_group.name)
             self.assertEqual(nwb_file.electrode_groups['nwb_electrode_group_0'].targeted_location,
                              nwb_electrode_group.targeted_location)
 
-    def tearDown(self):
-        os.remove('test.nwb')
+        self.delete_nwb('nwb_electrode_group')
+
+    @staticmethod
+    def delete_nwb(file_name):
+        os.remove(file_name + '.nwb')

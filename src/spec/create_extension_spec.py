@@ -2,7 +2,6 @@
 
 import os.path
 
-from pynwb.spec import NWBDatasetSpec
 from pynwb.spec import NWBNamespaceBuilder, export_spec, NWBGroupSpec, NWBAttributeSpec
 
 
@@ -26,70 +25,31 @@ def main():
     # see https://pynwb.readthedocs.io/en/latest/extensions.html#extending-nwb
     # for more information
 
-    n_trode = NWBGroupSpec(
-        doc='A custom ntrode ElectrodesGroup interface',
-        neurodata_type_def='NTrode',
-        neurodata_type_inc='ElectrodeGroup',
-        datasets=[
-            NWBDatasetSpec(
-                doc='map of ntrodes',
-                name='map',
-                dtype='int',
-                dims=[2],
-                shape=[32]),
-            NWBDatasetSpec(
-                doc='ids of bad channels',
-                name='bad_channels',
-                dtype='int',
-                dims=[1],
-                shape=[32])
-        ],
-        attributes=[
-            NWBAttributeSpec(
-                name='ntrode_id',
-                doc='id of electrode group',
-                dtype='int'
-            ),
-            NWBAttributeSpec(
-                name='electrode_group_id',
-                doc='id of electrode group',
-                dtype='int'
-            ),
-
-        ],
-    )
     shanks_electrode = NWBGroupSpec(
         neurodata_type_def='ShanksElectrode',
         neurodata_type_inc='NWBDataInterface',
         doc='electrode in the probe',
-        quantity='*',
         attributes=[
             NWBAttributeSpec(
                 name='name',
-                doc='the id of this electrode',
-                dtype='int'
+                doc='name of the electrode',
+                dtype='text'
             ),
             NWBAttributeSpec(
                 name='rel_x',
-                doc='the rel_x value of this electrode',
-                dtype='int'
+                doc='the rel_x value of the electrode',
+                dtype='float'
             ),
             NWBAttributeSpec(
                 name='rel_y',
-                doc='the rel_y value of this electrode',
-                dtype='int'
+                doc='the rel_y value of the electrode',
+                dtype='float'
             ),
             NWBAttributeSpec(
                 name='rel_z',
-                doc='the rel_z value of this electrode',
-                dtype='int'
+                doc='the rel_z value of the electrode',
+                dtype='float'
             ),
-            NWBAttributeSpec(
-                name='help',
-                doc='help doc',
-                dtype='text',
-                value='Electrode inside Shanks'
-            )
         ]
     )
 
@@ -98,19 +58,12 @@ def main():
         neurodata_type_inc='NWBDataInterface',
         doc='shank in the probe',
         groups=[shanks_electrode],
-        quantity='*',
         attributes=[
             NWBAttributeSpec(
                 name='name',
-                doc='the id of the shank',
-                dtype='text',
+                doc='name of the shank',
+                dtype='text'
             ),
-            NWBAttributeSpec(
-                name='help',
-                doc='help doc',
-                dtype='text',
-                value='Probe Shanks'
-            )
         ]
     )
 
@@ -118,7 +71,6 @@ def main():
         doc='A custom Probes interface',
         neurodata_type_def='Probe',
         neurodata_type_inc='Device',
-        quantity='*',
         groups=[shanks],
         attributes=[
             NWBAttributeSpec(
@@ -133,7 +85,7 @@ def main():
             ),
             NWBAttributeSpec(
                 name='units',
-                doc='units in probe',
+                doc='units in probe, acceptable values um or mm',
                 dtype='text'
             ),
             NWBAttributeSpec(
@@ -156,74 +108,6 @@ def main():
                 doc='value of contact size in float',
                 dtype='float'
             ),
-        ]
-    )
-
-    node = NWBGroupSpec(
-        neurodata_type_def='Node',
-        neurodata_type_inc='NWBDataInterface',
-        doc='nodes in the graph',
-        quantity='*',
-        attributes=[
-            NWBAttributeSpec(
-                name='name',
-                doc='the name of this node',
-                dtype='text'
-            ),
-            NWBAttributeSpec(
-                name='value',
-                doc='the value of this node',
-                dtype='int'
-            ),
-            NWBAttributeSpec(
-                name='help',
-                doc='help doc',
-                dtype='text',
-                value='Apparatus Node'
-            )
-        ]
-    )
-
-    edge = NWBGroupSpec(
-        neurodata_type_def='Edge',
-        neurodata_type_inc='NWBDataInterface',
-        doc='edges in the graph',
-        quantity='*',
-        datasets=[
-            NWBDatasetSpec(
-                doc='names of the nodes this edge connects',
-                name='edge_nodes',
-                dtype='text',
-                dims=['first_node_name|second_node_name'],
-                shape=[2]
-            )
-        ],
-        attributes=[
-            NWBAttributeSpec(
-                name='help',
-                doc='help doc',
-                dtype='text',
-                value='Apparatus Edge')
-        ]
-    )
-
-    apparatus = NWBGroupSpec(
-        neurodata_type_def='Apparatus',
-        neurodata_type_inc='NWBDataInterface',
-        doc='a graph of nodes and edges',
-        quantity='*',
-        groups=[node, edge],
-        attributes=[
-            NWBAttributeSpec(
-                name='name',
-                doc='the name of this apparatus',
-                dtype='text'
-            ),
-            NWBAttributeSpec(
-                name='help',
-                doc='help doc',
-                dtype='text',
-                value='Behavioral Apparatus')
         ]
     )
 
@@ -380,13 +264,13 @@ def main():
             ),
             NWBAttributeSpec(
                 name='units',
-                doc='units of fields, possible value: um or mm',
+                doc='units of fields, acceptable values: um or mm',
                 dtype='text'
             ),
         ]
     )
 
-    new_data_types = [n_trode, probe, apparatus, header_device, associated_files, nwb_electrode_group]
+    new_data_types = [probe, header_device, associated_files, nwb_electrode_group]
 
     # export the spec to yaml files in the spec folder
     output_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'spec'))

@@ -8,13 +8,11 @@ from pynwb.device import Device
 class ShanksElectrode(NWBContainer):
     ''' Representation of ShanksElectrode object in NWB '''
 
-    __nwbfields__ = ('id', 'shanks_electrode')
-
     @docval(
-        {'name': 'name', 'type': str, 'doc': 'id of the shank'},
-        {'name': 'rel_x', 'type': int, 'doc': 'the rel_x value of this electrode'},
-        {'name': 'rel_y', 'type': int, 'doc': 'the rel_y value of this electrode'},
-        {'name': 'rel_z', 'type': int, 'doc': 'the rel_z value of this electrode'},
+        {'name': 'name', 'type': str, 'doc': 'name of the shank'},
+        {'name': 'rel_x', 'type': float, 'doc': 'the rel_x value of this electrode'},
+        {'name': 'rel_y', 'type': float, 'doc': 'the rel_y value of this electrode'},
+        {'name': 'rel_z', 'type': float, 'doc': 'the rel_z value of this electrode'},
     )
     def __init__(self, **kwargs):
         super(ShanksElectrode, self).__init__(name=kwargs['name'])
@@ -28,7 +26,7 @@ class Shank(MultiContainerInterface):
     ''' Representation of Shank object in NWB '''
 
     @docval(
-        {'name': 'name', 'type': str, 'doc': 'id of the shank'},
+        {'name': 'name', 'type': str, 'doc': 'name of the shank'}
     )
     def __init__(self, **kwargs):
         super(Shank, self).__init__(name=kwargs['name'])

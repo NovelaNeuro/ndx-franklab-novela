@@ -33,7 +33,7 @@ class Shank(MultiContainerInterface):
 
     __clsconf__ = [
         {
-            'attr': 'shanks_electrode',
+            'attr': 'shanks_electrodes',
             'type': ShanksElectrode,
             'add': 'add_shanks_electrode',
             'get': 'get_shanks_electrode'

@@ -57,7 +57,13 @@ def main():
         neurodata_type_def='Shank',
         neurodata_type_inc='NWBDataInterface',
         doc='shank in the probe',
-        groups=[shanks_electrode],
+        groups=[
+            NWBGroupSpec(
+                neurodata_type_inc='ShanksElectrode',
+                doc='electrode in the probe',
+                quantity='*'
+            )
+        ],
         attributes=[
             NWBAttributeSpec(
                 name='name',
@@ -71,7 +77,13 @@ def main():
         doc='A custom Probes interface',
         neurodata_type_def='Probe',
         neurodata_type_inc='Device',
-        groups=[shanks],
+        groups=[
+            NWBGroupSpec(
+                neurodata_type_inc='Shank',
+                doc='shank in the probe',
+                quantity='*'
+            )
+        ],
         attributes=[
             NWBAttributeSpec(
                 name='id',
@@ -270,7 +282,7 @@ def main():
         ]
     )
 
-    new_data_types = [probe, header_device, associated_files, nwb_electrode_group]
+    new_data_types = [shanks_electrode, shanks, probe, header_device, associated_files, nwb_electrode_group]
 
     # export the spec to yaml files in the spec folder
     output_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'spec'))

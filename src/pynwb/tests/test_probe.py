@@ -46,13 +46,13 @@ class TestShank(unittest.TestCase):
         self.assertIsInstance(shank, Shank)
 
         self.assertIsInstance(shank.name, str)
-        self.assertIsInstance(shank.shanks_electrode, dict)
-        self.assertIsInstance(shank.shanks_electrode['1'], ShanksElectrode)
-        self.assertIsInstance(shank.shanks_electrode['1'].rel_x, float)
+        self.assertIsInstance(shank.shanks_electrodes, dict)
+        self.assertIsInstance(shank.shanks_electrodes['1'], ShanksElectrode)
+        self.assertIsInstance(shank.shanks_electrodes['1'].rel_x, float)
 
         self.assertEqual(shank.name, '0')
-        self.assertEqual(shank.shanks_electrode, {'1': mock_shanks_electrode_1, '2': mock_shanks_electrode_2})
-        self.assertEqual(shank.shanks_electrode['1'].rel_x, 1.0)
+        self.assertEqual(shank.shanks_electrodes, {'1': mock_shanks_electrode_1, '2': mock_shanks_electrode_2})
+        self.assertEqual(shank.shanks_electrodes['1'].rel_x, 1.0)
 
 
 class TestProbe(unittest.TestCase):

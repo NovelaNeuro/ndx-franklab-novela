@@ -1,4 +1,3 @@
-import unittest
 import os
 
 import pynwb
@@ -8,13 +7,14 @@ from datetime import datetime
 from dateutil.tz import tzlocal
 from pynwb import NWBFile
 from pynwb.device import Device
+from pynwb.testing import TestCase
 
 from src.pynwb.ndx_fl_novela.header_device import HeaderDevice
 from src.pynwb.ndx_fl_novela.nwb_electrode_group import NwbElectrodeGroup
 from src.pynwb.ndx_fl_novela.probe import Probe, Shank, ShanksElectrode
 
 
-class TestNWBFileReading(unittest.TestCase):
+class TestNWBFileReading(TestCase):
 
     def setUp(self):
         start_time = datetime(2017, 4, 3, 11, tzinfo=tzlocal())
@@ -92,8 +92,7 @@ class TestNWBFileReading(unittest.TestCase):
         self.assertTrue(os.path.exists('probe.nwb'))
         with pynwb.NWBHDF5IO('probe.nwb', 'r',  load_namespaces=True) as nwb_file_handler:
             nwb_file = nwb_file_handler.read()
-            self.assertEqual(nwb_file.devices['probe'].name, probe.name)
-            self.assertEqual(nwb_file.devices['probe'].shanks, probe.shanks)
+            self.assertContainerEqual(nwb_file.devices['probe'], probe)
 
         self.delete_nwb('probe')
 

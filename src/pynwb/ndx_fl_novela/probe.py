@@ -26,14 +26,16 @@ class Shank(MultiContainerInterface):
     ''' Representation of Shank object in NWB '''
 
     @docval(
-        {'name': 'name', 'type': str, 'doc': 'name of the shank'}
+        {'name': 'name', 'type': str, 'doc': 'name of the shank'},
+        {'name': 'shanks_electrodes', 'type': (list, tuple), 'doc': 'electrodes in shank', 'default': list()}
     )
     def __init__(self, **kwargs):
         super(Shank, self).__init__(name=kwargs['name'])
+        self.shanks_electrodes = kwargs['shanks_electrodes']
 
     __clsconf__ = [
         {
-            'attr': 'shanks_electrode',
+            'attr': 'shanks_electrodes',
             'type': ShanksElectrode,
             'add': 'add_shanks_electrode',
             'get': 'get_shanks_electrode'
@@ -53,6 +55,7 @@ class Probe(Device, MultiContainerInterface):
             {'name': 'num_shanks', 'type': 'int', 'doc': 'number of shanks associated with probe'},
             {'name': 'contact_side_numbering', 'type': 'bool', 'doc': 'is contact_side_numbering enabled'},
             {'name': 'contact_size', 'type': 'float', 'doc': 'value of contact size as float'},
+            {'name': 'shanks', 'type': (list, tuple), 'doc': 'shanks in probe', 'default': list()}
     ))
     def __init__(self, **kwargs):
         super().__init__(**{kwargs_item: kwargs[kwargs_item]
@@ -64,6 +67,7 @@ class Probe(Device, MultiContainerInterface):
                             if kwargs_item != 'num_shanks'
                             if kwargs_item != 'contact_side_numbering'
                             if kwargs_item != 'contact_size'
+                            if kwargs_item != 'shanks'
                             })
         call_docval_func(super(Probe, self).__init__, kwargs)
         self.id = kwargs['id']
@@ -73,6 +77,7 @@ class Probe(Device, MultiContainerInterface):
         self.num_shanks = kwargs['num_shanks']
         self.contact_side_numbering = kwargs['contact_side_numbering']
         self.contact_size = kwargs['contact_size']
+        self.shanks = kwargs['shanks']
 
     __nwbfields__ = ('id', 'probe_type', 'units', 'probe_description', 'num_shanks', 'contact_side_numbering',
                      'contact_size')
@@ -85,4 +90,3 @@ class Probe(Device, MultiContainerInterface):
             'get': 'get_shank'
         }
     ]
-

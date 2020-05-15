@@ -1,4 +1,3 @@
-import unittest
 import os
 
 import pynwb
@@ -8,13 +7,14 @@ from datetime import datetime
 from dateutil.tz import tzlocal
 from pynwb import NWBFile
 from pynwb.device import Device
+from pynwb.testing import TestCase
 
 from src.pynwb.ndx_fl_novela.header_device import HeaderDevice
 from src.pynwb.ndx_fl_novela.nwb_electrode_group import NwbElectrodeGroup
 from src.pynwb.ndx_fl_novela.probe import Probe, Shank, ShanksElectrode
 
 
-class TestNWBFileReading(unittest.TestCase):
+class TestNWBFileReading(TestCase):
 
     def setUp(self):
         start_time = datetime(2017, 4, 3, 11, tzinfo=tzlocal())
@@ -52,14 +52,16 @@ class TestNWBFileReading(unittest.TestCase):
         )
 
         self.nwb_file_content.add_device(header_device)
-        nwb_file_handler = NWBHDF5IO('test.nwb', mode='w')
+        nwb_file_handler = NWBHDF5IO('header_device.nwb', mode='w')
         nwb_file_handler.write(self.nwb_file_content)
         nwb_file_handler.close()
 
-        self.assertTrue(os.path.exists('test.nwb'))
-        with pynwb.NWBHDF5IO('test.nwb', 'r') as nwb_file_handler:
+        self.assertTrue(os.path.exists('header_device.nwb'))
+        with pynwb.NWBHDF5IO('header_device.nwb', 'r') as nwb_file_handler:
             nwb_file = nwb_file_handler.read()
             self.assertEqual(nwb_file.devices['header_device'].commit_head, header_device.commit_head)
+
+        self.delete_nwb('header_device')
 
     def test_read_nwb_probe_successfully(self):
         shanks_electrode = ShanksElectrode(
@@ -83,15 +85,16 @@ class TestNWBFileReading(unittest.TestCase):
         probe.add_shank(shank)
         self.nwb_file_content.add_device(probe)
 
-        nwb_file_handler = NWBHDF5IO('test.nwb', mode='w')
+        nwb_file_handler = NWBHDF5IO('probe.nwb', mode='w')
         nwb_file_handler.write(self.nwb_file_content)
         nwb_file_handler.close()
 
-        self.assertTrue(os.path.exists('test.nwb'))
-        with pynwb.NWBHDF5IO('test.nwb', 'r',  load_namespaces=True) as nwb_file_handler:
+        self.assertTrue(os.path.exists('probe.nwb'))
+        with pynwb.NWBHDF5IO('probe.nwb', 'r',  load_namespaces=True) as nwb_file_handler:
             nwb_file = nwb_file_handler.read()
-            self.assertEqual(nwb_file.devices['probe'].name, probe.name)
-            # self.assertEqual(nwb_file.devices['probe'].shanks, probe.shanks)
+            self.assertContainerEqual(nwb_file.devices['probe'], probe)
+
+        self.delete_nwb('probe')
 
     def test_read_nwb_nwb_electrode_group_successfully(self):
         device = Device('device_0')
@@ -109,16 +112,19 @@ class TestNWBFileReading(unittest.TestCase):
         )
 
         self.nwb_file_content.add_electrode_group(nwb_electrode_group)
-        nwb_file_handler = NWBHDF5IO('test.nwb', mode='w')
+        nwb_file_handler = NWBHDF5IO('nwb_electrode_group.nwb', mode='w')
         nwb_file_handler.write(self.nwb_file_content)
         nwb_file_handler.close()
 
-        self.assertTrue(os.path.exists('test.nwb'))
-        with pynwb.NWBHDF5IO('test.nwb', 'r') as nwb_file_handler:
+        self.assertTrue(os.path.exists('nwb_electrode_group.nwb'))
+        with pynwb.NWBHDF5IO('nwb_electrode_group.nwb', 'r') as nwb_file_handler:
             nwb_file = nwb_file_handler.read()
             self.assertEqual(nwb_file.electrode_groups['nwb_electrode_group_0'].name, nwb_electrode_group.name)
             self.assertEqual(nwb_file.electrode_groups['nwb_electrode_group_0'].targeted_location,
                              nwb_electrode_group.targeted_location)
 
-    def tearDown(self):
-        os.remove('test.nwb')
+        self.delete_nwb('nwb_electrode_group')
+
+    @staticmethod
+    def delete_nwb(filename):
+        os.remove(filename + '.nwb')

@@ -1,58 +1,58 @@
 import unittest
 from unittest.mock import Mock
 
-from src.pynwb.ndx_fl_novela.probe import Probe, ShanksElectrode, Shank
+from src.pynwb.ndx_fl_novela.probe import Probe, Electrode, Shank
 
 
-class TestShanksElectrode(unittest.TestCase):
+class TestElectrode(unittest.TestCase):
     
-    def test_shanks_electrode_successfully_created(self):
-        shanks_electrode = ShanksElectrode(
+    def test_electrode_successfully_created(self):
+        electrode = Electrode(
             name='0',
             rel_x=1.0,
             rel_y=2.0,
             rel_z=3.0
         )
 
-        self.assertIsInstance(shanks_electrode, ShanksElectrode)
+        self.assertIsInstance(electrode, Electrode)
 
-        self.assertIsInstance(shanks_electrode.name, str)
-        self.assertIsInstance(shanks_electrode.rel_x, float)
-        self.assertIsInstance(shanks_electrode.rel_y, float)
-        self.assertIsInstance(shanks_electrode.rel_z, float)
+        self.assertIsInstance(electrode.name, str)
+        self.assertIsInstance(electrode.rel_x, float)
+        self.assertIsInstance(electrode.rel_y, float)
+        self.assertIsInstance(electrode.rel_z, float)
 
-        self.assertEqual(shanks_electrode.name, '0')
-        self.assertEqual(shanks_electrode.rel_x, 1.0)
+        self.assertEqual(electrode.name, '0')
+        self.assertEqual(electrode.rel_x, 1.0)
 
 
 class TestShank(unittest.TestCase):
 
-    def test_shanks_electrode_successfully_created(self):
+    def test_electrode_successfully_created(self):
 
-        mock_shanks_electrode_1 = Mock(spec=ShanksElectrode)
-        mock_shanks_electrode_1.name = '1'
-        mock_shanks_electrode_1.rel_x = 1.0
-        mock_shanks_electrode_2 = Mock(spec=ShanksElectrode)
-        mock_shanks_electrode_2.name = '2'
-        mock_shanks_electrode_2.rel_x = 2.0
+        mock_electrode_1 = Mock(spec=Electrode)
+        mock_electrode_1.name = '1'
+        mock_electrode_1.rel_x = 1.0
+        mock_electrode_2 = Mock(spec=Electrode)
+        mock_electrode_2.name = '2'
+        mock_electrode_2.rel_x = 2.0
 
         shank = Shank(
             name='0',
         )
 
-        shank.add_shanks_electrode(mock_shanks_electrode_1)
-        shank.add_shanks_electrode(mock_shanks_electrode_2)
+        shank.add_electrode(mock_electrode_1)
+        shank.add_electrode(mock_electrode_2)
 
         self.assertIsInstance(shank, Shank)
 
         self.assertIsInstance(shank.name, str)
-        self.assertIsInstance(shank.shanks_electrodes, dict)
-        self.assertIsInstance(shank.shanks_electrodes['1'], ShanksElectrode)
-        self.assertIsInstance(shank.shanks_electrodes['1'].rel_x, float)
+        self.assertIsInstance(shank.electrodes, dict)
+        self.assertIsInstance(shank.electrodes['1'], Electrode)
+        self.assertIsInstance(shank.electrodes['1'].rel_x, float)
 
         self.assertEqual(shank.name, '0')
-        self.assertEqual(shank.shanks_electrodes, {'1': mock_shanks_electrode_1, '2': mock_shanks_electrode_2})
-        self.assertEqual(shank.shanks_electrodes['1'].rel_x, 1.0)
+        self.assertEqual(shank.electrodes, {'1': mock_electrode_1, '2': mock_electrode_2})
+        self.assertEqual(shank.electrodes['1'].rel_x, 1.0)
 
 
 class TestProbe(unittest.TestCase):

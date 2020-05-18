@@ -11,7 +11,7 @@ from pynwb.testing import TestCase
 
 from src.pynwb.ndx_fl_novela.header_device import HeaderDevice
 from src.pynwb.ndx_fl_novela.nwb_electrode_group import NwbElectrodeGroup
-from src.pynwb.ndx_fl_novela.probe import Probe, Shank, ShanksElectrode
+from src.pynwb.ndx_fl_novela.probe import Probe, Shank, Electrode
 
 
 class TestNWBFileReading(TestCase):
@@ -64,14 +64,14 @@ class TestNWBFileReading(TestCase):
         self.delete_nwb('header_device')
 
     def test_read_nwb_probe_successfully(self):
-        shanks_electrode = ShanksElectrode(
-            name='electrode_shank',
+        electrode = Electrode(
+            name='electrode',
             rel_x=1.0,
             rel_y=2.0,
             rel_z=3.0
         )
         shank = Shank(name='shank')
-        shank.add_shanks_electrode(shanks_electrode)
+        shank.add_electrode(electrode)
         probe = Probe(
             name='probe',
             units='mm',

@@ -4,9 +4,9 @@ from pynwb.core import NWBDataInterface, MultiContainerInterface
 from pynwb.device import Device
 
 
-@register_class('ShanksElectrode', 'ndx-fl-novela')
-class ShanksElectrode(NWBContainer):
-    ''' Representation of ShanksElectrode object in NWB '''
+@register_class('Electrode', 'ndx-fl-novela')
+class Electrode(NWBContainer):
+    ''' Representation of custom Electrode object in NWB '''
 
     @docval(
         {'name': 'name', 'type': str, 'doc': 'name of the shank'},
@@ -15,7 +15,7 @@ class ShanksElectrode(NWBContainer):
         {'name': 'rel_z', 'type': float, 'doc': 'the rel_z value of this electrode'},
     )
     def __init__(self, **kwargs):
-        super(ShanksElectrode, self).__init__(name=kwargs['name'])
+        super(Electrode, self).__init__(name=kwargs['name'])
         self.rel_x = kwargs['rel_x']
         self.rel_y = kwargs['rel_y']
         self.rel_z = kwargs['rel_z']
@@ -27,18 +27,18 @@ class Shank(MultiContainerInterface):
 
     @docval(
         {'name': 'name', 'type': str, 'doc': 'name of the shank'},
-        {'name': 'shanks_electrodes', 'type': (list, tuple), 'doc': 'electrodes in shank', 'default': list()}
+        {'name': 'electrode', 'type': (list, tuple), 'doc': 'electrodes in shank', 'default': list()}
     )
     def __init__(self, **kwargs):
         super(Shank, self).__init__(name=kwargs['name'])
-        self.shanks_electrodes = kwargs['shanks_electrodes']
+        self.electrodes = kwargs['electrode']
 
     __clsconf__ = [
         {
-            'attr': 'shanks_electrodes',
-            'type': ShanksElectrode,
-            'add': 'add_shanks_electrode',
-            'get': 'get_shanks_electrode'
+            'attr': 'electrodes',
+            'type': Electrode,
+            'add': 'add_electrode',
+            'get': 'get_electrode'
         }
     ]
 

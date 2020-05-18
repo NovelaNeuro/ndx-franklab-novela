@@ -1,5 +1,5 @@
 groups:
-- neurodata_type_def: ShanksElectrode
+- neurodata_type_def: Electrode
   neurodata_type_inc: NWBDataInterface
   doc: electrode in the probe
   attributes:
@@ -23,7 +23,7 @@ groups:
     dtype: text
     doc: name of the shank
   groups:
-  - neurodata_type_inc: ShanksElectrode
+  - neurodata_type_inc: Electrode
     doc: electrode in the probe
     quantity: '*'
 - neurodata_type_def: Probe

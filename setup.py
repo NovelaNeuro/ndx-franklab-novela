@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-version = "0.0.003"
+version = "0.0.004"
 print(version)
 
 import os
@@ -23,7 +23,7 @@ except:
     readme = ""
 
 setup_args = {
-    'name': 'ndx-fl-novela',
+    'name': 'ndx-franklab-novela',
     'version': version,
     'description': 'NovelaNeurotechnologies Namespaces',
     'long_description': readme,

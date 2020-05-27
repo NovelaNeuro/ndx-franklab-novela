@@ -3,7 +3,7 @@ from pynwb import register_class
 from pynwb.core import NWBDataInterface
 
 
-@register_class('AssociatedFiles', 'ndx-fl-novela')
+@register_class('AssociatedFiles', 'ndx-franklab-novela')
 class AssociatedFiles(NWBDataInterface):
     """ Representation of associated files in NWB """
     __nwbfields__ = ('description', 'content')

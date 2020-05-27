@@ -4,7 +4,7 @@ from pynwb import register_class
 from pynwb.ecephys import ElectrodeGroup
 
 
-@register_class('NwbElectrodeGroup', 'ndx-fl-novela')
+@register_class('NwbElectrodeGroup', 'ndx-franklab-novela')
 class NwbElectrodeGroup(ElectrodeGroup):
     ''' Representation of custom ElectrodeGroup object in NWB '''
 

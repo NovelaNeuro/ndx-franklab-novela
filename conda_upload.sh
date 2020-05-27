@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export PKG_NAME=ndx-fl-novela
+export PKG_NAME=ndx-franklab-novela
 export VERSION=$(python setup.py)
 export ANACONDA_API_TOKEN=$CONDA_UPLOAD_TOKEN
 export CONDA_BUILD_PATH=/home/travis/miniconda/envs/test-environment/conda-bld

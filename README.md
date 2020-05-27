@@ -5,6 +5,13 @@ ndx-franklab-novela is a python package containing NWB custom extensions.
 
 # Extensions
 
+### AssociatedFiles
+Files stored inside nwb, represented by its name, description, and content as text. <br>
+**Attributes:** <br>
+**name**  `string`: name of this file<br>
+**description**  `string`:description what this file is <br>
+**content**  `string`:content of file as a raw text <br>
+
 ### Edge
 An undirected edge connecting two nodes in a graph. <br>
 **Attributes:** <br>

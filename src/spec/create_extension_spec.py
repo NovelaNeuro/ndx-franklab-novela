@@ -9,8 +9,8 @@ def main():
     # these arguments were auto-generated from your cookiecutter inputs
     ns_builder = NWBNamespaceBuilder(
         doc="""NovelaNeurotechnologies Namespaces""",
-        name="""ndx-fl-novela""",
-        version="""0.0.003""",
+        name="""ndx-franklab-novela""",
+        version="""0.0.004""",
         author=list(map(str.strip, """NovelaDevops""".split(','))),
         contact=list(map(str.strip, """devops@novelaneuro.com""".split(',')))
     )

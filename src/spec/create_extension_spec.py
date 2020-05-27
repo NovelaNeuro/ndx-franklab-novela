@@ -10,7 +10,7 @@ def main():
     ns_builder = NWBNamespaceBuilder(
         doc="""NovelaNeurotechnologies Namespaces""",
         name="""ndx-franklab-novela""",
-        version="""0.0.001""",
+        version="""0.0.004""",
         author=list(map(str.strip, """NovelaDevops""".split(','))),
         contact=list(map(str.strip, """devops@novelaneuro.com""".split(',')))
     )

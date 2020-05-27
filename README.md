@@ -5,25 +5,11 @@ ndx-franklab-novela is a python package containing NWB custom extensions.
 
 # Extensions
 
-### Edge
-An undirected edge connecting two nodes in a graph. <br>
+### AssociatedFiles
+Representation of associated files in NWB <br>
 **Attributes:** <br>
-**name**  `string`: name of this segement node <br>
-**edge_nodes**  `array_data`, `data`: the names of the two nodes in this undirected edge' <br>
-
-#### Node
-A generic graph node. Subclass for more specific types of nodes. <br>
-**Attributes:** <br>
-    **name**  `string`: name of this node <br>
-    **value**  `int`: value of this node' <br>
-
-#### Apparatus
-Topological graph representing connected components of a behavioral apparatus. <br>
-**Attributes:** <br>
-    **name**  `string`: name of apparatus <br>
-    **nodes**  `list`: Node objects contained in this apparatus <br>
-    **edges**  `list`: Edge objects contained in this apparatus <br>
-
+    **description**  `string`: description of associated file <br>
+    **content**  `string`: content of associated file <br>
 
 #### HeaderDevice
 Representation of HeaderDevice in NWB. <br>
@@ -49,14 +35,20 @@ Representation of HeaderDevice in NWB. <br>
     **system_time_at_creation**  `string`: system_time_at_creation from header global configuration <br>
     **file_path**  `string`: file_path from header global configuration <br>
 
-#### NTrode
-Representation of NTrode object in NWB <br>
+#### ShanksElectrode
+Representation of ShanksElectrode object in NWB <br>
 **Attributes:** <br>
-    **ntrode_id**  `int`: id of electrode group <br>
-    **electrode_group_id**  `int`: id of electrode group<br>
-    **bad_channels**  `array_data`: ids of bad channel <br>
-    **map**  `array_data`: map of ntrode <br>
-    
+    **name**  `string`: name of the shank <br>
+    **rel_x**  `float`: the rel_x value of this electrode <br>
+    **rel_y**  `float`: the rel_y value of this electrode <br>
+    **rel_z**  `float`: the rel_z value of this electrode of p
+
+#### Shank
+Representation of Shank object in NWB <br>
+**Attributes:** <br>
+    **name**  `string`: name of the shank <br>
+    **shanks_electrodes**  `list`,`tuple`:  'electrodes in shank', 'default': list() <br>
+
 #### Probe
 Representation of Probe object in NWB <br>
 **Attributes:** <br>

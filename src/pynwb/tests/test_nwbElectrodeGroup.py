@@ -3,7 +3,7 @@ from unittest.mock import Mock
 
 from pynwb.device import Device
 
-from src.pynwb.ndx_fl_novela.nwb_electrode_group import NwbElectrodeGroup
+from src.pynwb.ndx_franklab_novela.nwb_electrode_group import NwbElectrodeGroup
 
 
 class TestNwbElectrodeGroup(unittest.TestCase):

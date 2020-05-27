@@ -9,9 +9,9 @@ from pynwb import NWBFile
 from pynwb.device import Device
 from pynwb.testing import TestCase
 
-from src.pynwb.ndx_fl_novela.header_device import HeaderDevice
-from src.pynwb.ndx_fl_novela.nwb_electrode_group import NwbElectrodeGroup
-from src.pynwb.ndx_fl_novela.probe import Probe, Shank, ShanksElectrode
+from src.pynwb.ndx_franklab_novela.header_device import HeaderDevice
+from src.pynwb.ndx_franklab_novela.nwb_electrode_group import NwbElectrodeGroup
+from src.pynwb.ndx_franklab_novela.probe import Probe, Shank, ShanksElectrode
 
 
 class TestNWBFileReading(TestCase):

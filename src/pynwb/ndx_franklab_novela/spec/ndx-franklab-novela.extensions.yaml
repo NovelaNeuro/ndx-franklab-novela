@@ -42,9 +42,6 @@ groups:
   - name: probe_description
     dtype: text
     doc: description of the probe
-  - name: num_shanks
-    dtype: int
-    doc: number of shanks in probe
   - name: contact_side_numbering
     dtype: bool
     doc: is contact_side_numbering enabled

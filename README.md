@@ -56,7 +56,6 @@ Representation of Probe object in NWB <br>
     **probe_type**  `string`: type of probe <br>
     **units**  `string`: units in device <br>
     **probe_description**  `string`: probe_description of probe <br>
-    **num_shanks**  `int`: number of shanks associated with probe <br>
     **contact_side_numbering**  `bool`: is contact_side_numbering enabled <br>
     **contact_size**  `float`: value of contact size as float <br>
     **shanks**  `object`: shanks in the probe <br>

@@ -106,11 +106,6 @@ def main():
                 dtype='text'
             ),
             NWBAttributeSpec(
-                name='num_shanks',
-                doc='number of shanks in probe',
-                dtype='int'
-            ),
-            NWBAttributeSpec(
                 name='contact_side_numbering',
                 doc='is contact_side_numbering enabled',
                 dtype='bool'

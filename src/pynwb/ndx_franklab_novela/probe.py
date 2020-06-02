@@ -52,7 +52,6 @@ class Probe(Device, MultiContainerInterface):
             {'name': 'probe_type', 'type': 'str', 'doc': 'type of probe'},
             {'name': 'units', 'type': 'str', 'doc': 'units in device'},
             {'name': 'probe_description', 'type': 'str', 'doc': 'description of the probe'},
-            {'name': 'num_shanks', 'type': 'int', 'doc': 'number of shanks associated with probe'},
             {'name': 'contact_side_numbering', 'type': 'bool', 'doc': 'is contact_side_numbering enabled'},
             {'name': 'contact_size', 'type': 'float', 'doc': 'value of contact size as float'},
             {'name': 'shanks', 'type': (list, tuple), 'doc': 'shanks in probe', 'default': list()}
@@ -64,7 +63,6 @@ class Probe(Device, MultiContainerInterface):
                             if kwargs_item != 'probe_type'
                             if kwargs_item != 'units'
                             if kwargs_item != 'probe_description'
-                            if kwargs_item != 'num_shanks'
                             if kwargs_item != 'contact_side_numbering'
                             if kwargs_item != 'contact_size'
                             if kwargs_item != 'shanks'
@@ -74,12 +72,11 @@ class Probe(Device, MultiContainerInterface):
         self.probe_type = kwargs['probe_type']
         self.units = kwargs['units']
         self.probe_description = kwargs['probe_description']
-        self.num_shanks = kwargs['num_shanks']
         self.contact_side_numbering = kwargs['contact_side_numbering']
         self.contact_size = kwargs['contact_size']
         self.shanks = kwargs['shanks']
 
-    __nwbfields__ = ('id', 'probe_type', 'units', 'probe_description', 'num_shanks', 'contact_side_numbering',
+    __nwbfields__ = ('id', 'probe_type', 'units', 'probe_description', 'contact_side_numbering',
                      'contact_size')
 
     __clsconf__ = [

@@ -67,7 +67,6 @@ class TestProbe(unittest.TestCase):
             probe_type='type_1',
             units='um',
             probe_description='sample description',
-            num_shanks=2,
             contact_side_numbering=True,
             contact_size=1.0,
         )
@@ -81,7 +80,6 @@ class TestProbe(unittest.TestCase):
         self.assertIsInstance(probe.probe_type, str)
         self.assertIsInstance(probe.units, str)
         self.assertIsInstance(probe.probe_description, str)
-        self.assertIsInstance(probe.num_shanks, int)
         self.assertIsInstance(probe.contact_side_numbering, bool)
         self.assertIsInstance(probe.contact_size, float)
         self.assertIsInstance(probe.shanks, dict)
@@ -91,7 +89,6 @@ class TestProbe(unittest.TestCase):
         self.assertEqual(probe.probe_type, 'type_1')
         self.assertEqual(probe.units, 'um')
         self.assertEqual(probe.probe_description, 'sample description')
-        self.assertEqual(probe.num_shanks, 2)
         self.assertEqual(probe.contact_side_numbering, True)
         self.assertEqual(probe.contact_size, 1.0)
         self.assertEqual(probe.shanks, {

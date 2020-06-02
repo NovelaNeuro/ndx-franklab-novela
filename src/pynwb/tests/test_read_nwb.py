@@ -78,7 +78,6 @@ class TestNWBFileReading(TestCase):
             id=1,
             probe_type='type_1',
             probe_description='2',
-            num_shanks=3,
             contact_size=1.0,
             contact_side_numbering=False
         )

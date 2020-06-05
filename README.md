@@ -60,4 +60,12 @@ Representation of Probe object in NWB <br>
     **contact_size**  `float`: value of contact size as float <br>
     **shanks**  `object`: shanks in the probe <br>
 
+#### DataAcqDevice
+Representation of DataAcqDevice object in NWB <br>
+**Attributes:** <br>
+    **system**  `string`: system of device <br>
+    **amplifier**  `string`: amplifier (default: '') <br>
+    **adc_circuit**  `string`: adc_circuit (default: '') <br>
+
+
 This extension was created using [ndx-template](https://github.com/nwb-extensions/ndx-template).

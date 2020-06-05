@@ -52,6 +52,19 @@ groups:
   - neurodata_type_inc: Shank
     doc: shank in the probe
     quantity: '*'
+- neurodata_type_def: DataAcqDevice
+  neurodata_type_inc: Device
+  doc: A custom Device interface
+  attributes:
+  - name: system
+    dtype: text
+    doc: system of device
+  - name: amplifier
+    dtype: text
+    doc: amplifier
+  - name: adc_circuit
+    dtype: text
+    doc: adc_circuit
 - neurodata_type_def: HeaderDevice
   neurodata_type_inc: Device
   doc: metadata from global configuration from header

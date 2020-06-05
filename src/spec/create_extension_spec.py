@@ -118,6 +118,29 @@ def main():
         ]
     )
 
+    data_acq_device = NWBGroupSpec(
+        doc='A custom Device interface',
+        neurodata_type_def='DataAcqDevice',
+        neurodata_type_inc='Device',
+        attributes=[
+            NWBAttributeSpec(
+                name='system',
+                doc='system of device',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='amplifier',
+                doc='amplifier',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='adc_circuit',
+                doc='adc_circuit',
+                dtype='text'
+            ),
+        ]
+    )
+
     associated_files = NWBGroupSpec(
         neurodata_type_def='AssociatedFiles',
         neurodata_type_inc='NWBDataInterface',
@@ -277,7 +300,9 @@ def main():
         ]
     )
 
-    new_data_types = [shanks_electrode, shanks, probe, header_device, associated_files, nwb_electrode_group]
+    new_data_types = [
+        shanks_electrode, shanks, probe, data_acq_device, header_device, associated_files, nwb_electrode_group
+    ]
 
     # export the spec to yaml files in the spec folder
     output_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'spec'))

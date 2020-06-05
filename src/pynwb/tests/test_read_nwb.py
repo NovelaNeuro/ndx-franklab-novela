@@ -9,6 +9,7 @@ from pynwb import NWBFile
 from pynwb.device import Device
 from pynwb.testing import TestCase
 
+from src.pynwb.ndx_franklab_novela.data_acq_device import DataAcqDevice
 from src.pynwb.ndx_franklab_novela.header_device import HeaderDevice
 from src.pynwb.ndx_franklab_novela.nwb_electrode_group import NwbElectrodeGroup
 from src.pynwb.ndx_franklab_novela.probe import Probe, Shank, ShanksElectrode
@@ -94,6 +95,26 @@ class TestNWBFileReading(TestCase):
             self.assertContainerEqual(nwb_file.devices['probe'], probe)
 
         self.delete_nwb('probe')
+
+    def test_read_nwb_data_acq_device_successfully(self):
+        data_acq_device = DataAcqDevice(
+            name='DataAcqDevice1',
+            system='System1',
+            amplifier='Amplifier1',
+            adc_circuit='adc_circuit1'
+        )
+        self.nwb_file_content.add_device(data_acq_device)
+
+        nwb_file_handler = NWBHDF5IO('data_acq_device.nwb', mode='w')
+        nwb_file_handler.write(self.nwb_file_content)
+        nwb_file_handler.close()
+
+        self.assertTrue(os.path.exists('data_acq_device.nwb'))
+        with pynwb.NWBHDF5IO('data_acq_device.nwb', 'r',  load_namespaces=True) as nwb_file_handler:
+            nwb_file = nwb_file_handler.read()
+            self.assertContainerEqual(nwb_file.devices['DataAcqDevice1'], data_acq_device)
+
+        self.delete_nwb('data_acq_device')
 
     def test_read_nwb_nwb_electrode_group_successfully(self):
         device = Device('device_0')

@@ -12,4 +12,4 @@ namespaces:
     - Device
     - NWBDataInterface
   - source: ndx-franklab-novela.extensions.yaml
-  version: 0.0.004
+  version: 0.0.005

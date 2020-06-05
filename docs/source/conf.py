@@ -22,7 +22,7 @@ copyright = '2020, NovelaDevops'
 author = 'NovelaDevops'
 
 # The short X.Y version
-version = '0.0.005'
+version = '0.0.006'
 
 # The full version, including alpha/beta/rc tags
 release = 'alpha'

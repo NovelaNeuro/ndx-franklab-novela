@@ -67,5 +67,9 @@ Representation of DataAcqDevice object in NWB <br>
     **amplifier**  `string`: amplifier (default: '') <br>
     **adc_circuit**  `string`: adc_circuit (default: '') <br>
 
+#### CameraDevice
+Representation of CameraDevice object in NWB <br>
+**Attributes:** <br>
+    **meters_per_pixel**  `float`: meter per pixel <br>
 
 This extension was created using [ndx-template](https://github.com/nwb-extensions/ndx-template).

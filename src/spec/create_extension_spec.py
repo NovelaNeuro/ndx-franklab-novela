@@ -147,8 +147,8 @@ def main():
         doc='A custom Device interface',
         attributes=[
             NWBAttributeSpec(
-                name='meter_per_pixel',
-                doc='meter per pixel',
+                name='meters_per_pixel',
+                doc='meters per pixel',
                 dtype='float'
             ),
         ]

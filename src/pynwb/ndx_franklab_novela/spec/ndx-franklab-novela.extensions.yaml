@@ -69,9 +69,9 @@ groups:
   neurodata_type_inc: Device
   doc: A custom Device interface
   attributes:
-  - name: meter_per_pixel
+  - name: meters_per_pixel
     dtype: float
-    doc: meter per pixel
+    doc: meters per pixel
 - neurodata_type_def: HeaderDevice
   neurodata_type_inc: Device
   doc: metadata from global configuration from header

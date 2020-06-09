@@ -9,8 +9,8 @@ class TestCameraDevice(TestCase):
 
         cam_1 = CameraDevice(
             name='1',
-            meter_per_pixel=0.20
+            meters_per_pixel=0.20
         )
 
         self.assertEqual(cam_1.name, '1')
-        self.assertEqual(cam_1.meter_per_pixel, 0.20)
+        self.assertEqual(cam_1.meters_per_pixel, 0.20)

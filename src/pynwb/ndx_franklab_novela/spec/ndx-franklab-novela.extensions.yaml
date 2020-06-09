@@ -65,6 +65,13 @@ groups:
   - name: adc_circuit
     dtype: text
     doc: adc_circuit
+- neurodata_type_def: CameraDevice
+  neurodata_type_inc: Device
+  doc: A custom Device interface
+  attributes:
+  - name: meters_per_pixel
+    dtype: float
+    doc: meters per pixel
 - neurodata_type_def: HeaderDevice
   neurodata_type_inc: Device
   doc: metadata from global configuration from header

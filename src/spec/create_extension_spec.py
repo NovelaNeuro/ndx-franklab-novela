@@ -141,6 +141,19 @@ def main():
         ]
     )
 
+    camera_device = NWBGroupSpec(
+        neurodata_type_def='CameraDevice',
+        neurodata_type_inc='Device',
+        doc='A custom Device interface',
+        attributes=[
+            NWBAttributeSpec(
+                name='meters_per_pixel',
+                doc='meters per pixel',
+                dtype='float'
+            ),
+        ]
+    )
+
     associated_files = NWBGroupSpec(
         neurodata_type_def='AssociatedFiles',
         neurodata_type_inc='NWBDataInterface',
@@ -301,7 +314,7 @@ def main():
     )
 
     new_data_types = [
-        shanks_electrode, shanks, probe, data_acq_device, header_device, associated_files, nwb_electrode_group
+        shanks_electrode, shanks, probe, data_acq_device, camera_device, header_device, associated_files, nwb_electrode_group
     ]
 
     # export the spec to yaml files in the spec folder

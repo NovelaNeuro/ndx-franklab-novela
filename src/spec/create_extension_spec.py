@@ -21,6 +21,7 @@ def main():
     ns_builder.include_type('ElectrodeGroup', namespace='core')
     ns_builder.include_type('Device', namespace='core')
     ns_builder.include_type('NWBDataInterface', namespace='core')
+    ns_builder.include_type('ImageSeries', namespace='core')
 
     # see https://pynwb.readthedocs.io/en/latest/extensions.html#extending-nwb
     # for more information
@@ -172,6 +173,19 @@ def main():
         ]
     )
 
+    nwb_image_series = NWBGroupSpec(
+        neurodata_type_def='NwbImageSeries',
+        neurodata_type_inc='ImageSeries',
+        doc='Extension of ImageSeries object in NWB',
+        groups=[
+            NWBGroupSpec(
+                neurodata_type_inc='Device',
+                doc='devices used to record video',
+                quantity='*'
+            )
+        ],
+    )
+
     header_device = NWBGroupSpec(
         doc='metadata from global configuration from header',
         neurodata_type_def='HeaderDevice',
@@ -314,7 +328,7 @@ def main():
     )
 
     new_data_types = [
-        shanks_electrode, shanks, probe, data_acq_device, camera_device, header_device, associated_files, nwb_electrode_group
+        shanks_electrode, shanks, probe, data_acq_device, camera_device, nwb_image_series, header_device, associated_files, nwb_electrode_group
     ]
 
     # export the spec to yaml files in the spec folder

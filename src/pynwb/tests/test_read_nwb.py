@@ -1,17 +1,21 @@
 import os
+from unittest.mock import Mock
 
 import pynwb
-from pynwb import NWBHDF5IO
+from pynwb import NWBHDF5IO, ProcessingModule
 
 from datetime import datetime
 from dateutil.tz import tzlocal
 from pynwb import NWBFile
+from pynwb.behavior import BehavioralTimeSeries
 from pynwb.device import Device
 from pynwb.testing import TestCase
 
+from src.pynwb.ndx_franklab_novela.camera_device import CameraDevice
 from src.pynwb.ndx_franklab_novela.data_acq_device import DataAcqDevice
 from src.pynwb.ndx_franklab_novela.header_device import HeaderDevice
 from src.pynwb.ndx_franklab_novela.nwb_electrode_group import NwbElectrodeGroup
+from src.pynwb.ndx_franklab_novela.nwb_image_series import NwbImageSeries
 from src.pynwb.ndx_franklab_novela.probe import Probe, Shank, ShanksElectrode
 
 
@@ -115,6 +119,54 @@ class TestNWBFileReading(TestCase):
             self.assertContainerEqual(nwb_file.devices['DataAcqDevice1'], data_acq_device)
 
         self.delete_nwb('data_acq_device')
+
+    def test_read_nwb_camera_device_successfully(self):
+        camera_device = CameraDevice(
+            name='CameraDevice1',
+            meters_per_pixel=0.20
+        )
+        self.nwb_file_content.add_device(camera_device)
+
+        nwb_file_handler = NWBHDF5IO('camera_device.nwb', mode='w')
+        nwb_file_handler.write(self.nwb_file_content)
+        nwb_file_handler.close()
+
+        self.assertTrue(os.path.exists('camera_device.nwb'))
+        with pynwb.NWBHDF5IO('camera_device.nwb', 'r',  load_namespaces=True) as nwb_file_handler:
+            nwb_file = nwb_file_handler.read()
+            self.assertContainerEqual(nwb_file.devices['CameraDevice1'], camera_device)
+
+        self.delete_nwb('camera_device')
+
+    def test_read_nwb_nwb_image_series_successfully(self):
+        mock_device_1 = Mock(spec=Device)
+        mock_device_2 = Mock(spec=Device)
+        mock_timestamps = [1, 2, 3]
+        mock_external_file = []
+
+        nwb_image_series = NwbImageSeries(
+            name='NwbImageSeries1',
+            timestamps=mock_timestamps,
+            external_file=mock_external_file,
+            devices=[mock_device_1, mock_device_2]
+        )
+        behavioral_time_series = BehavioralTimeSeries(name="ImageSeries")
+        behavioral_time_series.add_timeseries(nwb_image_series)
+        processing_module = ProcessingModule(name='PM_ImageSeries', description='')
+        self.nwb_file_content.add_processing_module(processing_module)
+        self.nwb_file_content.processing['PM_ImageSeries'].add(behavioral_time_series)
+
+        nwb_file_handler = NWBHDF5IO('nwb_image_series.nwb', mode='w')
+        nwb_file_handler.write(self.nwb_file_content)
+        # nwb_file_handler.close()
+        #
+        # self.assertTrue(os.path.exists('nwb_image_series.nwb'))
+        # with pynwb.NWBHDF5IO('nwb_image_series.nwb', 'r',  load_namespaces=True) as nwb_file_handler:
+        #     nwb_file = nwb_file_handler.read()
+        #     print(nwb_file.processing['PM_ImageSeries'])
+        #     self.assertContainerEqual(nwb_file.processing['PM_ImageSeries'], nwb_image_series)
+        #
+        # self.delete_nwb('nwb_image_series')
 
     def test_read_nwb_nwb_electrode_group_successfully(self):
         device = Device('device_0')

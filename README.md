@@ -72,4 +72,9 @@ Representation of CameraDevice object in NWB <br>
 **Attributes:** <br>
     **meters_per_pixel**  `float`: meter per pixel <br>
 
+#### NbwTimeSeries
+Extension of ImageSeries object in NWB <br>
+**Attributes:** <br>
+    **devices**  `list of Device`: devices used to record video <br>
+
 This extension was created using [ndx-template](https://github.com/nwb-extensions/ndx-template).

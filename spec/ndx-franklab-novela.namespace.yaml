@@ -11,5 +11,6 @@ namespaces:
     - ElectrodeGroup
     - Device
     - NWBDataInterface
+    - ImageSeries
   - source: ndx-franklab-novela.extensions.yaml
   version: 0.0.007

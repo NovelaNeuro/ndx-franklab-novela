@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import Mock
 
-from src.pynwb.ndx_franklab_novela.probe import Probe, ShanksElectrode, Shank
+from src.pynwb.ndx_franklab_novela import Probe, ShanksElectrode, Shank
 
 
 class TestShanksElectrode(unittest.TestCase):

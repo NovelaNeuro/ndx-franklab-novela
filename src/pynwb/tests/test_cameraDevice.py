@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from src.pynwb.ndx_franklab_novela.camera_device import CameraDevice
+from src.pynwb.ndx_franklab_novela import CameraDevice
 
 
 class TestCameraDevice(TestCase):

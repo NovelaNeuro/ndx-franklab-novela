@@ -9,7 +9,7 @@ from .data_acq_device import DataAcqDevice
 from .header_device import HeaderDevice
 from .nwb_electrode_group import NwbElectrodeGroup
 from .nwb_image_series import NwbImageSeries
-from .probe import Probe
+from .probe import Probe, Shank, ShanksElectrode
 
 ndx_franklab_novela_specpath = os.path.join(
     os.path.dirname(__file__),

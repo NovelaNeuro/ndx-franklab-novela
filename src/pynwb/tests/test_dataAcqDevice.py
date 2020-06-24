@@ -1,6 +1,6 @@
 import unittest
 
-from src.pynwb.ndx_franklab_novela.data_acq_device import DataAcqDevice
+from src.pynwb.ndx_franklab_novela import DataAcqDevice
 
 
 class TestDataAcqDevice(unittest.TestCase):

@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from src.pynwb.ndx_franklab_novela.associated_files import AssociatedFiles
+from src.pynwb.ndx_franklab_novela import AssociatedFiles
 
 
 class TestApparatus(TestCase):

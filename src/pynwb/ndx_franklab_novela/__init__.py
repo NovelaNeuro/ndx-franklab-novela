@@ -29,5 +29,3 @@ if not os.path.exists(ndx_franklab_novela_specpath):
 
 # Load the namespace
 load_namespaces(ndx_franklab_novela_specpath)
-
-

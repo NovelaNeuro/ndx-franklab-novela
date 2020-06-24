@@ -3,7 +3,7 @@ from unittest.mock import Mock
 
 from pynwb.device import Device
 
-from src.pynwb.ndx_franklab_novela import NwbImageSeries
+from src.pynwb.ndx_franklab_novela.nwb_image_series import NwbImageSeries
 
 
 class TestNwbImageSeries(TestCase):

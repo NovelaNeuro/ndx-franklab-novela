@@ -3,13 +3,13 @@ import os
 from pynwb import load_namespaces
 
 # Set path of the namespace.yaml file to the expected install location
-from src.pynwb.ndx_franklab_novela.associated_files import AssociatedFiles
-from src.pynwb.ndx_franklab_novela.camera_device import CameraDevice
-from src.pynwb.ndx_franklab_novela.data_acq_device import DataAcqDevice
-from src.pynwb.ndx_franklab_novela.header_device import HeaderDevice
-from src.pynwb.ndx_franklab_novela.nwb_electrode_group import NwbElectrodeGroup
-from src.pynwb.ndx_franklab_novela.nwb_image_series import NwbImageSeries
-from src.pynwb.ndx_franklab_novela.probe import Probe
+from .associated_files import AssociatedFiles
+from .camera_device import CameraDevice
+from .data_acq_device import DataAcqDevice
+from .header_device import HeaderDevice
+from .nwb_electrode_group import NwbElectrodeGroup
+from .nwb_image_series import NwbImageSeries
+from .probe import Probe
 
 ndx_franklab_novela_specpath = os.path.join(
     os.path.dirname(__file__),

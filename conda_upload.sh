@@ -11,7 +11,7 @@ echo "Building conda package..."
 conda build . -c conda-forge --no-include-recipe || exit 1
 
 echo "Move conda package..."
-mv ${CONDA_BUILD_PATH}/linux-64/${PKG_NAME}-${VERSION}-py37_0.tar.bz2  ${CONDA_BUILD_PATH} || exit 1
+mv ${CONDA_BUILD_PATH}/linux-64/${PKG_NAME}-${VERSION}-py36_0.tar.bz2  ${CONDA_BUILD_PATH} || exit 1
 
 echo "Making new_tar dir..."
 mkdir ${CONDA_BUILD_PATH}/new_tar || exit 1

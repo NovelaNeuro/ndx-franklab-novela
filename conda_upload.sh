@@ -17,17 +17,17 @@ echo "Making new_tar dir..."
 mkdir ${CONDA_BUILD_PATH}/new_tar || exit 1
 
 echo "Extracting conda package..."
-tar -xf ${CONDA_BUILD_PATH}/${PKG_NAME}-${VERSION}-py37_0.tar.bz2 -C ${CONDA_BUILD_PATH}/new_tar || exit 1
+tar -xf ${CONDA_BUILD_PATH}/${PKG_NAME}-${VERSION}-py36_0.tar.bz2 -C ${CONDA_BUILD_PATH}/new_tar || exit 1
 
 cd ${CONDA_BUILD_PATH}/new_tar || exit 1
 
 echo "Creating new conda package without some files..."
-tar -cjvf ${PKG_NAME}-${VERSION}-py37_0.tar.bz2 --exclude='*.sh' --exclude='*.cfg' --exclude='*.pyc'--exclude='*.pytest_cache' --exclude='*.gitignore' info lib || exit 1
+tar -cjvf ${PKG_NAME}-${VERSION}-py36_0.tar.bz2 --exclude='*.sh' --exclude='*.cfg' --exclude='*.pyc'--exclude='*.pytest_cache' --exclude='*.gitignore' info lib || exit 1
 
 cd ..
 
 echo "Move conda package to linux dir..."
-mv new_tar/${PKG_NAME}-${VERSION}-py37_0.tar.bz2 linux-64 || exit 1
+mv new_tar/${PKG_NAME}-${VERSION}-py36_0.tar.bz2 linux-64 || exit 1
 
 echo "Converting conda package..."
 conda convert --platform osx-64 $CONDA_BUILD_PATH/linux-64/***.tar.bz2 --output-dir $CONDA_BUILD_PATH -q || exit 1

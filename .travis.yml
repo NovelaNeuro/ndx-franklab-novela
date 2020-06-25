@@ -20,3 +20,4 @@ script:
 - python -m pytest src/pynwb/tests
 after_success:
   - conda install conda-build anaconda-client conda-verify && bash conda_upload.sh
+  -

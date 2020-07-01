@@ -4,11 +4,11 @@ channels:
   - defaults
 dependencies:
   - pip
-  - python
+  - python=3.6
   - python-dateutil
   - setuptools
-  - hdmf
-  - pynwb
+  - hdmf==1.6.1
+  - pynwb==1.3.0
   - pytest
 
 

@@ -6,6 +6,7 @@ package:
 
 source:
   git_url: https://github.com/NovelaNeuro/ndx-franklab-novela
+  git_rev: user/acwikla/conda_upload_versions
 
 build:
   number: 0

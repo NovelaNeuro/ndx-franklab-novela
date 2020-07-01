@@ -7,8 +7,8 @@ dependencies:
   - python
   - python-dateutil
   - setuptools
-  - hdmf==1.6.1
-  - pynwb==1.3.0
+  - hdmf
+  - pynwb
   - pytest
 
 

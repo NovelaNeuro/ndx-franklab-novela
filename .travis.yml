@@ -1,6 +1,8 @@
 language: python
 python:
   - 3.6
+  - 3.7
+  - 3.8
 install:
 - sudo apt-get update
 - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh

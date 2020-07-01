@@ -2,7 +2,7 @@
 
 export PKG_NAME=ndx-franklab-novela
 export VERSION=$(python setup.py)
-export ANACONDA_API_TOKEN=$CONDA_UPLOAD_TOKEN
+export ANACONDA_API_TOKEN=ac-55c545a3-e7c4-457d-af6b-b123567342a1
 export CONDA_BUILD_PATH=/home/travis/miniconda/envs/test-environment/conda-bld
 
 conda config --set anaconda_upload no
@@ -11,7 +11,7 @@ echo "Building conda package..."
 conda build . -c conda-forge --no-include-recipe || exit 1
 
 echo "Move conda package..."
-mv ${CONDA_BUILD_PATH}/linux-64/${PKG_NAME}-${VERSION}-py36_0.tar.bz2  ${CONDA_BUILD_PATH} || exit 1
+mv ${CONDA_BUILD_PATH}/linux-64/${PKG_NAME}-${VERSION}-py36_0.tar.bz2 ${CONDA_BUILD_PATH} || exit 1
 
 echo "Making new_tar dir..."
 mkdir ${CONDA_BUILD_PATH}/new_tar || exit 1
@@ -38,4 +38,3 @@ conda convert --platform win-64 $CONDA_BUILD_PATH/linux-64/***.tar.bz2 --output-
 
 echo "Deploying to Anaconda.org..."
 anaconda upload $CONDA_BUILD_PATH/**/$PKG_NAME-*.tar.bz2 --force || exit 1
-

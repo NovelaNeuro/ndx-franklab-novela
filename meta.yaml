@@ -13,7 +13,7 @@ build:
 
 requirements:
   build:
-    - python {{ python }}
+    - python=$TRAVIS_PYTHON_VERSION
     - setuptools
     - hdmf==1.6.1
     - python-dateutil

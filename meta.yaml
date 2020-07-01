@@ -19,7 +19,7 @@ requirements:
     - python-dateutil
     - pynwb==1.3.0
   run:
-    - python>=3.6.0
+    - python
     - python-dateutil
     - hdmf==1.6.1
     - pynwb==1.3.0

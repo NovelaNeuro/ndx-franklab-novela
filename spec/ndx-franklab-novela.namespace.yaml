@@ -13,4 +13,4 @@ namespaces:
     - NWBDataInterface
     - ImageSeries
   - source: ndx-franklab-novela.extensions.yaml
-  version: 0.0.009
+  version: 0.0.009.36

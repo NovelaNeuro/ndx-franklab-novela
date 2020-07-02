@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
-version = "0.0.009"
+version = "0.0.009.36"
 print(version)
 
 import os
-from shutil import copy2
-
 from setuptools import setup, find_packages
+from shutil import copy2
 
 # load README.md/README.rst file
 try:

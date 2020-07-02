@@ -4,7 +4,7 @@ channels:
   - defaults
 dependencies:
   - pip
-  - python>=3.6
+  - python=3.6
   - python-dateutil
   - setuptools
   - hdmf==1.6.1

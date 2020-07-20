@@ -121,7 +121,11 @@ class TestNWBFileReading(TestCase):
     def test_read_nwb_camera_device_successfully(self):
         camera_device = CameraDevice(
             name='CameraDevice1',
-            meters_per_pixel=0.20
+            meters_per_pixel=0.20,
+            camera_name='test name',
+            model='ndx2000',
+            lens='500dpt',
+            manufacturer='sony'
         )
         self.nwb_file_content.add_device(camera_device)
 

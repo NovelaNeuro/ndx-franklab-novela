@@ -220,12 +220,13 @@ class TestNWBFileReading(TestCase):
         with pynwb.NWBHDF5IO('associated_files.nwb', 'r') as nwb_file_handler:
             nwb_file = nwb_file_handler.read()
 
-        self.assertIsInstance(nwb_file.processing['associated_files']['file1'], AssociatedFiles)
-        self.assertEqual('file1', nwb_file.processing['associated_files']['file1'].name)
-        self.assertEqual('description of file1', nwb_file.processing['associated_files']['file1'].fields['description'])
-        self.assertEqual('1 2 3 content of file test', nwb_file.processing['associated_files']['file1'].fields['content'])
-        self.assertEqual('1, 2', nwb_file.processing['associated_files']['file1'].fields['task_epochs'])
+            self.assertIsInstance(nwb_file.processing['associated_files']['file1'], AssociatedFiles)
+            self.assertEqual('file1', nwb_file.processing['associated_files']['file1'].name)
+            self.assertEqual('description of file1', nwb_file.processing['associated_files']['file1'].fields['description'])
+            self.assertEqual('1 2 3 content of file test', nwb_file.processing['associated_files']['file1'].fields['content'])
+            self.assertEqual('1, 2', nwb_file.processing['associated_files']['file1'].fields['task_epochs'])
 
+        self.delete_nwb('associated_files')
 
     @staticmethod
     def delete_nwb(filename):

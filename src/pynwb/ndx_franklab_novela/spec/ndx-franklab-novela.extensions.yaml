@@ -153,6 +153,9 @@ groups:
   - name: content
     dtype: text
     doc: content of file
+  - name: task_epochs
+    dtype: text
+    doc: epochs this task belongs to
 - neurodata_type_def: NwbElectrodeGroup
   neurodata_type_inc: ElectrodeGroup
   doc: Custom nwb ElectrodeGroup

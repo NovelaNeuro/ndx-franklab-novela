@@ -22,7 +22,9 @@ copyright = '2020, NovelaDevops'
 author = 'NovelaDevops'
 
 # The short X.Y version
-version = '0.0.010'
+
+version = '0.0.010.37'
+
 
 # The full version, including alpha/beta/rc tags
 release = 'alpha'
@@ -75,9 +77,8 @@ html_static_path = ['_static']
 #  CUSTOM CONFIGURATIONS ADDED BY THE NWB TOOL FOR GENERATING FORMAT DOCS
 ###########################################################################
 
-import textwrap  # noqa: E402
-
 import sphinx_rtd_theme  # noqa: E402
+import textwrap  # noqa: E402
 
 # -- Options for intersphinx  ---------------------------------------------
 intersphinx_mapping = {'core': ('https://nwb-schema.readthedocs.io/en/latest/', None)}

@@ -10,7 +10,9 @@ def main():
     ns_builder = NWBNamespaceBuilder(
         doc="""NovelaNeurotechnologies Namespaces""",
         name="""ndx-franklab-novela""",
-        version="""0.0.010""",
+
+        version="""0.0.010.37""",
+
         author=list(map(str.strip, """NovelaDevops""".split(','))),
         contact=list(map(str.strip, """devops@novelaneuro.com""".split(',')))
     )
@@ -152,6 +154,21 @@ def main():
                 doc='meters per pixel',
                 dtype='float'
             ),
+            NWBAttributeSpec(
+                name='camera_name',
+                doc='name of the camera',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='model',
+                doc='model of this camera device',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='lens',
+                doc='lens info',
+                dtype='text'
+            )
         ]
     )
 
@@ -168,6 +185,11 @@ def main():
             NWBAttributeSpec(
                 name='content',
                 doc='content of file',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='task_epochs',
+                doc='epochs this task belongs to',
                 dtype='text'
             )
         ]

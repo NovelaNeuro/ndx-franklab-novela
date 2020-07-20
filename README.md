@@ -71,6 +71,9 @@ Representation of DataAcqDevice object in NWB <br>
 Representation of CameraDevice object in NWB <br>
 **Attributes:** <br>
     **meters_per_pixel**  `float`: meter per pixel <br>
+    **model**  `str`: model of this camera device <br>
+    **lens**  `str`: info about lens in this camera <br>
+    **camera_name**  `str`: name of this camera <br>
 
 #### NbwTimeSeries
 Extension of ImageSeries object in NWB <br>

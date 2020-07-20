@@ -152,6 +152,21 @@ def main():
                 doc='meters per pixel',
                 dtype='float'
             ),
+            NWBAttributeSpec(
+                name='camera_name',
+                doc='name of the camera',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='model',
+                doc='model of this camera device',
+                dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='lens',
+                doc='lens info',
+                dtype='text'
+            )
         ]
     )
 

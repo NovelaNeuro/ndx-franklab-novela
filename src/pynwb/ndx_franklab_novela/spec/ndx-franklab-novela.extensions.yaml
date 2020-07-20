@@ -72,6 +72,15 @@ groups:
   - name: meters_per_pixel
     dtype: float
     doc: meters per pixel
+  - name: camera_name
+    dtype: text
+    doc: name of the camera
+  - name: model
+    dtype: text
+    doc: model of this camera device
+  - name: lens
+    dtype: text
+    doc: lens info
 - neurodata_type_def: NwbImageSeries
   neurodata_type_inc: ImageSeries
   doc: Extension of ImageSeries object in NWB

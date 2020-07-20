@@ -9,7 +9,7 @@ from pynwb.behavior import BehavioralEvents
 from pynwb.device import Device
 from pynwb.testing import TestCase
 
-from src.pynwb.ndx_franklab_novela import CameraDevice
+from src.pynwb.ndx_franklab_novela import CameraDevice, AssociatedFiles
 from src.pynwb.ndx_franklab_novela import DataAcqDevice
 from src.pynwb.ndx_franklab_novela import HeaderDevice
 from src.pynwb.ndx_franklab_novela import NwbElectrodeGroup
@@ -201,6 +201,32 @@ class TestNWBFileReading(TestCase):
                              nwb_electrode_group.targeted_location)
 
         self.delete_nwb('nwb_electrode_group')
+
+    def test_read_nwb_associated_files_successfully(self):
+        associated_files = AssociatedFiles(
+                name='file1',
+                description='description of file1',
+                content='1 2 3 content of file test',
+                task_epochs='1, 2'
+        )
+        self.nwb_file_content.add_processing_module(ProcessingModule('associated_files', 'description_of_associaed_files'))
+        self.nwb_file_content.processing['associated_files'].add(associated_files)
+
+        nwb_file_handler = NWBHDF5IO('associated_files.nwb', mode='w')
+        nwb_file_handler.write(self.nwb_file_content)
+        nwb_file_handler.close()
+
+        self.assertTrue(os.path.exists('associated_files.nwb'))
+        with pynwb.NWBHDF5IO('associated_files.nwb', 'r') as nwb_file_handler:
+            nwb_file = nwb_file_handler.read()
+
+            self.assertIsInstance(nwb_file.processing['associated_files']['file1'], AssociatedFiles)
+            self.assertEqual('file1', nwb_file.processing['associated_files']['file1'].name)
+            self.assertEqual('description of file1', nwb_file.processing['associated_files']['file1'].fields['description'])
+            self.assertEqual('1 2 3 content of file test', nwb_file.processing['associated_files']['file1'].fields['content'])
+            self.assertEqual('1, 2', nwb_file.processing['associated_files']['file1'].fields['task_epochs'])
+
+        self.delete_nwb('associated_files')
 
     @staticmethod
     def delete_nwb(filename):

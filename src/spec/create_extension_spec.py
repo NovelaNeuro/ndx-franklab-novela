@@ -169,6 +169,11 @@ def main():
                 name='content',
                 doc='content of file',
                 dtype='text'
+            ),
+            NWBAttributeSpec(
+                name='task_epochs',
+                doc='epochs this task belongs to',
+                dtype='text'
             )
         ]
     )

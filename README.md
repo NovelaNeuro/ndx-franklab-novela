@@ -10,6 +10,7 @@ Representation of associated files in NWB <br>
 **Attributes:** <br>
     **description**  `string`: description of associated file <br>
     **content**  `string`: content of associated file <br>
+    **task_epochs**  `string`: id of epochs with task that is descripted by associated files <br>
 
 #### HeaderDevice
 Representation of HeaderDevice in NWB. <br>
@@ -71,9 +72,9 @@ Representation of DataAcqDevice object in NWB <br>
 Representation of CameraDevice object in NWB <br>
 **Attributes:** <br>
     **meters_per_pixel**  `float`: meter per pixel <br>
-    **model**  `str`: model of this camera device <br>
-    **lens**  `str`: info about lens in this camera <br>
-    **camera_name**  `str`: name of this camera <br>
+    **model**  `string`: model of this camera device <br>
+    **lens**  `string`: info about lens in this camera <br>
+    **camera_name**  `string`: name of this camera <br>
 
 #### NbwTimeSeries
 Extension of ImageSeries object in NWB <br>

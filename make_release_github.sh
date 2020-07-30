@@ -47,7 +47,7 @@ repoFullName=$(git config --get remote.origin.url | sed 's/.*:\/\/github.com\///
 # Personal access token, set by command: git config --global github.token XXXXXXXXXXXXXXXXX
 token=$(git config --global github.token)
 
-masterBranch=master
+masterBranch=user/wmerynda/requirements_changes
 
 git checkout $masterBranch
 

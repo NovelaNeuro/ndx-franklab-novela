@@ -47,11 +47,10 @@ repoFullName=$(git config --get remote.origin.url | sed 's/.*:\/\/github.com\///
 # Personal access token, set by command: git config --global github.token XXXXXXXXXXXXXXXXX
 token=$(git config --global github.token)
 
-masterBranch=user/wmerynda/requirements_changes
 
-git checkout $masterBranch
+git checkout $origin/user/wmerynda/requirements_changes
 
-if [ $branch == "master" ]; then
+if [ $branch == "origin/user/wmerynda/requirements_changes" ]; then
 
 #  It takes stdout from print in setup. It will throw an error, but that is ok. python setup.py --version use normalization that change 0.0.002 to 0.0.1.
   versionNumber=$(python setup.py)
@@ -66,7 +65,7 @@ if [ $branch == "master" ]; then
   git branch -d master_release
   git push origin --delete master_release
 
-  git checkout $masterBranch
+  git checkout $origin/user/wmerynda/requirements_changes
 
   echo "Started releasing $versionLabel for $projectName ....."
 

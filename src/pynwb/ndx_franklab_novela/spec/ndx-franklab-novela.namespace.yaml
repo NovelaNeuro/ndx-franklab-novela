@@ -14,5 +14,5 @@ namespaces:
     - ImageSeries
   - source: ndx-franklab-novela.extensions.yaml
 
-  version: 0.0.011.36
+  version: 0.0.011.37
 

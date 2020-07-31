@@ -23,7 +23,7 @@ author = 'NovelaDevops'
 
 # The short X.Y version
 
-version = '0.0.011.36'
+version = '0.0.011.37'
 
 
 # The full version, including alpha/beta/rc tags

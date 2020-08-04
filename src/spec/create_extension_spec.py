@@ -11,7 +11,7 @@ def main():
         doc="""NovelaNeurotechnologies Namespaces""",
         name="""ndx-franklab-novela""",
 
-        version="""0.0.011.37""",
+        version="""0.0.011.36""",
 
         author=list(map(str.strip, """NovelaDevops""".split(','))),
         contact=list(map(str.strip, """devops@novelaneuro.com""".split(',')))

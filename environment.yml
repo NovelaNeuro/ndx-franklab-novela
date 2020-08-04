@@ -10,8 +10,3 @@ dependencies:
   - hdmf==1.6.4
   - pynwb==1.3.3
   - pytest
-
-
-
-
-

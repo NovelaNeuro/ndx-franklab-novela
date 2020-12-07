@@ -4,8 +4,9 @@ version = "0.0.011.36"
 print(version)
 
 import os
-from setuptools import setup, find_packages
 from shutil import copy2
+
+from setuptools import find_packages, setup
 
 # load README.md/README.rst file
 try:
@@ -33,8 +34,8 @@ setup_args = {
     'url': '',
     'license': 'BSD 3-Clause',
     'install_requires': [
-        'hdmf==1.6.4',
-        'pynwb==1.3.3'
+        'hdmf',
+        'pynwb'
     ],
     'packages': find_packages('src/pynwb'),
     'package_dir': {'': 'src/pynwb'},
@@ -51,9 +52,12 @@ setup_args = {
 
 
 def _copy_spec_files(project_dir):
-    ns_path = os.path.join(project_dir, 'spec', 'ndx-franklab-novela.namespace.yaml')
-    ext_path = os.path.join(project_dir, 'spec', 'ndx-franklab-novela.extensions.yaml')
-    dst_dir = os.path.join(project_dir, 'src', 'pynwb', 'ndx_franklab_novela', 'spec')
+    ns_path = os.path.join(project_dir, 'spec',
+                           'ndx-franklab-novela.namespace.yaml')
+    ext_path = os.path.join(project_dir, 'spec',
+                            'ndx-franklab-novela.extensions.yaml')
+    dst_dir = os.path.join(project_dir, 'src', 'pynwb',
+                           'ndx_franklab_novela', 'spec')
 
     if not os.path.exists(dst_dir):
         os.mkdir(dst_dir)

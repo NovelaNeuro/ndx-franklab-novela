@@ -319,7 +319,7 @@ def main():
     nwb_electrode_group = NWBGroupSpec(
         neurodata_type_def='NwbElectrodeGroup',
         neurodata_type_inc='ElectrodeGroup',
-        doc='Custom nwb ElectrodeGroup',
+        doc='Custom NWB ElectrodeGroup with targeted location',
         attributes=[
             NWBAttributeSpec(
                 name='targeted_location',
@@ -328,22 +328,22 @@ def main():
             ),
             NWBAttributeSpec(
                 name='targeted_x',
-                doc='predicted x coordinates',
+                doc='predicted x coordinate',
                 dtype='float'
             ),
             NWBAttributeSpec(
                 name='targeted_y',
-                doc='predicted y coordinates',
+                doc='predicted y coordinate',
                 dtype='float'
             ),
             NWBAttributeSpec(
                 name='targeted_z',
-                doc='predicted z coordinates',
+                doc='predicted z coordinate',
                 dtype='float'
             ),
             NWBAttributeSpec(
                 name='units',
-                doc='units of fields, acceptable values: um or mm',
+                doc='units of targeted_x, targeted_y, targeted_z fields, acceptable values: um or mm',
                 dtype='text'
             ),
         ]

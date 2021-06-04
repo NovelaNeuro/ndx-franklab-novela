@@ -167,20 +167,21 @@ groups:
     doc: epochs this task belongs to
 - neurodata_type_def: NwbElectrodeGroup
   neurodata_type_inc: ElectrodeGroup
-  doc: Custom nwb ElectrodeGroup
+  doc: Custom NWB ElectrodeGroup with targeted location
   attributes:
   - name: targeted_location
     dtype: text
     doc: predicted location
   - name: targeted_x
     dtype: float
-    doc: predicted x coordinates
+    doc: predicted x coordinate
   - name: targeted_y
     dtype: float
-    doc: predicted y coordinates
+    doc: predicted y coordinate
   - name: targeted_z
     dtype: float
-    doc: predicted z coordinates
+    doc: predicted z coordinate
   - name: units
     dtype: text
-    doc: 'units of fields, acceptable values: um or mm'
+    doc: 'units of targeted_x, targeted_y, targeted_z fields, acceptable values: um
+      or mm'

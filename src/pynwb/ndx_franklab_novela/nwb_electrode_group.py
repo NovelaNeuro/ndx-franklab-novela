@@ -12,10 +12,11 @@ class NwbElectrodeGroup(ElectrodeGroup):
 
     @docval(*get_docval(ElectrodeGroup.__init__) + (
             {'name': 'targeted_location', 'type': 'str', 'doc': 'predicted location'},
-            {'name': 'targeted_x', 'type': 'float', 'doc': 'predicted x coordinates'},
-            {'name': 'targeted_y', 'type': 'float', 'doc': 'predicted y coordinates'},
-            {'name': 'targeted_z', 'type': 'float', 'doc': 'predicted z coordinates'},
-            {'name': 'units', 'type': 'str', 'doc': 'units of fields, possible value: um or mm'}))
+            {'name': 'targeted_x', 'type': 'float', 'doc': 'predicted x coordinate'},
+            {'name': 'targeted_y', 'type': 'float', 'doc': 'predicted y coordinate'},
+            {'name': 'targeted_z', 'type': 'float', 'doc': 'predicted z coordinate'},
+            {'name': 'units', 'type': 'str',
+             'doc': 'units of targeted_x, targeted_y, targeted_z fields, acceptable values: um or mm'}))
     def __init__(self, **kwargs):
         super().__init__(**{kwargs_item: kwargs[kwargs_item]
                             for kwargs_item in kwargs.copy()

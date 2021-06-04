@@ -81,9 +81,18 @@ Representation of CameraDevice object in NWB <br>
     **lens**  `string`: info about lens in this camera <br>
     **camera_name**  `string`: name of this camera <br>
 
-#### NbwTimeSeries
+#### NwbImageSeries
 Extension of ImageSeries object in NWB <br>
 **Attributes:** <br>
     **devices**  `list of Device`: devices used to record video <br>
+
+#### NwbElectrodeGroup
+Custom NWB ElectrodeGroup with targeted location <br>
+**Attributes:** <br>
+    **targeted_location**  `string`: predicted location <br>
+    **targeted_x**  `float`: predicted x coordinate <br>
+    **targeted_y**  `float`: predicted y coordinate <br>
+    **targeted_z**  `float`: predicted z coordinate <br>
+    **targeted_location**  `string`: units of targeted_x, targeted_y, targeted_z fields, acceptable values: um or mm <br>
 
 This extension was created using [ndx-template](https://github.com/nwb-extensions/ndx-template).

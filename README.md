@@ -3,6 +3,11 @@
 # About
 ndx-franklab-novela is a python package containing NWB custom extensions.
 
+# How to install
+
+Add ndx-franklab-novela to your conda environment<br>
+```conda install -c conda-forge -c novelakrk ndx-franklab-novela```
+
 # Extensions
 
 ### AssociatedFiles

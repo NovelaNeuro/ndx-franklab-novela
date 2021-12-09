@@ -34,7 +34,6 @@ setup_args = {
     'url': '',
     'license': 'BSD 3-Clause',
     'install_requires': [
-        'hdmf',
         'pynwb'
     ],
     'packages': find_packages('src/pynwb'),
